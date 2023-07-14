@@ -18,16 +18,7 @@ let
     red = "#ff5555";
     yellow = "#f1fa8c";
   };
-
-  spacing = {
-    vertical = 5;
-    horizontal = 5;
-  };
-
-  padding = {
-    top = spacing.vertical;
-    right = spacing.horizontal;
-  };
+ 
 in
 {
   programs.qutebrowser = {
@@ -35,6 +26,7 @@ in
     settings = {
       fonts.default_family = "Fira Code";
       colors = {
+        webpage.preferred_color_scheme = "dark";
         completion = {
           category = {
             bg = palette.background;

@@ -20,6 +20,7 @@
     ../../programs/gtk
     ../../programs/qutebrowser
     ../../programs/fish
+    ../../programs/ncspot
     ];
 
  
