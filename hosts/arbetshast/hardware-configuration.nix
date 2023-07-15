@@ -5,20 +5,25 @@
 
 {
   imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "floppy" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/40d0e3d6-202c-4afd-a2d5-ea94bcf20ca3";
+    { device = "/dev/disk/by-uuid/c137f7b0-2c58-4164-a450-4e9ad2f235ae";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-6a3a87f5-c8dc-44b6-a7c0-254098fb6997".device = "/dev/disk/by-uuid/6a3a87f5-c8dc-44b6-a7c0-254098fb6997";
+  boot.initrd.luks.devices."luks-09a238d3-0cd1-491e-907c-4a8b74a80c79".device = "/dev/disk/by-uuid/09a238d3-0cd1-491e-907c-4a8b74a80c79";
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/DE44-6E30";
+      fsType = "vfat";
+    };
 
   swapDevices = [ ];
 
@@ -27,7 +32,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.ens2.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

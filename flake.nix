@@ -55,6 +55,13 @@
             ./hosts/vm-gui/configuration.nix
           ];
         };
+        arbetshast = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            # > Our main nixos configuration file <
+            ./hosts/arbetshast/configuration.nix
+          ];
+        };
       };
     };
 }

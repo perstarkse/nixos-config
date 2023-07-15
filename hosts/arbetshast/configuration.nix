@@ -20,6 +20,7 @@
     ../common/common_conf.nix
     inputs.home-manager.nixosModules.home-manager
     ../../programs/1password
+    ./nvidia.nix
   ];
 
   nixpkgs = {
@@ -63,8 +64,8 @@
       auto-optimise-store = true;
     };
   };
- 
-   home-manager = {
+
+  home-manager = {
     extraSpecialArgs = { inherit inputs outputs;};
     users = {
       p = import ./home.nix;
