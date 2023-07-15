@@ -13,6 +13,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     #programs.i3
+    ../common/common_home.nix
     ../../programs/i3
     ../../programs/i3status-rust
     ../../programs/alacritty
@@ -50,27 +51,14 @@
       allowUnfreePredicate = (_: true);
     };
   };
-
-  home = {
-    username = "p";
-    homeDirectory = "/home/p";
-  };
-  programs.git = {
-    userName = "Per Stark";
-    userEmail = "perstark.se@gmail.com";
-  };
     
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
 
-  home.packages = with pkgs; [ xclip nil pavucontrol];
-
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
-  
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.packages = with pkgs; [ 
+    xclip 
+    nil 
+    pavucontrol
+    lxappearance
+  ];
 }
