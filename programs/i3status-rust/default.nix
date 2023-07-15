@@ -2,11 +2,13 @@
   programs.i3status-rust = {
     enable = true;
     bars = {
-      top = {
+      bottom = {
+        theme = "dracula";
+        #icons = "awesome5";
         blocks = [
         {
-           block = "time";
-           interval = 60;
+          block = "time";
+          interval = 60;
         }
         {
           block = "custom";

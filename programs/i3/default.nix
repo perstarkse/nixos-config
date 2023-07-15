@@ -38,11 +38,15 @@ in {
       };
       bars = [
         {
-          position = "top";
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";        
+          position = "bottom";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";        
+          colors = {
+            background = "#282A36";
+            statusline = "#F8F8F2";
+            separator = "#44475A";
+          };
         }
-      ];
-      
+      ];      
       colors = {
         focused = {
           background = "#6272A4";

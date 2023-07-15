@@ -1,15 +1,17 @@
 {pkgs, ...}:
 {
-  # Enable the 1Password CLI, this also enables a SGUID wrapper so the CLI can authorize against the GUI app
+  # enable the 1Password CLI, this also enables a SGUID wrapper so the CLI can authorize against the GUI app
   programs._1password = {
     enable = true;
   };
 
-  # Enable the 1Passsword GUI with myself as an authorized user for polkit
+  # enable the 1Passsword GUI with myself as an authorized user for polkit
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = ["p"];
   };
+  
+  # enable system service for polkit_gnome
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
@@ -25,7 +27,8 @@
       };
     };
   }; 
-   
+  
+  # enable polkit 
   security.polkit.enable = true;
   
 }

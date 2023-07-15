@@ -16,6 +16,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    ./boot.nix
     inputs.home-manager.nixosModules.home-manager
     ../../programs/1password
   ];
@@ -68,21 +69,6 @@
       p = import ./home.nix;
     };
   };
-
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  # Enable grub cryptodisk
-  boot.loader.grub.enableCryptodisk=true;
-
-  boot.initrd.luks.devices."luks-6a3a87f5-c8dc-44b6-a7c0-254098fb6997".keyFile = "/crypto_keyfile.bin";
   
   # Enable networking
   networking = {
@@ -130,6 +116,16 @@
     xkbVariant = "";
   };  
 
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+    
+  sound.enable = true;
+  
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [xdg-desktop-portal-gtk];
@@ -144,12 +140,12 @@
   programs.fish.enable = true;
   programs.nm-applet.enable = true;
   programs.dconf.enable = true; 
+
+  environment.systemPackages = with pkgs; [
+  ];
   
   users.users = {
     p = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
@@ -162,10 +158,9 @@
 
   environment.variables = {
     EDITOR = "hx";
-    VISUAL = "hx";
   };
 
-    # This setups a SSH server. Very important if you're setting up a headless system.
+  # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   services.openssh = {
     enable = true;
