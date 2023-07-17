@@ -47,6 +47,7 @@
 
   environment.systemPackages = with pkgs; [
     pciutils
+    vim
   ];
   
   environment.variables = {
