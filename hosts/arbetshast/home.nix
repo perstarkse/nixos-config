@@ -13,7 +13,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     #programs.i3
-    ../common/common_home.nix
+    ../common/home.nix
     ../../programs/i3
     ../../programs/i3status-rust
     ../../programs/alacritty
@@ -22,6 +22,7 @@
     ../../programs/qutebrowser
     ../../programs/fish
     ../../programs/ncspot
+    ../../programs/rofi
     ];
 
  
@@ -56,9 +57,11 @@
   # programs.neovim.enable = true;
 
   home.packages = with pkgs; [ 
-    xclip 
     nil 
-    pavucontrol
-    lxappearance
   ];
+
+  # system specific shell aliases
+  programs.fish.shellAliases = {
+      rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#arbetshast";
+    };
 }

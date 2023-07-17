@@ -17,10 +17,16 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ./boot.nix
-    ../common/common_conf.nix
-    inputs.home-manager.nixosModules.home-manager
+    ../common/configuration.nix
+    ../common/sound.nix
+    ../common/gui.nix
     ../../programs/1password
     ./nvidia.nix
+    #../common/virtualisation.nix
+    ./passthrough
+    inputs.home-manager.nixosModules.home-manager
+    inputs.hardware.nixosModules.common-cpu-amd
+    inputs.hardware.nixosModules.common-pc-ssd
   ];
 
   nixpkgs = {
@@ -74,7 +80,7 @@
   
   # Enable networking
   networking = {
-    hostName = "p-system";
+    hostName = "arbetshast";
     networkmanager.enable = true;
   };
   
