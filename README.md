@@ -2,6 +2,9 @@
 
 This repository contains all configuration files for my NixOS system. It utilizes the Nix Flakes system to manage and reproduce the configurations across different hosts.
 
+The system is set up to use x11, i3, qutebrowser amongst other applications. It is mostly themed to dracula theme.
+![Screenshot of my setup](screenshot.png)
+
 Below is a detailed description of the directory structure and configuration files:
 
 ## 📁 Root Directory
