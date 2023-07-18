@@ -53,6 +53,8 @@
     shell_gpt
     jq
   ];
+
+  services.gnome.gnome-keyring.enable = true;
   
   environment.variables = {
     EDITOR = "hx";
