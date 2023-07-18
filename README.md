@@ -56,8 +56,10 @@ home.nix - Home manager configuration.
 
 📁 Overlays
 default.nix - Contains Nixpkgs overlays.
+
 📁 Pkgs
 default.nix - Contains package configurations.
+
 📁 Programs
 Contains individual configurations for each of the programs.
 
