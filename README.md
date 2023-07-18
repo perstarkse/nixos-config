@@ -47,35 +47,36 @@ fix-vfio-troll.patch     - Patch to fix vfio issues.
 ### 📂 common
 
 Configuration for common settings across all hosts:
-
+```
 configuration.nix        - Main common configuration.
 gui.nix                  - GUI-related configuration.
 home.nix                 - Home manager configuration.
 sound.nix                - Sound configuration.
+```
 
 ### 📂 vm-gui
 
 Configuration for the \`vm-gui\` machine:
-
+```
 boot.nix                 - Bootloader configuration.
 configuration.nix        - Main NixOS configuration.
 hardware-configuration.nix - Hardware-specific configuration.
 home.nix                 - Home manager configuration.
-
+```
 ## 📁 Overlays
-
+```
 default.nix - Contains Nixpkgs overlays.
-
+```
 ## 📁 Pkgs
-
+```
 default.nix - Contains package configurations.
-
+```
 ## 📁 Programs
 
 Contains individual configurations for each of the programs.
 
 For each program, there is a \`default.nix\` file that contains the program's configuration:
-
+```
 1password
 alacritty
 dunst
@@ -90,8 +91,10 @@ ncspot
 qutebrowser
 rofi
 vscode
+```
 
 Also, it includes global configuration files for GUI and terminal:
-
+````
 gui.nix
 terminal.nix
+````
