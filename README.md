@@ -7,22 +7,22 @@ Below is a detailed description of the directory structure and configuration fil
 ## 📁 Root Directory
 
 The root directory includes the main \`flake.nix\` and \`flake.lock\` files which drive the usage of Nix Flakes in this configuration.
-
+```
 flake.nix    - The main flake configuration file.
 flake.lock   - The lock file generated from flake.
-
+```
 Other essential configuration files:
-
+```
 nixpkgs.nix  - Specifies the Nix Packages collection to use.
 shell.nix    - Configuration for the development shell.
-
+```
 And the following directories:
-
+```
 hosts        - Contains configuration for different hosts.
 overlays     - Contains Nixpkgs overlays.
 pkgs         - Contains package configurations.
 programs     - Contains program-specific configurations.
-
+```
 ## 📁 Hosts
 
 The \`hosts\` directory contains configurations specific to different machines:
@@ -30,20 +30,20 @@ The \`hosts\` directory contains configurations specific to different machines:
 ### 📂 arbetshast
 
 Configuration for the \`arbetshast\` machine.
-
+```
 boot.nix                 - Bootloader configuration.
 configuration.nix        - Main NixOS configuration.
 hardware-configuration.nix - Hardware-specific configuration.
 home.nix                 - Home manager configuration.
 nvidia.nix               - Nvidia drivers configuration.
-
+```
 #### 📂 passthrough
 
 Contains configuration and patch for enabling PCI passthrough:
-
+```
 default.nix              - Configuration for the passthrough.
 fix-vfio-troll.patch     - Patch to fix vfio issues.
-
+```
 ### 📂 common
 
 Configuration for common settings across all hosts:
@@ -53,7 +53,6 @@ gui.nix                  - GUI-related configuration.
 home.nix                 - Home manager configuration.
 sound.nix                - Sound configuration.
 ```
-
 ### 📂 vm-gui
 
 Configuration for the \`vm-gui\` machine:
