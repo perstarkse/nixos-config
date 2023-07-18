@@ -8,7 +8,8 @@ in {
     enable = true;
     config = {
       modifier = mod;
-      terminal = "alacritty";    
+      terminal = "alacritty";
+      workspaceAutoBackAndForth = true;
       
       keybindings = lib.mkOptionDefault {
         "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
@@ -31,6 +32,7 @@ in {
       window = {
         titlebar = false;
         border = 2;
+        hideEdgeBorders = "smart";    
       };
       focus = {
         followMouse = true;
@@ -44,6 +46,11 @@ in {
             background = "#282A36";
             statusline = "#F8F8F2";
             separator = "#44475A";
+            focusedWorkspace = {
+              background = "#6272A4";
+              text = "#F8F8F2";
+              border = "#6272A4";
+            }; 
           };
         }
       ];      
