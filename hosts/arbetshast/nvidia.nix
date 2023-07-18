@@ -12,6 +12,8 @@
 
   # Tell Xorg to use the nvidia driver
   services.xserver.videoDrivers = ["nvidia"];
+  # Fix graphical corruption on suspend/resume
+  hardware.nvidia.powerManagement.enable = true;
 
   hardware.nvidia = {
 

@@ -4,8 +4,14 @@
     enable = true;
       interactiveShellInit = ''
       set fish_greeting
+      set -x OPENAI_API_KEY op://development/openai/credential
       '';
-    plugins = [
+      
+      shellAliases = {
+        ai-s = "op run -- sgpt -s";
+        ai = "op run -- sgpt";  
+      };      
+      plugins = [
     ];
   };  
 }

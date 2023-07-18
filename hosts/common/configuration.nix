@@ -48,6 +48,10 @@
   environment.systemPackages = with pkgs; [
     pciutils
     vim
+    ranger
+    htop
+    shell_gpt
+    jq
   ];
   
   environment.variables = {

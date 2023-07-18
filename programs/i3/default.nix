@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }:
 
 let 
-  mod = "Mod4";
+    mod = "Mod4";
 in {
+            
   xsession.windowManager.i3 = {
     enable = true;
     config = {
       modifier = mod;
-      terminal = "alacritty";      
-
+      terminal = "alacritty";    
       
       keybindings = lib.mkOptionDefault {
         "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";

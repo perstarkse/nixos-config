@@ -1,4 +1,4 @@
-{pkgs, ...} :
+{config, pkgs, ...} :
 {
   services.xserver = {
     enable = true;
@@ -13,7 +13,9 @@
         accelProfile = "flat";
       };
     };
-  };# Enable automatic login for the user.
+  };
+
+  # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.user = "p";
   services.xserver.displayManager.autoLogin.enable = true;
 
