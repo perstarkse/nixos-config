@@ -5,6 +5,8 @@
     ./helix
     ./ncspot
     ./fish
+    ./zsh
+    ./starship
   ];
 
   home.packages = with pkgs; [

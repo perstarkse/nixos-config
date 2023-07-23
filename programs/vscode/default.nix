@@ -4,9 +4,10 @@
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
-      vscodevim.vim
+      #vscodevim.vim
       esbenp.prettier-vscode
       github.copilot
+      bbenoist.nix
     ];
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
