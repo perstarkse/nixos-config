@@ -37,14 +37,24 @@
   };  
 
   fonts = {
-    fonts = with pkgs;[ source-code-pro fira-code]; 
+    fonts = with pkgs; [ 
+    source-code-pro 
+    fira-code
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    ]; 
+    
     fontDir.enable = true;
   };
 
   # Programs system wide
   programs.fish.enable = true;
   programs.dconf.enable = true; 
-
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting = {
+      enable = true;
+    };
+  };
   environment.systemPackages = with pkgs; [
     pciutils
     vim
@@ -53,6 +63,8 @@
     shell_gpt
     jq
   ];
+
+  services.gnome.gnome-keyring.enable = true;
   
   environment.variables = {
     EDITOR = "hx";

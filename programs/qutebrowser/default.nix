@@ -24,7 +24,10 @@ in
   programs.qutebrowser = {
     enable = true;
     settings = {
-      fonts.default_family = "Fira Code";
+      fonts = {
+        default_family = "Fira Code";
+        default_size = "10pt";      
+      };
       colors = {
         webpage.preferred_color_scheme = "dark";
         completion = {

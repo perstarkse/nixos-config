@@ -84,6 +84,7 @@
     networkmanager.enable = true;
   };
   
+  environment.pathsToLink = [ "/share/zsh" ];
     
   users.users = {
     p = {
