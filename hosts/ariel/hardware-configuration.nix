@@ -8,32 +8,35 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c137f7b0-2c58-4164-a450-4e9ad2f235ae";
+    { device = "/dev/disk/by-uuid/971c18e0-2330-43ef-905c-4e463cb92453";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-09a238d3-0cd1-491e-907c-4a8b74a80c79".device = "/dev/disk/by-uuid/09a238d3-0cd1-491e-907c-4a8b74a80c79";
+  boot.initrd.luks.devices."luks-7103c3ff-823e-48d3-86ad-71ea877a64d6".device = "/dev/disk/by-uuid/7103c3ff-823e-48d3-86ad-71ea877a64d6";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/DE44-6E30";
+    { device = "/dev/disk/by-uuid/B654-2EAE";
       fsType = "vfat";
     };
 
-  swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/2dcaa0c5-d0b9-4abc-8678-fd04bcf2f138"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

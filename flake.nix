@@ -63,6 +63,12 @@
             ./hosts/arbetshast/configuration.nix
           ];
         };
+	ariel = nixpkgs.lib.nixosSystem {
+	  specialArgs = { inherit inputs outputs; };
+	  modules = [
+		      ./hosts/ariel/configuration.nix
+		    ];
+	};
       };
     };
 }

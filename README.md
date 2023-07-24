@@ -31,6 +31,16 @@ programs     - Contains program-specific configurations.
 
 The \`hosts\` directory contains configurations specific to different machines:
 
+### 📂 ariel
+
+Configuration for the \`ariel\` machine.
+```
+boot.nix                 - Bootloader configuration.
+configuration.nix        - Main NixOS configuration.
+hardware-configuration.nix - Hardware-specific configuration.
+home.nix                 - Home manager configuration.
+```
+
 ### 📂 arbetshast
 
 Configuration for the \`arbetshast\` machine.

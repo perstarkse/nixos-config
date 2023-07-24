@@ -14,5 +14,6 @@
   home.packages = with pkgs; [ 
     xclip
     lxappearance
+    arandr
   ];
 }
