@@ -39,6 +39,34 @@
     };
   };
 
+  services.grobi = {
+    enable = true;
+    rules = [
+      {
+        name = "home";
+        atomic = true;
+        outputs_connected = [ "eDP-1" "DP-3" ];
+        configure_single = "DP-3";
+        primary = true;
+        execute_after = [
+          "${pkgs.i3}/bin/i3-msg reload "
+        ];
+      }
+      {
+        name = "mobile";
+        outputs_disconnected = [ "DP-3" ];
+        configure_single = "eDP-1";
+        primary = true;
+        execute_after = [
+          "${pkgs.i3}/bin/i3-msg reload "
+        ];      }
+      {
+        name = "fallback";
+        configure_single = "eDP-1";
+      }
+    ];
+  };
+
   services.keyboard-layout-switcher = {
     enable = true;
     sePrograms = [ "1password" ];  
