@@ -73,7 +73,7 @@
   
   # Enable networking
   networking = {
-    hostName = "p-system";
+    hostName = "encke";
     networkmanager.enable = true;
   };
   

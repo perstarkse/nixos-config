@@ -48,18 +48,18 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       
       nixosConfigurations = {
-        p-system = nixpkgs.lib.nixosSystem {
+        encke = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main nixos configuration file <
-            ./hosts/vm-gui/configuration.nix
+            ./hosts/encke/configuration.nix
           ];
         };
-        arbetshast = nixpkgs.lib.nixosSystem {
+        charon = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
             # > Our main nixos configuration file <
-            ./hosts/arbetshast/configuration.nix
+            ./hosts/charon/configuration.nix
           ];
         };
 	ariel = nixpkgs.lib.nixosSystem {

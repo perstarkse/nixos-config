@@ -80,7 +80,7 @@
   
   # Enable networking
   networking = {
-    hostName = "arbetshast";
+    hostName = "charon";
     networkmanager.enable = true;
   };
   
