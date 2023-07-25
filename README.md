@@ -41,9 +41,9 @@ hardware-configuration.nix - Hardware-specific configuration.
 home.nix                 - Home manager configuration.
 ```
 
-### 📂 arbetshast
+### 📂 charon
 
-Configuration for the \`arbetshast\` machine.
+Configuration for the \`charon\` machine.
 ```
 boot.nix                 - Bootloader configuration.
 configuration.nix        - Main NixOS configuration.
@@ -58,6 +58,15 @@ Contains configuration and patch for enabling PCI passthrough:
 default.nix              - Configuration for the passthrough.
 fix-vfio-troll.patch     - Patch to fix vfio issues.
 ```
+### 📂 encke
+
+Configuration for the \`encke\` machine:
+```
+boot.nix                 - Bootloader configuration.
+configuration.nix        - Main NixOS configuration.
+hardware-configuration.nix - Hardware-specific configuration.
+home.nix                 - Home manager configuration.
+```
 ### 📂 common
 
 Configuration for common settings across all hosts:
@@ -66,15 +75,6 @@ configuration.nix        - Main common configuration.
 gui.nix                  - GUI-related configuration.
 home.nix                 - Home manager configuration.
 sound.nix                - Sound configuration.
-```
-### 📂 vm-gui
-
-Configuration for the \`vm-gui\` machine:
-```
-boot.nix                 - Bootloader configuration.
-configuration.nix        - Main NixOS configuration.
-hardware-configuration.nix - Hardware-specific configuration.
-home.nix                 - Home manager configuration.
 ```
 ## 📁 Overlays
 ```
