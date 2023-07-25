@@ -14,8 +14,11 @@ in {
       keybindings = lib.mkOptionDefault {
         "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         "${mod}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
-        "${mod}+x" = "exec sh -c '${pkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
-        "${mod}+Shift+x" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 000000 & sleep 5 && xset dpms force of'";
+        "${mod}+z" = "exec ${pkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png";
+        "${mod}+Control+l" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
+        "${mod}+x" = "[urgent=latest] focus";
+        "${mod}+e" = "exec ${pkgs.rofi.override { plugins = [pkgs.rofi-emoji ]; }}/bin/rofi -modi emoji -show emoji";
+        "${mod}+c" = "exec ${pkgs.rofi.override { plugins = [pkgs.rofi-calc]; }}/bin/rofi -modi calc -show calc";
 
         # Focus
         "${mod}+h" = "focus left";

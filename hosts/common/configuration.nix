@@ -46,6 +46,12 @@
     fontDir.enable = true;
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   # Programs system wide
   programs.fish.enable = true;
   programs.dconf.enable = true; 
@@ -55,6 +61,7 @@
       enable = true;
     };
   };
+
   environment.systemPackages = with pkgs; [
     pciutils
     vim
@@ -62,7 +69,16 @@
     htop
     shell_gpt
     jq
+    xdotool
+    wireguard-tools
   ];
+
+  nix.settings = {
+    keep-outputs = true;
+    keep-derivations = true;
+  };
+
+  networking.firewall.checkReversePath = false;
 
   services.gnome.gnome-keyring.enable = true;
   

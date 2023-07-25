@@ -69,7 +69,7 @@
 
   services.keyboard-layout-switcher = {
     enable = true;
-    sePrograms = [ "1password" ];  
+    sePrograms = [ "slack" ];  
   };
    # system specific packages that dont require custom settings
   home.packages = with pkgs; [ 

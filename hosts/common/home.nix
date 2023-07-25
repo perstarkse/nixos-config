@@ -2,7 +2,14 @@
 
 {
   home.packages = with pkgs; [ 
-    nil 
+    # lsps
+    nodePackages.typescript-language-server
+    python311Packages.python-lsp-server
+    rust-analyzer
+    nodePackages.vscode-css-languageserver-bin
+    marksman
+    nil
+    nodePackages.bash-language-server     
   ];
   
   home = {
@@ -10,13 +17,18 @@
     homeDirectory = "/home/p";
   };
   
-  programs.git = {
-    userName = "Per Stark";
-    userEmail = "perstark.se@gmail.com";
+  programs = {
+    home-manager.enable = true;  
+    git = {
+      enable = true;
+      userName = "Per Stark";
+      userEmail = "perstark.se@gmail.com";
+    };
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
-
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
   
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
