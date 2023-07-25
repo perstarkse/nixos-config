@@ -27,6 +27,13 @@
         {
           block = "sound";
         }
+        {
+          block = "custom";
+          command = ''
+          nmcli con show --active | grep wireguard | awk '{print $1 " 🔒"}' || echo '🔓'
+          '';
+          interval = 10;
+        }
         ];
       };
     };

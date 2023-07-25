@@ -41,6 +41,7 @@
     source-code-pro 
     fira-code
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    font-awesome
     ]; 
     
     fontDir.enable = true;

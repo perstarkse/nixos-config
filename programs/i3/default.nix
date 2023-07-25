@@ -15,11 +15,14 @@ in {
         "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         "${mod}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
         "${mod}+z" = "exec ${pkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png";
-        "${mod}+Control+l" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000";
+        "${mod}+Control+l" = "exec ${pkgs.i3lock}/bin/i3lock -c 000000 && systemctl suspend";
         "${mod}+x" = "[urgent=latest] focus";
         "${mod}+e" = "exec ${pkgs.rofi.override { plugins = [pkgs.rofi-emoji ]; }}/bin/rofi -modi emoji -show emoji";
         "${mod}+c" = "exec ${pkgs.rofi.override { plugins = [pkgs.rofi-calc]; }}/bin/rofi -modi calc -show calc";
-
+        
+        
+        "${mod}+Control+v" = "split h";
+        
         # Focus
         "${mod}+h" = "focus left";
         "${mod}+j" = "focus down";
