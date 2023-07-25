@@ -75,6 +75,7 @@
    # system specific packages that dont require custom settings
   home.packages = with pkgs; [ 
     slack-dark
+    thunderbird
   ];
 
   # system specific shell aliases

@@ -9,7 +9,6 @@
 
     ./qutebrowser
     ./firefox
-    ./vscode
   ];
 
   home.packages = with pkgs; [ 
