@@ -9,6 +9,7 @@
     ../common/home.nix
     ../../programs/gui.nix
     ../../programs/terminal.nix
+    ../../programs/development.nix
     ../../programs/i3/keyboard_service.nix
     ];
   
