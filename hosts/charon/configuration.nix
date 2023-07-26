@@ -23,7 +23,7 @@
     ../../programs/1password
     ./nvidia.nix
     #../common/virtualisation.nix
-    ./passthrough
+    ./vfio
     inputs.home-manager.nixosModules.home-manager
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-pc-ssd

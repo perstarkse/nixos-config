@@ -5,7 +5,7 @@
     settings = {
       font = {
         normal.family = "Fira Code";
-        size = 9.0;
+        size = 8.50;
       };
 
       cursor.style = {

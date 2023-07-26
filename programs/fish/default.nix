@@ -10,6 +10,7 @@
       shellAliases = {
         ai-s = "op run -- sgpt -s";
         ai = "op run -- sgpt";  
+        template-direnv = "nix flake new -t github:nix-community/nix-direnv ./";
       };      
       plugins = [
     ];

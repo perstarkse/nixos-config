@@ -26,7 +26,7 @@ in
     settings = {
       fonts = {
         default_family = "Fira Code";
-        default_size = "10pt";      
+        default_size = "8.50pt";      
       };
       colors = {
         webpage.preferred_color_scheme = "dark";

@@ -2,20 +2,44 @@
 {
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
+    extensions = with pkgs.vscode-extensions.vscode-marketplace; [
       dracula-theme.theme-dracula
       #vscodevim.vim
       esbenp.prettier-vscode
-      github.copilot
+      #github.copilot
       bbenoist.nix
+      silverquark.dancehelix
+      vue.volar
+      vue.vscode-typescript-vue-plugin
+      github.copilot
+      github.copilot-chat
     ];
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
+    mutableExtensionsDir = false;
     userSettings = {
-      editor.inlineSuggest.enabled = true;
-      workbench.colorTheme = "Dracula";
-      editor.fontSize = 12;
-      editor.fontFamily = "'Fira Code', 'monospace', monospace";
+      editor = {
+        fontSize = 14.0;
+        fontFamily = "'Fira Code', 'monospace', monospace";
+        inlineSuggest.enabled = true;
+        minimap.enabled = false;
+        formatOnSave = true;      
+      };
+      workbench = {
+        colorTheme = "Dracula";
+        startupEditor = "none";
+        editor.tabSizing = "fit";
+      };
+      terminal.integrated = {
+        fontSize = 14.0;
+      };
+      git = {
+        autofetch = true;
+        suggestSmartCommit = true;
+      };
+      window = {
+        zoomLevel = -1;
+      };
     };
   };
 }
