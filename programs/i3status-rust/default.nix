@@ -30,7 +30,7 @@
         {
           block = "custom";
           command = ''
-          nmcli con show --active | grep wireguard | awk '{print $1 " 🔒"}' || echo '🔓'
+          nmcli con show --active | grep wireguard | awk '{print $1 }'
           '';
           interval = 10;
         }

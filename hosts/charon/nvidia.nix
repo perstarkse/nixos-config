@@ -12,17 +12,19 @@
 
   # Tell Xorg to use the nvidia driver
   services.xserver.videoDrivers = ["nvidia"];
-  # Fix graphical corruption on suspend/resume
-  hardware.nvidia.powerManagement.enable = true;
 
   hardware.nvidia = {
 
     # Modesetting is needed for most wayland compositors
     modesetting.enable = true;
 
+    # Fix graphical corruption on suspend/resume
+    powerManagement.enable = true;
     # Use the open source version of the kernel module
     # Only available on driver 515.43.04+
     #open = true;
+
+    forceFullCompositionPipeline = true;
 
     # Enable the nvidia settings menu
     nvidiaSettings = true;
