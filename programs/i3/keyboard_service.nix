@@ -20,6 +20,8 @@ with lib;
     changeKeyboardLayoutScript = pkgs.writeScript "keyboard-layout-switcher.sh" ''
     #!${pkgs.bash}/bin/bash
 
+    sleep 5
+    
     ${pkgs.i3}/bin/i3-msg -t subscribe -m '[ "window", "focus" ]' | \
     ${pkgs.jq}/bin/jq --unbuffered -r 'select(.change == "focus").container.window_properties.instance' |
     while read -r window_class; do
