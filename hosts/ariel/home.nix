@@ -50,7 +50,7 @@
         configure_single = "DP-3";
         primary = true;
         execute_after = [
-          "${pkgs.i3}/bin/i3-msg reload "
+          "${pkgs.i3}/bin/i3-msg reload"
         ];
       }
       {
@@ -59,8 +59,10 @@
         configure_single = "eDP-1";
         primary = true;
         execute_after = [
-          "${pkgs.i3}/bin/i3-msg reload "
-        ];      }
+          "${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1200"
+          "${pkgs.i3}/bin/i3-msg reload"
+        ];      
+      }
       {
         name = "fallback";
         configure_single = "eDP-1";
