@@ -5,6 +5,9 @@
   ]; 
   
   home.packages = with pkgs; [ 
+    aws-sso-cli
+    
+    
     # lsps
     nodePackages.typescript-language-server
     python311Packages.python-lsp-server
