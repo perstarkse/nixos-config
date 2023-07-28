@@ -21,7 +21,10 @@
     ../common/sound.nix
     ../common/gui.nix
     ../../programs/1password
-    ./13-9320
+
+    inputs.hardware.nixosModules.common-cpu-intel
+    inputs.hardware.nixosModules.common-pc-ssd
+    inputs.hardware.nixosModules.common-pc-laptop
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -82,8 +85,7 @@
     hostName = "ariel";
     networkmanager.enable = true;
   };
-  
-    
+   
   users.users = {
     p = {
       isNormalUser = true;
