@@ -2,13 +2,14 @@
 
 let 
     mod = "Mod4";
+    terminal = "alacritty";
 in {
             
   xsession.windowManager.i3 = {
     enable = true;
     config = {
       modifier = mod;
-      terminal = "alacritty";
+      terminal = terminal;
       workspaceAutoBackAndForth = true;
       
       keybindings = lib.mkOptionDefault {
@@ -19,8 +20,8 @@ in {
         "${mod}+x" = "[urgent=latest] focus";
         "${mod}+e" = "exec ${pkgs.rofi.override { plugins = [pkgs.rofi-emoji ]; }}/bin/rofi -modi emoji -show emoji";
         "${mod}+c" = "exec ${pkgs.rofi.override { plugins = [pkgs.rofi-calc]; }}/bin/rofi -modi calc -show calc";
-        
-        
+        "${mod}+s" = "exec ${terminal} -e ${pkgs.ranger}/bin/ranger";        
+
         "${mod}+Control+v" = "split h";
         
         # Focus

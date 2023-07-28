@@ -21,7 +21,6 @@
     ../common/sound.nix
     ../common/gui.nix
     ../../programs/1password
-
     inputs.hardware.nixosModules.common-cpu-intel
     inputs.hardware.nixosModules.common-pc-ssd
     inputs.hardware.nixosModules.common-pc-laptop
@@ -92,7 +91,6 @@
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" ];
       shell = pkgs.fish;
     };
