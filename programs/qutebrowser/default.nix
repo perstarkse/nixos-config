@@ -27,7 +27,7 @@ in
       content.javascript.can_access_clipboard = true;
       fonts = {
         default_family = "Fira Code";
-        default_size = "8.50pt";      
+        default_size = "9.00pt";      
       };
       colors = {
         webpage.preferred_color_scheme = "dark";

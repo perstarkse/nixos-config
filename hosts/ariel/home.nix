@@ -40,6 +40,8 @@
     };
   };
 
+  services.blueman-applet.enable = true;
+
   services.grobi = {
     enable = true;
     rules = [
