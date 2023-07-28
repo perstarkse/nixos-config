@@ -15,5 +15,6 @@
     xclip
     lxappearance
     arandr
+    discord
   ];
 }
