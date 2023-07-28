@@ -1,3 +1,7 @@
+{config, pkgs, lib, ...}:
+let
+  hostName = pkgs.lib.head (pkgs.lib.splitString "\n" (pkgs.runCommandLocal "getHostname" {} "uname -n"));
+in
 {
   programs.i3status-rust = {
     enable = true;
@@ -34,8 +38,10 @@
           '';
           interval = 10;
         }
-        ];
+        ] ++ lib.optional (hostName == "ariel") {
+          block = "battery";
+          };
+        };
       };
     };
-  };
 }
