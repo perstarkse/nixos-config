@@ -1,26 +1,6 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:{
 
-let
-  commonBlocks = import ../../programs/i3status-rust/commonBlocks.nix;
-
-  i3statusConfig = {
-    enable = true;
-    bars = {
-      bottom = {
-        theme = "dracula";
-        icons = "awesome6";
-        blocks = commonBlocks ++ [
-          {
-            block = "battery";
-            interval = 10;
-          }
-        ];
-      };
-    };
-  };
-in
-{
-  imports = [
+   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
 
@@ -102,8 +82,6 @@ in
     slack-dark
     thunderbird
   ];
-
-  programs.i3status-rust = i3statusConfig;
   
   # system specific shell aliases
   programs.fish.shellAliases = {
