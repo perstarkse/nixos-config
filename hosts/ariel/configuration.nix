@@ -78,7 +78,15 @@
 
   services.thermald.enable = true;
   services.tlp.enable = true;
-
+  
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+  
+  # hardware.ipu6 = {
+  #   enable = true;
+  #   platform = "ipu6ep";
+  # };
+  
   # Enable networking
   networking = {
     hostName = "ariel";
