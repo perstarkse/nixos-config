@@ -14,15 +14,9 @@
     # ./nvim.nix
     #programs.i3
     ../common/common_home.nix
-    ../../programs/i3
-    ../../programs/i3status-rust
-    ../../programs/alacritty
-    ../../programs/helix
-    ../../programs/gtk
-    ../../programs/qutebrowser
-    ../../programs/fish
-    ../../programs/ncspot
-    ];
+    ../../programs/gui.nix
+    ../../programs/terminal.nix
+     ];
 
  
   nixpkgs = {
@@ -56,10 +50,7 @@
   # programs.neovim.enable = true;
 
   home.packages = with pkgs; [ 
-    xclip 
-    nil 
-    pavucontrol
-    lxappearance
+ 
   ];
 
   # system specific shell aliases

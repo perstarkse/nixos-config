@@ -49,28 +49,23 @@
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
       
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      
       nixosConfigurations = {
         encke = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
             ./hosts/encke/configuration.nix
           ];
         };
         charon = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            # > Our main nixos configuration file <
             ./hosts/charon/configuration.nix
           ];
         };
 	      ariel = nixpkgs.lib.nixosSystem {
 	        specialArgs = { inherit inputs outputs; };
 	        modules = [
-		      ./hosts/ariel/configuration.nix
+		        ./hosts/ariel/configuration.nix
 		      ];
 	      };
       };
