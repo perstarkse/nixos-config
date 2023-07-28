@@ -24,6 +24,7 @@ in
   programs.qutebrowser = {
     enable = true;
     settings = {
+      content.javascript.can_access_clipboard = true;
       fonts = {
         default_family = "Fira Code";
         default_size = "8.50pt";      

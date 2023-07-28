@@ -21,7 +21,7 @@
     ../common/sound.nix
     ../common/gui.nix
     ../../programs/1password
-    #../common/virtualisation.nix
+    ./13-9320
     inputs.home-manager.nixosModules.home-manager
   ];
 

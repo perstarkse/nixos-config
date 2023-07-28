@@ -13,8 +13,9 @@
     # });
     #pkgs.vscode-extensions = prev.vscode-extensions // (import inputs.nix-vscode-extensions {});
   #vscode-extensions = prev.vscode-extensions // (inputs.nix-vscode-extensions.overlay final prev);
-   vscode-extensions = inputs.nix-vscode-extensions.overlays.default final prev; 
-    };
+    vscode-extensions = inputs.nix-vscode-extensions.overlays.default final prev; 
+    programs.helix.package = inputs.helix-master.packages."x86_64-linux".default;
+  };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'
