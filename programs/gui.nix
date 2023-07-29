@@ -16,7 +16,6 @@
     lxappearance
     arandr
     discord
-    inputs.blinkstick-scripts.packages."x86_64-linux".blinkstick-scripts-allWhite
-    inputs.blinkstick-scripts.packages."x86_64-linux".blinkstick-scripts-allOff
+    inputs.blinkstick-scripts.packages."x86_64-linux".blinkstick-scripts
   ];
 }

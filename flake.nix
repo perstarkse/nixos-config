@@ -19,7 +19,6 @@
     blinkstick-scripts = {
       url = "github:perstarkse/blinkstick-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
-      flake = false;
      };
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
