@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690667544,
-        "narHash": "sha256-ZQDAzZzY+2HwYLS9xoBvdf/PVo7Fs//o5pPIhgtRSII=",
+        "lastModified": 1690699301,
+        "narHash": "sha256-BrIkuqrSC4pOL96nPje6vtjpBjcQCnxbHWCK3YCqMvc=",
         "owner": "perstarkse",
         "repo": "blinkstick-scripts",
-        "rev": "285b1f1bc346904b3fa6b773daaae280942132f5",
+        "rev": "a451994d3043fa57b31a39047d02a7f2850f755f",
         "type": "github"
       },
       "original": {

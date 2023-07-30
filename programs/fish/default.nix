@@ -11,8 +11,15 @@
         ai-s = "op run -- sgpt -s";
         ai = "op run -- sgpt";  
         template-direnv = "nix flake new -t github:nix-community/nix-direnv ./";
+      };
+      shellAbbrs = {
+        cclip = "xclip -selection clipboard";
       };      
       plugins = [
     ];
-  };  
+  };
+
+  home.packages = with pkgs; [
+    xclip
+  ];
 }

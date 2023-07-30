@@ -42,9 +42,7 @@
       packages = forAllSystems (system:
       let 
         pkgs = nixpkgs.legacyPackages.${system};
-        myBlinkStickWhite = blinkstick-scripts.packages.${system}.blinkstick-scripts-allWhite;
-        myBlinkStickOff = blinkstick-scripts.packages.${system}.blinkstick-scripts-allOff;
-      in (import ./pkgs { inherit pkgs; }) // { inherit myBlinkStickWhite myBlinkStickOff; }
+      in (import ./pkgs { inherit pkgs; }) 
       );
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)

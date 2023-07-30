@@ -10,6 +10,7 @@
   modifications = final: prev: {
     vscode-extensions = inputs.nix-vscode-extensions.overlays.default final prev; 
     programs.helix.package = inputs.helix-master.packages."x86_64-linux".default;
+    blinkstick-scripts = inputs.blinkstick-scripts.packages."x86_64-linux".blinkstick-scripts;
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
