@@ -23,7 +23,13 @@ in
 {
   programs.qutebrowser = {
     enable = true;
+    keyBindings = {
+      normal = {
+        "P" = "hint links spawn mpv {hint-url}";
+      };
+    };
     settings = {
+      editor.command = ["alacritty" "--command" "hx" "{file}"]; 
       content.javascript.can_access_clipboard = true;
       fonts = {
         default_family = "Fira Code";

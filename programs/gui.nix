@@ -16,5 +16,6 @@
     arandr
     discord
     blinkstick-scripts
+    mpv
   ];
 }
