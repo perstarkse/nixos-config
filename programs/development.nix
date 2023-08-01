@@ -6,6 +6,7 @@
   
   home.packages = with pkgs; [ 
     aws-sso-cli
+    awscli2
     
     
     # lsps
