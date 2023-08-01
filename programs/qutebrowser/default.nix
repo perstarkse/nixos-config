@@ -1,3 +1,4 @@
+{pkgs, ...}:
 let
   palette = {
     background = "#282a36";
@@ -217,4 +218,7 @@ in
       };
     };
   };
+  home.packages = with pkgs; [
+    widevine-cdm
+  ];
 }

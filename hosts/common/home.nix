@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ../../programs/xdg-user-dirs
+  ];
+  
   home.packages = with pkgs; [
   ];
   
