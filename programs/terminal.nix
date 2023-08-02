@@ -14,5 +14,6 @@
     ranger
     irssi
     wget
+    taskwarrior
   ];
 }

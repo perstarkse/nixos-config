@@ -27,6 +27,8 @@ in
     keyBindings = {
       normal = {
         "P" = "hint links spawn mpv {hint-url}";
+        "j" = "scroll-px 0 700";
+        "k" = "scroll-px 0 -700";
       };
     };
     settings = {
