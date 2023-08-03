@@ -18,6 +18,10 @@
     LC_TIME = "sv_SE.UTF-8";
   };
 
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="20a0", ATTR{idProduct}=="41e5", MODE="0666"
+  '';
+
   services.interception-tools = {
     enable = true;
     plugins = with pkgs; [
@@ -71,7 +75,11 @@
     jq
     xdotool
     wireguard-tools
+    veracrypt
+
   ];
+
+  hardware.ledger.enable = true;
 
   nix.settings = {
     keep-outputs = true;

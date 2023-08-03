@@ -16,12 +16,16 @@
 
     helix-master.url = "github:helix-editor/helix";
     
+    blinkstick-scripts = {
+      url = "github:perstarkse/blinkstick-scripts";
+      inputs.nixpkgs.follows = "nixpkgs";
+     };
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     #nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, blinkstick-scripts, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -36,8 +40,9 @@
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; }
+      let 
+        pkgs = nixpkgs.legacyPackages.${system};
+      in (import ./pkgs { inherit pkgs; }) 
       );
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)

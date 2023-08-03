@@ -47,6 +47,7 @@
    # system specific packages that dont require custom settings
   home.packages = with pkgs; [ 
     thunderbird
+    telegram-desktop
   ];
 
   # system specific shell aliases

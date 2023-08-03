@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, inputs, ...}:
 {
   imports = [
     ./dunst
@@ -12,9 +12,10 @@
   ];
 
   home.packages = with pkgs; [ 
-    xclip
     lxappearance
     arandr
     discord
+    blinkstick-scripts
+    mpv
   ];
 }

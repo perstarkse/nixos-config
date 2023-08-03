@@ -8,13 +8,10 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
-    #pkgs.vscode-extensions = prev.vscode-extensions // (import inputs.nix-vscode-extensions {});
-  #vscode-extensions = prev.vscode-extensions // (inputs.nix-vscode-extensions.overlay final prev);
     vscode-extensions = inputs.nix-vscode-extensions.overlays.default final prev; 
     programs.helix.package = inputs.helix-master.packages."x86_64-linux".default;
+    blinkstick-scripts = inputs.blinkstick-scripts.packages."x86_64-linux".blinkstick-scripts;
+    qutebrowser = prev.qutebrowser.override { enableWideVine = true; };
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

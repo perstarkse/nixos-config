@@ -1,3 +1,4 @@
+{pkgs, ...}:
 let
   palette = {
     background = "#282a36";
@@ -23,7 +24,15 @@ in
 {
   programs.qutebrowser = {
     enable = true;
+    keyBindings = {
+      normal = {
+        "P" = "hint links spawn mpv {hint-url}";
+        "j" = "scroll-px 0 700";
+        "k" = "scroll-px 0 -700";
+      };
+    };
     settings = {
+      editor.command = ["alacritty" "--command" "hx" "{file}"]; 
       content.javascript.can_access_clipboard = true;
       fonts = {
         default_family = "Fira Code";
@@ -211,4 +220,7 @@ in
       };
     };
   };
+  home.packages = with pkgs; [
+    widevine-cdm
+  ];
 }

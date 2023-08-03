@@ -21,6 +21,8 @@ in {
         "${mod}+e" = "exec ${pkgs.rofi.override { plugins = [pkgs.rofi-emoji ]; }}/bin/rofi -modi emoji -show emoji";
         "${mod}+c" = "exec ${pkgs.rofi.override { plugins = [pkgs.rofi-calc]; }}/bin/rofi -modi calc -show calc";
         "${mod}+s" = "exec ${terminal} -e ${pkgs.ranger}/bin/ranger";        
+        "${mod}+Print" = "exec blinkstick-scripts white";
+        "${mod}+Shift+Print" = "exec blinkstick-scripts off";
 
         "${mod}+Control+v" = "split h";
         
