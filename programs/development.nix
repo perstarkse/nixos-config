@@ -6,7 +6,7 @@
   
   home.packages = with pkgs; [ 
     aws-sso-cli
-    
+    nodejs
     
     # lsps
     nodePackages.typescript-language-server

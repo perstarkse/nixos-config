@@ -82,6 +82,10 @@
     slack-dark
     thunderbird
   ];
+
+  programs.i3status-rust.bars.bottom.blocks = [{
+    block = "battery";
+  }];
   
   # system specific shell aliases
   programs.fish.shellAliases = {
