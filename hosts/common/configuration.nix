@@ -76,7 +76,8 @@
     xdotool
     wireguard-tools
     veracrypt
-
+    fzf
+    fishPlugins.fzf-fish
   ];
 
   hardware.ledger.enable = true;
