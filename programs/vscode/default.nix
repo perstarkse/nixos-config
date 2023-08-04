@@ -36,7 +36,13 @@
       git = {
         autofetch = true;
         suggestSmartCommit = true;
+        pullBeforeCheckout = true;
+        mergeEditor = true;
+        closeDiffOnOperation = true;
+        autoStash = true;
+        allowForcePush = true;
       };
+      explorer.excludeGitIgnore = true;
       window = {
         zoomLevel = -1;
       };
