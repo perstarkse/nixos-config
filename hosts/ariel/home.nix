@@ -82,6 +82,7 @@
   home.packages = with pkgs; [ 
     slack-dark
     thunderbird
+    google-chrome
   ];
 
   programs.i3status-rust.bars.bottom.blocks = [{

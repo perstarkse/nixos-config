@@ -50,7 +50,7 @@
       };
       explorer.excludeGitIgnore = true;
       window = {
-        zoomLevel = -1;
+        zoomLevel = -0.4;
       };
       "[vue]" = {
         editor.defaultFormatter = "esbenp.prettier-vscode";
