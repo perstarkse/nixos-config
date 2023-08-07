@@ -4,9 +4,7 @@
     enable = true;
     extensions = with pkgs.vscode-extensions.vscode-marketplace; [
       dracula-theme.theme-dracula
-      #vscodevim.vim
       esbenp.prettier-vscode
-      #github.copilot
       bbenoist.nix
       silverquark.dancehelix
       vue.volar
@@ -39,6 +37,9 @@
       };
       window = {
         zoomLevel = -1;
+      };
+      "[vue]" = {
+        editor.defaultFormatter = "esbenp.prettier-vscode";
       };
     };
   };
