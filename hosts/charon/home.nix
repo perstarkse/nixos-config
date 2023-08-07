@@ -42,8 +42,11 @@
 
   services.keyboard-layout-switcher = {
     enable = true;
-    sePrograms = [ "1password" ];  
+    defaultLayout = "se";
+    optionalLayout = "us";
+    optionalLayoutPrograms = [ ];  
   };
+  
    # system specific packages that dont require custom settings
   home.packages = with pkgs; [ 
     thunderbird
