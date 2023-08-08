@@ -19,6 +19,7 @@
       vue.vscode-typescript-vue-plugin
       github.copilot
       github.copilot-chat
+      eamodio.gitlens
     ];
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
@@ -45,7 +46,7 @@
         pullBeforeCheckout = true;
         mergeEditor = true;
         closeDiffOnOperation = true;
-        autoStash = true;
+        # autoStash = true;
         allowForcePush = true;
       };
       explorer.excludeGitIgnore = true;
@@ -55,6 +56,7 @@
       "[vue]" = {
         editor.defaultFormatter = "esbenp.prettier-vscode";
       };
+      gitlens.plusFeatures.enabled = false;
     };
   };
 }
