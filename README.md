@@ -33,7 +33,7 @@ The \`hosts\` directory contains configurations specific to different machines:
 
 ### 📂 ariel
 
-Configuration for the \`ariel\` machine.
+Configuration for the \`ariel\` machine. Laptop.
 ```
 boot.nix                 - Bootloader configuration.
 configuration.nix        - Main NixOS configuration.
@@ -43,7 +43,7 @@ home.nix                 - Home manager configuration.
 
 ### 📂 charon
 
-Configuration for the \`charon\` machine.
+Configuration for the \`charon\` machine. Primary workstation that's used for VFIO.
 ```
 boot.nix                 - Bootloader configuration.
 configuration.nix        - Main NixOS configuration.
