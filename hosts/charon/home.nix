@@ -42,8 +42,8 @@
 
   services.keyboard-layout-switcher = {
     enable = true;
-    defaultLayout = "se";
-    optionalLayout = "us";
+    defaultLayout = "us";
+    optionalLayout = "";
     optionalLayoutPrograms = [ ];  
   };
   
