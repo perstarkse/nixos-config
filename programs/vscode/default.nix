@@ -19,7 +19,14 @@
       vue.vscode-typescript-vue-plugin
       github.copilot
       github.copilot-chat
-      eamodio.gitlens
+      # eamodio.gitlens
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "gitlens";
+        publisher = "eamodio";
+        version = "2023.8.805";
+        sha256 = "sha256-PohN1ckXeWI8YDvVjbhUEramdOH9PLiqIXktLBffmYg=";
+      }
     ];
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
@@ -56,7 +63,7 @@
       "[vue]" = {
         editor.defaultFormatter = "esbenp.prettier-vscode";
       };
-      gitlens.plusFeatures.enabled = false;
+      # gitlens.plusFeatures.enabled = false;
     };
   };
 }

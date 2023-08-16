@@ -24,6 +24,10 @@ in {
         "${mod}+Print" = "exec blinkstick-scripts white";
         "${mod}+Shift+Print" = "exec blinkstick-scripts off";
 
+        "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
+        "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
+        "XF86AudioMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute 0 toggle";
+
         "${mod}+Control+v" = "split h";
         
         # Focus
