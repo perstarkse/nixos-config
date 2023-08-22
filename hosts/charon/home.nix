@@ -41,7 +41,7 @@
   };
 
   services.keyboard-layout-switcher = {
-    enable = true;
+    enable = false;
     defaultLayout = "us";
     optionalLayout = "";
     optionalLayoutPrograms = [ ];  
