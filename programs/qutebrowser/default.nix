@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{inputs, pkgs, ...}:
 let
   palette = {
     background = "#282a36";

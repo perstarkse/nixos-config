@@ -8,8 +8,7 @@
     jack.enable = true;
   };
     
-  sound.enable = true;
   environment.systemPackages = with pkgs; [
-  pavucontrol
+    pavucontrol
   ];
 } 
