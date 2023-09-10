@@ -73,7 +73,7 @@
     ];
   };
   services.keyboard-layout-switcher = {
-    enable = true;
+    enable = false;
     defaultLayout = "us";
     optionalLayout = "se";
     optionalLayoutPrograms = [ "slack" ];  
