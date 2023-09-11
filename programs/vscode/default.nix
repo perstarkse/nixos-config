@@ -63,7 +63,9 @@
       "[vue]" = {
         editor.defaultFormatter = "esbenp.prettier-vscode";
       };
-      # gitlens.plusFeatures.enabled = false;
+      "[jsonc]" = {
+        editor.defaultFormatter = "esbenp.prettier-vscode";
+      };
     };
   };
 }
