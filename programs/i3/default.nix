@@ -23,6 +23,7 @@ in {
         "${mod}+s" = "exec ${terminal} -e ${pkgs.ranger}/bin/ranger";        
         "${mod}+Print" = "exec blinkstick-scripts white";
         "${mod}+Shift+Print" = "exec blinkstick-scripts off";
+        "${mod}+p" = "exec --no-startup-id sh -c \"setxkbmap -query | grep -q 'layout:\\\\s\\\\+us' && setxkbmap se || setxkbmap us\"";
 
         "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
         "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";

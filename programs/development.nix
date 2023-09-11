@@ -9,7 +9,7 @@
     nodejs
     gptcommit
     
-    # lsps
+   # lsps
     nodePackages.typescript-language-server
     python311Packages.python-lsp-server
     rust-analyzer
