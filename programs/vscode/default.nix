@@ -66,6 +66,9 @@
       "[jsonc]" = {
         editor.defaultFormatter = "esbenp.prettier-vscode";
       };
+      "[typescript]" = {
+        editor.defaultFormatter = "esbenp.prettier-vscode";
+      };
     };
   };
 }

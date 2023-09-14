@@ -64,7 +64,7 @@
   };
    # system specific packages that dont require custom settings
   home.packages = with pkgs; [ 
-    slack-dark
+    slack
     thunderbird
     google-chrome
   ];
