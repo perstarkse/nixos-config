@@ -7,8 +7,7 @@
   home.packages = with pkgs; [ 
     aws-sso-cli
     nodejs
-    gptcommit
-    
+
    # lsps
     nodePackages.typescript-language-server
     python311Packages.python-lsp-server

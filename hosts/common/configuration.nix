@@ -80,6 +80,8 @@
     fishPlugins.fzf-fish
   ];
 
+  virtualisation.docker.enable = true;
+
   hardware.ledger.enable = true;
 
   nix.settings = {
