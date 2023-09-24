@@ -17,5 +17,6 @@
     discord
     blinkstick-scripts
     mpv
+    devour
   ];
 }
