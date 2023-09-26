@@ -56,5 +56,6 @@
   # system specific shell aliases
   programs.fish.shellAliases = {
       rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#charon";
+      lg = "devour looking-glass-client";
   };
 }
