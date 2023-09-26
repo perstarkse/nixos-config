@@ -8,7 +8,7 @@
     aws-sso-cli
     nodejs
     gptcommit
-    
+    docker    
    # lsps
     nodePackages.typescript-language-server
     python311Packages.python-lsp-server

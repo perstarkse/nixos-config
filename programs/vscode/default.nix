@@ -19,6 +19,7 @@
       vue.vscode-typescript-vue-plugin
       github.copilot
       github.copilot-chat
+      ms-python.python
       # eamodio.gitlens
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
@@ -38,6 +39,9 @@
         inlineSuggest.enabled = true;
         minimap.enabled = false;
         formatOnSave = true;      
+      };
+      files = {
+        autoSave = "onFocusChanged";
       };
       workbench = {
         colorTheme = "Dracula";
