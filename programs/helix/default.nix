@@ -5,6 +5,12 @@
     #package = inputs.helix-master.packages."x86_64-linux".default;
     settings = {
       theme = "dracula";
+      keys.normal = {
+        space.c = ":clipboard-yank";
+      };
+      keys.select = {
+        space.c = ":clipboard-yank";
+      };
       editor = {
         line-number = "relative";
         lsp.display-messages = true;
