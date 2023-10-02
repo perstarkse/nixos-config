@@ -2,14 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    # package = (pkgs.vscode.override{ isInsiders = true; }).overrideAttrs (oldAttrs: rec {
-    #   src = (builtins.fetchTarball {
-    #     url = "https://update.code.visualstudio.com/latest/linux-x64/insider";
-    #     sha256 = "13mk70fga643xhxf8lijmfkxk51dsfn36lbg51x99s77yabw3wcw";
-    #   });
-    #   version = "latest";
-    #   buildInputs = oldAttrs.buildInputs ++ [ pkgs.krb5 ];
-    # });     
+    package = pkgs.unstable.vscode;
     extensions = with pkgs.vscode-extensions.vscode-marketplace; [
       dracula-theme.theme-dracula
       esbenp.prettier-vscode
