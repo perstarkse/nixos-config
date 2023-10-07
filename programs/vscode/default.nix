@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.unstable.vscode;
+    package = pkgs.unstable.vscode.fhs;
     extensions = with pkgs.vscode-extensions.vscode-marketplace; [
       dracula-theme.theme-dracula
       esbenp.prettier-vscode
@@ -20,7 +20,7 @@
         publisher = "eamodio";
         version = "2023.8.805";
         sha256 = "sha256-PohN1ckXeWI8YDvVjbhUEramdOH9PLiqIXktLBffmYg=";
-      }
+     }
     ];
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
