@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.unstable.vscode;
+    package = pkgs.unstable.vscode;    
     extensions = with pkgs.vscode-extensions.vscode-marketplace; [
       dracula-theme.theme-dracula
       esbenp.prettier-vscode
@@ -11,7 +11,7 @@
       vue.volar
       vue.vscode-typescript-vue-plugin
       github.copilot
-      github.copilot-chat
+      # github.copilot-chat
       ms-python.python
       # eamodio.gitlens
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -20,6 +20,12 @@
         publisher = "eamodio";
         version = "2023.8.805";
         sha256 = "sha256-PohN1ckXeWI8YDvVjbhUEramdOH9PLiqIXktLBffmYg=";
+      }
+      {
+        name = "copilot-chat";
+        publisher = "github";
+        version = "0.7.2023083101";
+        sha256 = "sha256-ayarYtlRb4v/ran7utE0lXbLHEaUGfCT3DjnLmZJBmg=";
       }
     ];
     enableExtensionUpdateCheck = false;
