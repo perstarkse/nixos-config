@@ -51,6 +51,7 @@
   home.packages = with pkgs; [ 
     thunderbird
     telegram-desktop
+    google-chrome
   ];
 
   # system specific shell aliases
