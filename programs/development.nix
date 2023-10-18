@@ -9,7 +9,8 @@
     nodejs
     gptcommit
     docker    
-
+    yarn
+    python3
    # lsps
     nodePackages.typescript-language-server
     python311Packages.python-lsp-server

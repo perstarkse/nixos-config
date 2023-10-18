@@ -24,6 +24,7 @@ in
 {
   programs.qutebrowser = {
     enable = true;
+    package = pkgs.unstable.qutebrowser;
     keyBindings = {
       normal = {
         "P" = "hint links spawn mpv {hint-url}";
@@ -33,7 +34,7 @@ in
     };
     settings = {
       editor.command = ["alacritty" "--command" "hx" "{file}"]; 
-      content.javascript.can_access_clipboard = true;
+      content.javascript.clipboard = "access-paste";
       fonts = {
         default_family = "Fira Code";
         default_size = "9.00pt";      
