@@ -17,7 +17,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ./boot.nix
-    ../common/common_conf.nix
+    ../common/configuration.nix
     inputs.home-manager.nixosModules.home-manager
     ../../programs/1password
   ];

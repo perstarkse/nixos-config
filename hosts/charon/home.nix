@@ -52,7 +52,7 @@
     thunderbird
     telegram-desktop
     google-chrome
-  ];
+    ];
 
   # system specific shell aliases
   programs.fish.shellAliases = {

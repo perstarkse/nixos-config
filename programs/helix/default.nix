@@ -19,6 +19,7 @@
         };
         file-picker = {
           hidden = true;
+          git-ignore = true;
         };
       };
     };

@@ -11,6 +11,7 @@
     docker    
     yarn
     python3
+    chromium
    # lsps
     nodePackages.typescript-language-server
     python311Packages.python-lsp-server

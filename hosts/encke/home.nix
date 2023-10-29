@@ -13,7 +13,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     #programs.i3
-    ../common/common_home.nix
+    ../common/home.nix
     ../../programs/gui.nix
     ../../programs/terminal.nix
      ];
