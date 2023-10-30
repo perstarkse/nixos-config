@@ -68,6 +68,7 @@
     thunderbird
     google-chrome
     nodePackages_latest.serverless
+    teams
     ];
 
   programs.i3status-rust.bars.bottom.blocks = [{

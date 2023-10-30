@@ -25,6 +25,18 @@
       nix-direnv.enable = true;
     };
   };
+
+  xdg.mimeApps = {
+    enable = true;
+
+    defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+    };
+  };
   
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
