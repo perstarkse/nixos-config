@@ -13,6 +13,7 @@
       github.copilot
       # github.copilot-chat
       ms-python.python
+      juanblanco.solidity
       # eamodio.gitlens
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {

@@ -71,7 +71,7 @@
     pciutils
     vim
     htop
-    shell_gpt
+    # shell_gpt
     jq
     xdotool
     wireguard-tools
