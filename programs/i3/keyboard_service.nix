@@ -50,9 +50,11 @@ with lib;
     Install = {
       WantedBy = [ "default.target" ];
     };
-    Service = {       
+    Service = {
       ExecStart = "${changeKeyboardLayoutScript}";
-    };      
+      Restart = "always";
+      RestartSec = "3600";
+    };
   };
 };
 }

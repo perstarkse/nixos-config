@@ -57,7 +57,7 @@
     ];
   };
   services.keyboard-layout-switcher = {
-    enable = false;
+    enable = true;
     defaultLayout = "us";
     optionalLayout = "se";
     optionalLayoutPrograms = [ "slack" ];  
@@ -68,8 +68,10 @@
     thunderbird
     google-chrome
     nodePackages_latest.serverless
-    teams
+    # unstable.teams-for-linux
+    virt-manager
     ];
+  
 
   programs.i3status-rust.bars.bottom.blocks = [{
     block = "battery";

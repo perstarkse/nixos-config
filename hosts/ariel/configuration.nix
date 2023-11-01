@@ -93,7 +93,18 @@
     hostName = "ariel";
     networkmanager.enable = true;
   };
-   
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      ovmf.enable = true;
+      runAsRoot = false;
+      package = pkgs.qemu_kvm; # host cpu only
+      };
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+  };
+  
   users.users = {
     p = {
       isNormalUser = true;
@@ -103,8 +114,18 @@
       extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" "docker" ];
       shell = pkgs.fish;
     };
-  };
+  };    
+  # environment.systemPackages = with pkgs; [
+  #   cups               # For the CUPS system
+  #   cups-filters       # Useful filters for CUPS
+  #   ghostscript        # Required for certain types of print jobs
+  #   gutenprint         # High-quality drivers for many printers
+  # ];
 
+  # services.printing = {
+  #   enable = true;
+  #   drivers = [ pkgs.gutenprint ];  # This is an example; adapt based on your printer model
+  # };
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   services.openssh = {
