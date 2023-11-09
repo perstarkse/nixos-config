@@ -11,7 +11,7 @@ in {
       modifier = mod;
       terminal = terminal;
       workspaceAutoBackAndForth = true;
-      
+            
       keybindings = lib.mkOptionDefault {
         "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         "${mod}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
