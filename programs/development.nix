@@ -15,7 +15,7 @@
    # lsps
     nodePackages.typescript-language-server
     python311Packages.python-lsp-server
-    rust-analyzer
+    # rust-analyzer
     nodePackages.vscode-css-languageserver-bin
     marksman
     nil

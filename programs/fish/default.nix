@@ -5,11 +5,9 @@
     interactiveShellInit = ''
       set fish_greeting
       set -x OPENAI_API_KEY op://development/openai/credential
-    '';
+      '';
       
     shellAliases = {
-        ai-s = "op run -- sgpt -s";
-        ai = "op run -- sgpt";  
         template-direnv = "nix flake new -t github:nix-community/nix-direnv ./";
     };
     shellAbbrs = {

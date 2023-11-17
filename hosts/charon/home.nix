@@ -52,6 +52,7 @@
     thunderbird
     telegram-desktop
     google-chrome
+    # aws-sam-cli
     ];
 
   # system specific shell aliases
@@ -59,4 +60,9 @@
       rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#charon";
       lg = "devour looking-glass-client";
   };
+  # programs.fish.interactiveShellInit = ''
+  #   set -x AWS_ACCESS_KEY_ID op://development/private-aws-access-key/credential
+  #   set -x AWS_SECRET_ACCESS_KEY op://development/private-aws-secret-access-key/credential
+  #   set -x AWS_DEFAULT_REGION eu-north-1
+  # '';
 }
