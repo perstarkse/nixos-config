@@ -57,7 +57,7 @@
     ];
   };
   services.keyboard-layout-switcher = {
-    enable = true;
+    enable = false;
     defaultLayout = "us";
     optionalLayout = "se";
     optionalLayoutPrograms = [ "slack" ];  
@@ -70,8 +70,9 @@
     nodePackages_latest.serverless
     # unstable.teams-for-linux
     virt-manager
+    peek
     ];
-  
+ 
 
   programs.i3status-rust.bars.bottom.blocks = [{
     block = "battery";

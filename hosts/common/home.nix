@@ -19,6 +19,14 @@
       enable = true;
       userName = "Per Stark";
       userEmail = "perstark.se@gmail.com";
+      extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
+        push = {
+          autoSetupRemote = true;
+        };
+      };
     };
     direnv = {
       enable = true;
