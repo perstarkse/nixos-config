@@ -18,6 +18,6 @@
     blinkstick-scripts
     mpv
     devour
-    # i3altlayout
+    i3-auto-layout
   ];
 }

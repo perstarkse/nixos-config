@@ -22,8 +22,8 @@
       {
         name = "gitlens";
         publisher = "eamodio";
-        version = "2023.8.805";
-        sha256 = "sha256-PohN1ckXeWI8YDvVjbhUEramdOH9PLiqIXktLBffmYg=";
+        version = "2023.11.1604";
+        sha256 = "sha256-d7xnghytDeUBcNzxAmlsLofxJCM3eTFOI7lzXS2bZME=";
       }
       {
         name = "copilot-chat";

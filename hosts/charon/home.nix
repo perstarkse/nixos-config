@@ -52,7 +52,7 @@
     thunderbird
     telegram-desktop
     google-chrome
-    # aws-sam-cli
+    unstable.ollama
     ];
 
   # system specific shell aliases
