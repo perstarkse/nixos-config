@@ -22,4 +22,11 @@
       config.allowUnfree = true;
     };
   };
+
+  my-nixpkgs-packages = final: _prev: {
+    my-nixpkgs = import inputs.my-nixpkgs {
+      system = final.system;
+      config.allowUnfree = true;
+    };
+  };
 }

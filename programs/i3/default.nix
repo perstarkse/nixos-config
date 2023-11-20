@@ -11,7 +11,12 @@ in {
       modifier = mod;
       terminal = terminal;
       workspaceAutoBackAndForth = true;
-            
+      startup = [ 
+        { 
+          command = "--no-startup-id ${pkgs.my-nixpkgs.i3-auto-layout}/bin/i3-auto-layout";
+          always = true;
+        }
+      ];      
       keybindings = lib.mkOptionDefault {
         "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         "${mod}+Tab" = "exec ${pkgs.rofi}/bin/rofi -show window";
