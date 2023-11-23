@@ -64,7 +64,7 @@
   };
    # system specific packages that dont require custom settings
   home.packages = with pkgs; [ 
-    slack
+    unstable.slack
     thunderbird
     google-chrome
     nodePackages_latest.serverless
@@ -81,5 +81,6 @@
   # system specific shell aliases
   programs.fish.shellAliases = {
       rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#ariel";
+      ms-teams = "devour google-chrome-stable --app='https://teams.microsoft.com'";
   };
 }
