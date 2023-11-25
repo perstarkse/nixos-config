@@ -24,10 +24,10 @@ in
 {
   programs.qutebrowser = {
     enable = true;
-    package = pkgs.unstable.qutebrowser;
+    package = pkgs.qutebrowser;
     keyBindings = {
       normal = {
-        "P" = "hint links spawn mpv {hint-url}";
+        "P" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
         "j" = "scroll-px 0 700";
         "k" = "scroll-px 0 -700";
       };
