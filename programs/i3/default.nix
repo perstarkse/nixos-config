@@ -13,7 +13,7 @@ in {
       workspaceAutoBackAndForth = true;
       startup = [ 
         { 
-          command = "--no-startup-id ${pkgs.my-nixpkgs.i3-auto-layout}/bin/i3-auto-layout";
+          command = "--no-startup-id ${pkgs.i3-auto-layout}/bin/i3-auto-layout";
           always = true;
         }
       ];      
