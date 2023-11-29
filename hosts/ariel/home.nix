@@ -72,6 +72,7 @@
     virt-manager
     peek
     unstable.logseq
+    unstable.ollama
     ];
  
 
