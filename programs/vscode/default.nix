@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;    
+    package = pkgs.unstable.vscode;    
     extensions = with pkgs.vscode-extensions.vscode-marketplace; [
       dracula-theme.theme-dracula
       esbenp.prettier-vscode
@@ -13,6 +13,7 @@
       github.copilot
       # github.copilot-chat
       ms-python.python
+      ms-python.vscode-pylance
       juanblanco.solidity
       bradlc.vscode-tailwindcss
       rust-lang.rust-analyzer
