@@ -18,14 +18,14 @@
       bradlc.vscode-tailwindcss
       rust-lang.rust-analyzer
       otovo-oss.htmx-tags
-      # eamodio.gitlens
+      eamodio.gitlens
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "gitlens";
-        publisher = "eamodio";
-        version = "2023.11.1604";
-        sha256 = "sha256-d7xnghytDeUBcNzxAmlsLofxJCM3eTFOI7lzXS2bZME=";
-      }
+      # {
+      #   name = "gitlens";
+      #   publisher = "eamodio";
+      #   version = "2023.11.1604";
+      #   sha256 = "sha256-d7xnghytDeUBcNzxAmlsLofxJCM3eTFOI7lzXS2bZME=";
+      # }
       {
         name = "copilot-chat";
         publisher = "github";

@@ -24,7 +24,7 @@ in
 {
   programs.qutebrowser = {
     enable = true;
-    package = pkgs.qutebrowser;
+    package = pkgs.unstable.qutebrowser;
     keyBindings = {
       normal = {
         "P" = "hint links spawn ${pkgs.mpv}/bin/mpv {hint-url}";
