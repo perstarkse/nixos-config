@@ -18,6 +18,20 @@
       fsType = "ext4";
     };
 
+  # fileSystems."/mnt/nvme1n1" =
+  #   { device = "/dev/nvme1n1";
+  #     fsType = "ext4";
+  #   };
+
+  # fileSystems."/mnt/sdb" =
+  #   { device = "/dev/sdb";
+  #     fsType = "ext4";
+  #   };
+  # fileSystems."/mnt/sdc" =
+  #   { device = "/dev/sdc";
+  #     fsType = "ext4";
+  #   };
+      
   boot.initrd.luks.devices."luks-09a238d3-0cd1-491e-907c-4a8b74a80c79".device = "/dev/disk/by-uuid/09a238d3-0cd1-491e-907c-4a8b74a80c79";
 
   fileSystems."/boot" =

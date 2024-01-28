@@ -78,6 +78,7 @@
     veracrypt
     fzf
     fishPlugins.fzf-fish
+    usbutils
   ];
 
   virtualisation.docker.enable = true;
