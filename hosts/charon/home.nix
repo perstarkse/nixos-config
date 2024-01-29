@@ -53,6 +53,7 @@
     telegram-desktop
     google-chrome
     unstable.ollama
+    unstable.open-interpreter
     ];
 
   # system specific shell aliases
