@@ -85,6 +85,8 @@
   };
   
   environment.pathsToLink = [ "/share/zsh" ];
+
+  programs.hyprland.enable = true;
     
   users.users = {
     p = {

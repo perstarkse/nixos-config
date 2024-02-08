@@ -20,5 +20,6 @@
     marksman
     nil
     nodePackages.bash-language-server     
+    sshfs
   ];
 }

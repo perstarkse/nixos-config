@@ -54,6 +54,9 @@
     google-chrome
     unstable.ollama
     unstable.open-interpreter
+    pandoc
+    texlive.combined.scheme-small
+    mupdf
     ];
 
   # system specific shell aliases
