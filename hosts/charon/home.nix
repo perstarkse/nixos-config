@@ -41,18 +41,18 @@
     };
   };
 
-  services.keyboard-layout-switcher = {
-    enable = false;
-    defaultLayout = "us";
-    optionalLayout = "";
-    optionalLayoutPrograms = [ ];  
-  };
+  # services.keyboard-layout-switcher = {
+    # enable = false;
+    # defaultLayout = "us";
+    # optionalLayout = "";
+    # optionalLayoutPrograms = [ ];  
+  # };
   
   home.packages = with pkgs; [
-    thunderbird
+    # thunderbird
     telegram-desktop
     google-chrome
-    unstable.ollama
+    # unstable.ollama
     pandoc
     haskellPackages.pandoc-plot
     haskellPackages.pandoc-crossref
