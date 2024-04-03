@@ -20,6 +20,7 @@
       otovo-oss.htmx-tags
       eamodio.gitlens
       arrterian.nix-env-selector
+      doublebot.doublebot
       # ms-vscode-remote.remote-containers
       # ms-vscode-remote.remote-ssh
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -29,6 +30,12 @@
       #   version = "2023.11.1604";
       #   sha256 = "sha256-d7xnghytDeUBcNzxAmlsLofxJCM3eTFOI7lzXS2bZME=";
       # }
+      {
+        name = "op-vscode";
+        publisher = "1password";
+        version = "1.0.4";
+        sha256 = "sha256-s6acue8kgFLf5fs4A7l+IYfhibdY76cLcIwHl+54WVk=";
+      }
       {
         name = "remote-containers";
         publisher = "ms-vscode-remote";
@@ -66,6 +73,12 @@
         colorTheme = "Dracula";
         startupEditor = "none";
         editor.tabSizing = "fit";
+      };
+      remote = {
+        SSH = {
+          showLoginTerminal = true;
+          useExecServer = false;
+        };
       };
       terminal.integrated = {
         fontSize = 14.0;

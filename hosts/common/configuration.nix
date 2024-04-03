@@ -79,6 +79,7 @@
     fzf
     fishPlugins.fzf-fish
     usbutils
+    ntfs3g
   ];
 
   virtualisation.docker.enable = true;

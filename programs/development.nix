@@ -10,11 +10,11 @@
     gptcommit
     docker    
     yarn
-    python3
+    # unstable.python3
     chromium
    # lsps
     nodePackages.typescript-language-server
-    python311Packages.python-lsp-server
+    # python311Packages.python-lsp-server
     # rust-analyzer
     nodePackages.vscode-css-languageserver-bin
     marksman

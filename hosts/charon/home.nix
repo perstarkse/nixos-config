@@ -20,10 +20,10 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
+      outputs.overlays.my-packages
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      #alacritty-theme.overlays.default
+      # alacritty-theme.overlays.default
       # Or define it inline, for example:
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
@@ -37,6 +37,7 @@
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = (_: true);
+      permittedInsecurePackages = ["electron-24.8.6"];
     };
   };
 
@@ -47,18 +48,27 @@
     optionalLayoutPrograms = [ ];  
   };
   
-   # system specific packages that dont require custom settings
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     thunderbird
     telegram-desktop
     google-chrome
     unstable.ollama
-    unstable.open-interpreter
     pandoc
+    haskellPackages.pandoc-plot
+    haskellPackages.pandoc-crossref
     texlive.combined.scheme-small
     mupdf
-    ];
-
+    mynixpkgs.epy
+    feh
+    aichat
+    (python311.withPackages (ps: with ps; [
+      matplotlib
+      numpy
+      scipy
+      statsmodels
+      seaborn
+    ]))
+  ];
   # system specific shell aliases
   programs.fish.shellAliases = {
       rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#charon";

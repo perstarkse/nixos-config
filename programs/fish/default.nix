@@ -5,6 +5,7 @@
     interactiveShellInit = ''
       set fish_greeting
       set -x OPENAI_API_KEY op://development/openai/credential
+      set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
       '';
       
     shellAliases = {
