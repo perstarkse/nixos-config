@@ -18,9 +18,9 @@
       bradlc.vscode-tailwindcss
       rust-lang.rust-analyzer
       otovo-oss.htmx-tags
-      eamodio.gitlens
+      # eamodio.gitlens
       arrterian.nix-env-selector
-      doublebot.doublebot
+      # doublebot.doublebot
       # ms-vscode-remote.remote-containers
       # ms-vscode-remote.remote-ssh
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [

@@ -68,18 +68,19 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # pciutils
+    pciutils
     vim
     htop
     # shell_gpt
     # jq
     xdotool
     wireguard-tools
-    # veracrypt
+    veracrypt
     fzf
     fishPlugins.fzf-fish
     usbutils
     # ntfs3g
+    unstable.devenv
   ];
 
   virtualisation.docker.enable = true;
