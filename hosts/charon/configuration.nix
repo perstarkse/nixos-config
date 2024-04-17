@@ -21,7 +21,6 @@
     ../common/gui.nix
     ../../programs/1password
     ./nvidia.nix
-    #../common/virtualisation.nix
     ./vfio
     inputs.home-manager.nixosModules.home-manager
     inputs.hardware.nixosModules.common-cpu-amd
@@ -66,7 +65,7 @@
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
-      auto-optimise-store = true;
+      # auto-optimise-store = true;
     };
   };
 
@@ -84,8 +83,6 @@
   };
   
   environment.pathsToLink = [ "/share/zsh" ];
-
-  programs.hyprland.enable = true;
     
   users.users = {
     p = {
@@ -102,7 +99,7 @@
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   services.openssh = {
-    enable = true;
+    enable = false;
     # Forbid root login through SSH.
     settings.PermitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)

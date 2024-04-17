@@ -80,7 +80,9 @@
     fishPlugins.fzf-fish
     usbutils
     # ntfs3g
-    unstable.devenv
+    # unstable.devenv
+    cryptsetup
+    util-linux
   ];
 
   virtualisation.docker.enable = true;

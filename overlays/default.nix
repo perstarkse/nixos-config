@@ -9,7 +9,7 @@
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
     vscode-extensions = inputs.nix-vscode-extensions.overlays.default final prev; 
-    programs.helix.package = inputs.helix-master.packages."x86_64-linux".default;
+    # programs.helix.package = inputs.helix-master.packages."x86_64-linux".default;
     blinkstick-scripts = inputs.blinkstick-scripts.packages."x86_64-linux".blinkstick-scripts;
     qutebrowser = prev.qutebrowser.override { enableWideVine = true; };
     i3-auto-layout = final.rustPlatform.buildRustPackage rec {
