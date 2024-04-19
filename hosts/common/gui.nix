@@ -4,10 +4,9 @@
     enable = true;
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [
-      ];      
     };
     displayManager.lightdm.enable = true;
+    displayManager.defaultSession = "none+i3";
     libinput = {
       mouse = {
         accelProfile = "flat";

@@ -5,7 +5,6 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     #inputs.nix-colors.homeManagerModules.default
-
     ../common/home.nix
     ../../programs/gui.nix
     ../../programs/terminal.nix
@@ -60,6 +59,7 @@
     mupdf
     mynixpkgs.epy
     feh
+    peek
     aichat
     (python311.withPackages (ps: with ps; [
       matplotlib

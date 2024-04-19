@@ -19,16 +19,16 @@
     };
 
   fileSystems."/mnt/nvme1n1" =
-    { device = "/dev/nvme1n1p1";
+    { device = "/dev/disk/by-uuid/6ec1601f-4779-4384-bea8-71871bda450e";
       fsType = "ext4";
     };
 
   fileSystems."/mnt/sdb" =
-    { device = "/dev/sdb";
+    { device = "/dev/disk/by-uuid/8f19155e-0c39-4e46-a27d-633a02942aed";
       fsType = "ext4";
     };
   fileSystems."/mnt/sdc" =
-    { device = "/dev/sdc";
+    { device = "/dev/disk/by-uuid/91e3c532-46b7-4df8-a50b-5a10974277fa";
       fsType = "ext4";
     };
       
