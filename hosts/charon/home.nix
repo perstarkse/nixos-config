@@ -46,7 +46,7 @@
     # optionalLayout = "";
     # optionalLayoutPrograms = [ ];  
   # };
-  
+   
   home.packages = with pkgs; [
     # thunderbird
     telegram-desktop
@@ -61,12 +61,15 @@
     feh
     peek
     aichat
+    zbar
     (python311.withPackages (ps: with ps; [
       matplotlib
       numpy
       scipy
       statsmodels
       seaborn
+      pandoc
+      weasyprint
     ]))
   ];
   # system specific shell aliases

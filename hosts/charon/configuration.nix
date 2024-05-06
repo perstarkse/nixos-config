@@ -80,6 +80,9 @@
   networking = {
     hostName = "charon";
     networkmanager.enable = true;
+    hosts = {
+      "192.168.122.134" = [ "makemake" ];
+    };
   };
   
   environment.pathsToLink = [ "/share/zsh" ];

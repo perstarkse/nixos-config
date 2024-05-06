@@ -34,6 +34,13 @@
     };
   };
 
+services.gpg-agent = {
+    # enabled = true;
+    enableFishIntegration = true;
+    grabKeyboardAndMouse = true;
+    maxCacheTtl = 3600;
+  };
+  
   xdg.mimeApps = {
     enable = true;
 

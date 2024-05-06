@@ -66,6 +66,7 @@
       enable = true;
     };
   };
+  programs.gnupg.agent.enable = true;
 
   environment.systemPackages = with pkgs; [
     pciutils
