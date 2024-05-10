@@ -6,6 +6,7 @@
   ];
   
   home.packages = with pkgs; [
+  pinentry-gtk2
   ];
   
   home = {
@@ -33,13 +34,15 @@
       nix-direnv.enable = true;
     };
   };
+# programs.gpg.enable =true;
 
-services.gpg-agent = {
+# services.gpg-agent = {
     # enabled = true;
-    enableFishIntegration = true;
-    grabKeyboardAndMouse = true;
-    maxCacheTtl = 3600;
-  };
+    # enableFishIntegration = true;
+    # grabKeyboardAndMouse = true;
+    # maxCacheTtl = 3600;
+    # pinentryFlavor = "gtk";
+  # };
   
   xdg.mimeApps = {
     enable = true;
