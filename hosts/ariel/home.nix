@@ -71,7 +71,7 @@
     # unstable.teams-for-linux
     virt-manager
     peek
-    unstable.logseq
+    obsidian
     ];
  
 

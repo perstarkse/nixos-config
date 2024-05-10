@@ -5,7 +5,6 @@
 
     # Or modules exported from other flakes (such as nix-colors):
     #inputs.nix-colors.homeManagerModules.default
-
     ../common/home.nix
     ../../programs/gui.nix
     ../../programs/terminal.nix
@@ -20,10 +19,10 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
+      outputs.overlays.my-packages
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      #alacritty-theme.overlays.default
+      # alacritty-theme.overlays.default
       # Or define it inline, for example:
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
@@ -37,28 +36,42 @@
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = (_: true);
+      permittedInsecurePackages = ["electron-24.8.6"];
     };
   };
 
-  services.keyboard-layout-switcher = {
-    enable = false;
-    defaultLayout = "us";
-    optionalLayout = "";
-    optionalLayoutPrograms = [ ];  
-  };
-  
-   # system specific packages that dont require custom settings
-  home.packages = with pkgs; [ 
-    thunderbird
+  # services.keyboard-layout-switcher = {
+    # enable = false;
+    # defaultLayout = "us";
+    # optionalLayout = "";
+    # optionalLayoutPrograms = [ ];  
+  # };
+   
+  home.packages = with pkgs; [
+    # thunderbird
     telegram-desktop
     google-chrome
-    unstable.ollama
-    unstable.open-interpreter
+    # unstable.ollama
     pandoc
+    haskellPackages.pandoc-plot
+    haskellPackages.pandoc-crossref
     texlive.combined.scheme-small
     mupdf
-    ];
-
+    mynixpkgs.epy
+    feh
+    peek
+    aichat
+    zbar
+    (python311.withPackages (ps: with ps; [
+      matplotlib
+      numpy
+      scipy
+      statsmodels
+      seaborn
+      pandoc
+      weasyprint
+    ]))
+  ];
   # system specific shell aliases
   programs.fish.shellAliases = {
       rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#charon";

@@ -41,7 +41,7 @@
   };  
 
   fonts = {
-    fonts = with pkgs; [ 
+    packages = with pkgs; [ 
     source-code-pro 
     fira-code
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -66,19 +66,24 @@
       enable = true;
     };
   };
+  programs.gnupg.agent.enable = true;
 
   environment.systemPackages = with pkgs; [
     pciutils
     vim
     htop
     # shell_gpt
-    jq
+    # jq
     xdotool
     wireguard-tools
     veracrypt
     fzf
     fishPlugins.fzf-fish
     usbutils
+    # ntfs3g
+    # unstable.devenv
+    cryptsetup
+    util-linux
   ];
 
   virtualisation.docker.enable = true;

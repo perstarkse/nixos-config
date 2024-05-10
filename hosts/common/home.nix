@@ -6,6 +6,7 @@
   ];
   
   home.packages = with pkgs; [
+  pinentry-gtk2
   ];
   
   home = {
@@ -33,7 +34,16 @@
       nix-direnv.enable = true;
     };
   };
+# programs.gpg.enable =true;
 
+# services.gpg-agent = {
+    # enabled = true;
+    # enableFishIntegration = true;
+    # grabKeyboardAndMouse = true;
+    # maxCacheTtl = 3600;
+    # pinentryFlavor = "gtk";
+  # };
+  
   xdg.mimeApps = {
     enable = true;
 
@@ -50,5 +60,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 }
