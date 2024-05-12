@@ -74,6 +74,12 @@
 		        ./hosts/ariel/configuration.nix
 		      ];
 	      };
+        makemake =  nixpkgs.lib.nixosSystem {
+	        specialArgs = { inherit inputs outputs; };
+	        modules = [
+		        ./hosts/makemake/configuration.nix
+		      ];
+	      };
       };
     };
 }
