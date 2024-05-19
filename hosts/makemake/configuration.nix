@@ -20,6 +20,7 @@
     ./boot.nix
     ../common/configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    ./nixarr.nix
     # ../../programs/1password
   ];
 
@@ -71,14 +72,25 @@
       p = import ./home.nix;
     };
   };
+
+  # services.nginx = {
+  #   enable = true;
+  #   virtualHosts."makemake" = {
+  #     locations."/radarr" = {
+  #       proxyPass = "http://127.0.0.1:7878";
+  #     };
+  #   };
+  # };
   
-  # Enable networking
+    # Enable networking
   networking = {
     hostName = "makemake";
     networkmanager.enable = true;
   };
   
-    
+  users.groups.media = {
+  };
+   
   users.users = {
     p = {
       isNormalUser = true;
@@ -101,6 +113,11 @@
     settings.PasswordAuthentication = true;
   };
 
+  environment.systemPackages = with pkgs; [
+  jellyfin
+  ];
+
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.05";
 }

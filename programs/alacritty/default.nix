@@ -49,10 +49,10 @@ colors = {
       background = "#282a36";
     };
   };
-  line_indicator = {
-    foreground = null;
-    background = null;
-  };
+  # line_indicator = {
+    # foreground = null;
+    # background = null;
+  # };
   selection = {
     text = "CellForeground";
     background = "#44475a";
