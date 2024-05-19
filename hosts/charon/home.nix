@@ -52,6 +52,7 @@
     telegram-desktop
     google-chrome
     # unstable.ollama
+    marp-cli
     pandoc
     haskellPackages.pandoc-plot
     haskellPackages.pandoc-crossref
