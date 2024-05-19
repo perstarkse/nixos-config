@@ -2,12 +2,12 @@
   description = "perstark system configurations";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     my-nixpkgs.url = "github:perstarkse/nixpkgs";
     
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";      
     };
     
@@ -21,12 +21,14 @@
       url = "github:perstarkse/blinkstick-scripts";
       inputs.nixpkgs.follows = "nixpkgs";
      };
+     nixarr.url = "github:rasmus-kirk/nixarr";
+
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     #nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, blinkstick-scripts,  ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, blinkstick-scripts, nixarr,  ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -78,6 +80,7 @@
 	        specialArgs = { inherit inputs outputs; };
 	        modules = [
 		        ./hosts/makemake/configuration.nix
+            nixarr.nixosModules.default
 		      ];
 	      };
       };
