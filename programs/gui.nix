@@ -4,7 +4,6 @@
     ./dunst
     ./i3
     ./i3status-rust
-    ./gtk
     ./rofi
 
     ./qutebrowser

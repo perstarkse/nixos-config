@@ -6,17 +6,17 @@
       enable = true;
     };
     displayManager.lightdm.enable = true;
-    displayManager.defaultSession = "none+i3";
-    libinput = {
+  };
+  services.libinput = {
       mouse = {
         accelProfile = "flat";
       };
-    };
   };
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.user = "p";
-  services.xserver.displayManager.autoLogin.enable = true;
+  services.displayManager = {
+    defaultSession = "none+i3";
+    autoLogin.user = "p";
+    autoLogin.enable = true;  
+  };
 
   xdg.portal = {
     enable = true;

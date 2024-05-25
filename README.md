@@ -126,7 +126,6 @@ For each program, there is a \`default.nix\` file that contains the program's co
 - starship
 - vscode
 - xdg-user
-- zsh
 ```
 
 Also, it includes global configuration files for GUI and terminal:

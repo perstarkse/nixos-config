@@ -4,7 +4,16 @@
     enable = true;
     bars = {
       bottom = {
-        theme = "dracula";
+        settings = {
+          theme = {
+            theme = "dracula";
+            overrides = {
+              idle_fg = "#${config.lib.stylix.colors.base0A}";
+              idle_bg = "#${config.lib.stylix.colors.base00}";
+            };
+          };
+        };
+        # theme = "dracula";
         icons = "awesome6";
         blocks = [
         {

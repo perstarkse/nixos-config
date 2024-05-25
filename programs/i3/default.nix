@@ -52,65 +52,33 @@ in {
       window = {
         titlebar = false;
         border = 2;
-        hideEdgeBorders = "smart";    
+        hideEdgeBorders = "smart";
       };
       focus = {
         followMouse = true;
         mouseWarping = true;
       };
-      bars = [
-        {
-          position = "bottom";
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";        
-          colors = {
-            background = "#282A36";
-            statusline = "#F8F8F2";
-            separator = "#44475A";
-            focusedWorkspace = {
-              background = "#6272A4";
-              text = "#F8F8F2";
-              border = "#6272A4";
-            }; 
-          };
-        }
-      ];      
-      colors = {
-        focused = {
-          background = "#6272A4";
-          border = "#6272A4";
-          childBorder = "#6272A4";
-          indicator = "#6272A4";
-          text = "#F8F8F2";
-        };
-        focusedInactive = {
-          background = "#44475A";
-          border = "#44475A";
-          childBorder = "#44475A";
-          indicator = "#44475A";
-          text = "#F8F8F2";
-        };
-        unfocused = {
-          background = "#282A36";
-          border = "#282A36";
-          childBorder = "#282A36";
-          indicator = "#282A36";
-          text = "#BFBFBF";
-        };
-        urgent = {
-          background = "#44475A";
-          border = "#FF5555";
-          childBorder = "#FF5555";
-          indicator = "#FF5555";
-          text = "#F8F8F2";
-        };
-        placeholder = {
-          background = "#282A36";
-          border = "#282A36";
-          childBorder = "#282A36";
-          indicator = "#282A36";
-          text = "#F8F8F2";
-        };
+   bars = [
+  {
+    position = "bottom";
+    statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";        
+    colors = {
+      background = "#${config.lib.stylix.colors.base00}";
+      statusline = "#${config.lib.stylix.colors.base00}";
+      separator = "#${config.lib.stylix.colors.base00}";
+      focusedWorkspace = {
+        background = "#${config.lib.stylix.colors.base0A}";
+        text = "#${config.lib.stylix.colors.base00}";
+        border = "#${config.lib.stylix.colors.base00}";
       };
+      inactiveWorkspace = {
+        background = "#${config.lib.stylix.colors.base01}";
+        text = "#${config.lib.stylix.colors.base05}"; 
+        border = "#${config.lib.stylix.colors.base00}";
+      };
+    };
+  }
+];
     };
   };
 }

@@ -5,7 +5,6 @@
     ./helix
     ./ncspot
     ./fish
-    ./zsh
     ./starship
   ];
 
