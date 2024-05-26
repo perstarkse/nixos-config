@@ -53,6 +53,7 @@
   };
 
   stylix = {
+    polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
     image = ./wallpaper.jpg;
     fonts = {
@@ -63,8 +64,8 @@
         desktop = 10;
       };
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];};
-        name = "JetBrainsMono Nerd Font Mono";
+        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+        name = "FiraCode Nerd Font";
       };
       sansSerif = {
         package = pkgs.dejavu_fonts;
