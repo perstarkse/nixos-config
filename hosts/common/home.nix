@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let 
+  secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/secrets.json);
+in
 {
   imports = [
     ../../programs/xdg-user-dirs
@@ -19,7 +22,8 @@
     git = {
       enable = true;
       userName = "Per Stark";
-      userEmail = "perstark.se@gmail.com";
+      userEmail = secrets.emails[0];
+      # userEmail = "perstark.se@gmail.com";
       extraConfig = {
         init = {
           defaultBranch = "main";
@@ -60,5 +64,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 }

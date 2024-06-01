@@ -1,2 +1,2 @@
-secrets/crypt/secrets.yaml filter=git-agecrypt diff=git-agecrypt
+secrets/crypt/secrets.json filter=git-agecrypt diff=git-agecrypt
 
