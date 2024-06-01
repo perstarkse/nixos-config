@@ -23,6 +23,8 @@
     ./nvidia.nix
     ./vfio
     inputs.home-manager.nixosModules.home-manager
+    inputs.sops-nix.nixosModules.sops
+    inputs.stylix.nixosModules.stylix
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
   ];
@@ -58,7 +60,7 @@
     image = ./wallpaper.jpg;
     fonts = {
       sizes = {
-        terminal = 9;
+        terminal = 8;
         applications = 10;
         popups = 10;
         desktop = 10;
@@ -81,9 +83,18 @@
       name = "Bibata-Modern-Classic";
       size = 18;
     };
-    
   };
 
+  sops = {
+    defaultSopsFile = ./../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age = {
+      keyFile = "/home/p/.config/sops/age/keys.txt";
+    };
+    secrets = {
+      "hosts/makemake/url" = { };
+    };
+  };
 
   nix = {
     # This will add each flake input as a registry

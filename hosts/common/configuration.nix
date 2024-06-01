@@ -86,6 +86,7 @@
     # unstable.devenv
     cryptsetup
     util-linux
+    sops
   ];
 
   virtualisation.docker.enable = true;

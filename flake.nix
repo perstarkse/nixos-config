@@ -23,9 +23,10 @@
      };
     nixarr.url = "github:rasmus-kirk/nixarr";
     stylix.url = "github:danth/stylix";
+    sops-nix.url = "github:Mic92/sops-nix";
 };
 
-  outputs = { self, nixpkgs, home-manager, blinkstick-scripts, nixarr,  ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, blinkstick-scripts, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -65,7 +66,6 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./hosts/charon/configuration.nix
-            inputs.stylix.nixosModules.stylix
           ];
         };
 	      ariel = nixpkgs.lib.nixosSystem {
@@ -78,7 +78,7 @@
 	        specialArgs = { inherit inputs outputs; };
 	        modules = [
 		        ./hosts/makemake/configuration.nix
-            nixarr.nixosModules.default
+            inputs.nixarr.nixosModules.default
 		      ];
 	      };
       };
