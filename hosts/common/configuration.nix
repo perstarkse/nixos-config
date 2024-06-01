@@ -71,7 +71,7 @@
   programs.gnupg.agent.enable = true;
 
   environment.systemPackages = with pkgs; [
-    git-crypt
+    git-agecrypt
     pciutils
     vim
     htop
