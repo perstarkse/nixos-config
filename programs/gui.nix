@@ -5,7 +5,7 @@
     ./i3
     ./i3status-rust
     ./rofi
-
+    ./ncspot
     ./qutebrowser
     ./firefox
   ];

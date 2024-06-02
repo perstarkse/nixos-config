@@ -20,6 +20,7 @@
     ./boot.nix
     ../common/configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.sops-nix.nixosModules.sops
     ./nixarr.nix
     # ../../programs/1password
   ];

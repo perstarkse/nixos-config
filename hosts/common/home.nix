@@ -23,7 +23,6 @@ in
       enable = true;
       userName = "Per Stark";
       userEmail = secrets.personalEmail1;
-      # userEmail = "perstark.se@gmail.com";
       extraConfig = {
         init = {
           defaultBranch = "main";

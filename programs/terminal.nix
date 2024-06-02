@@ -3,7 +3,6 @@
   imports = [
     ./alacritty
     ./helix
-    ./ncspot
     ./fish
     ./starship
   ];
