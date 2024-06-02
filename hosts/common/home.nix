@@ -9,7 +9,7 @@ in
   ];
   
   home.packages = with pkgs; [
-  pinentry-gtk2
+    pinentry-gtk2
   ];
   
   home = {
@@ -22,7 +22,7 @@ in
     git = {
       enable = true;
       userName = "Per Stark";
-      userEmail = secrets.personalEmail1;
+      userEmail = secrets.personalEmail;
       extraConfig = {
         init = {
           defaultBranch = "main";

@@ -5,6 +5,7 @@
     ./helix
     ./fish
     ./starship
+    ./aerc
   ];
 
   home.packages = with pkgs; [
