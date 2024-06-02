@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let 
-  secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/secrets.json);
+  secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/crypt.json);
 in
 {
   imports = [
