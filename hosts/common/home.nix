@@ -22,7 +22,7 @@ in
     git = {
       enable = true;
       userName = "Per Stark";
-      userEmail = secrets.emails[0];
+      userEmail = secrets.personalEmail1;
       # userEmail = "perstark.se@gmail.com";
       extraConfig = {
         init = {
