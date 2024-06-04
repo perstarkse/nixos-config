@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     nil
     ranger
+    w3m
     irssi
     wget
     taskwarrior

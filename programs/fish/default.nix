@@ -4,9 +4,8 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
-      set -x OPENAI_API_KEY op://development/openrouter/credential
+      set -x RESEND_API_KEY $(pass api-key/resend)
       set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
-      set -x RESEND_API_KEY op://development/resend-api-key/credential
     '';
       
     shellAliases = {

@@ -37,15 +37,14 @@ in
       nix-direnv.enable = true;
     };
   };
-# programs.gpg.enable =true;
 
-# services.gpg-agent = {
-    # enabled = true;
-    # enableFishIntegration = true;
-    # grabKeyboardAndMouse = true;
-    # maxCacheTtl = 3600;
-    # pinentryFlavor = "gtk";
-  # };
+services.gpg-agent = {
+  enable = true;
+  enableFishIntegration = true;
+  grabKeyboardAndMouse = true;
+  maxCacheTtl = 3600;
+  pinentryPackage = pkgs.pinentry-curses;
+};
   
   xdg.mimeApps = {
     enable = true;
