@@ -19,11 +19,11 @@
     ../common/configuration.nix
     ../common/sound.nix
     ../common/gui.nix
+    ../common/sops.nix
     ../../programs/1password
     ./nvidia.nix
     ./vfio
     inputs.home-manager.nixosModules.home-manager
-    inputs.sops-nix.nixosModules.sops
     inputs.stylix.nixosModules.stylix
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
@@ -84,18 +84,7 @@
       size = 18;
     };
   };
-
-  sops = {
-    defaultSopsFile = ./../../secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
-    age = {
-      keyFile = "/home/p/.config/sops/age/keys.txt";
-    };
-    secrets = {
-      "hosts/makemake/url" = { };
-    };
-  };
-
+  
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake

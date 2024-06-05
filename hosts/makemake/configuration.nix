@@ -18,9 +18,9 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ./boot.nix
+    ../common/sops.nix
     ../common/configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.sops-nix.nixosModules.sops
     ./nixarr.nix
     # ../../programs/1password
   ];
@@ -111,11 +111,11 @@
     # Forbid root login through SSH.
     settings.PermitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)
-    settings.PasswordAuthentication = true;
+    settings.PasswordAuthentication = false;
   };
 
   environment.systemPackages = with pkgs; [
-  jellyfin
+
   ];
 
 
