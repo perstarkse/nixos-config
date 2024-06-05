@@ -20,43 +20,6 @@ in
         "text/markdown" = "glow -";
         "application/pdf" = "pdftotext - -";
       };
-      templates = {
-        "new" = ''
-          To: 
-          Cc: 
-          Subject: 
-
-          Hello,
-
-          Best regards,
-          ${secrets.myName}
-        '';
-        "reply" = ''
-          To: $from
-          Cc: 
-          Subject: Re: $subject
-
-          On $date, $from wrote:
-          > $body
-
-          Hello $fromName,
-
-          Best regards,
-          ${secrets.myName}
-        '';
-        "forward" = ''
-          To: 
-          Cc: 
-          Subject: Fwd: $subject
-
-          Forwarded message:
-
-          $body
-
-          Best regards,
-          ${secrets.myName}
-        '';
-      };
     };
   };
 }
