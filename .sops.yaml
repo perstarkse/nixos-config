@@ -1,7 +1,9 @@
 keys:
   - &charon age1mduamgqyt783gjlczg8mxa39ms90uggpay9lgqkvwun4smywzyzs3kddmc
+  - &makemake age16ddghh8ggkzwynz95ctf835y769jqyflsrcr8mlct8q50gtahpns50gdxy
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:
       - *charon
+      - *makemake
