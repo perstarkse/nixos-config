@@ -1,136 +1,99 @@
-# NixOS Configuration Repository
+# NixOS Configuration with Flakes and Git-Agecrypt
 
-This repository contains all configuration files for my NixOS system. It utilizes the Nix Flakes system to manage and reproduce the configurations across different hosts.
-
-The system is set up with x11, i3, qutebrowser, helix, fish amongst other applications. Secrets and passwords are managed by 1password and the cli integration. It is mostly themed to dracula theme.
+This repository contains my NixOS and home-manager configurations, meticulously crafted for a consistent and reproducible experience across my machines. 
 
 ![Screenshot of my setup](screenshot.png)
 
-Below is a detailed description of the directory structure and configuration files:
+## ✨ Features
 
-## 📁 Root Directory
+- **Multiple Host Management:** Effortlessly manage configurations for different machines (Ariel, Charon, Encke, Makemake).
+- **Streamlined Organization:**  Well-defined directories for hosts, overlays, packages, and programs ensure clarity and easy navigation.
+- **Custom Packages:** Build and manage custom packages tailored to your specific needs.
+- **Seamless Development:** A dedicated development shell is readily available via `nix develop`.
+- **Robust Secrets Management:** Securely handle sensitive information using Git-Agecrypt and SOPS-Nix, integrating seamlessly with 1Password and pass for a smooth terminal experience.
+- **Visually Unified Experience:** Enjoy a consistent look and feel across graphical and terminal environments, using stylix.
 
-The root directory includes the main \`flake.nix\` and \`flake.lock\` files which drive the usage of Nix Flakes in this configuration.
+## 🚀 Getting Started
 
-```
-flake.nix    - The main flake configuration file.
-flake.lock   - The lock file generated from flake.
-```
+1. **Prerequisites:** Make sure you have NixOS installed. For optimal compatibility, consider using the latest stable version.
+2. **Clone the Repository:** `git clone https://github.com/your-username/nixos-config.git`
+3. **Unlock Secrets:** Initialize git-agecrypt and configure it to decrypt your secrets file.
+4. **Explore:** Delve into the host-specific configurations under `hosts/` to understand the setup for each machine.
+5. **Customize:** Tailor the configurations to your preferences. The well-structured directories simplify locating and modifying specific settings.
+6. **Apply:** Use `nixos-rebuild switch` to apply the configuration to your chosen host.
 
-Other essential configuration files:
-
-```
-nixpkgs.nix  - Specifies the Nix Packages collection to use.
-shell.nix    - Configuration for the development shell.
-```
-
-And the following directories:
-
-```
-hosts        - Contains configuration for different hosts.
-overlays     - Contains Nixpkgs overlays.
-pkgs         - Contains package configurations.
-programs     - Contains program-specific configurations.
-```
-
-## 📁 Hosts
-
-The \`hosts\` directory contains configurations specific to different machines:
-
-### 📂 ariel
-
-Configuration for the \`ariel\` machine. Laptop.
+## 📂 Directory Structure
 
 ```
-boot.nix                 - Bootloader configuration.
-configuration.nix        - Main NixOS configuration.
-hardware-configuration.nix - Hardware-specific configuration.
-home.nix                 - Home manager configuration.
-```
-
-### 📂 charon
-
-Configuration for the \`charon\` machine. Primary workstation that's used for VFIO.
-
-```
-boot.nix                 - Bootloader configuration.
-configuration.nix        - Main NixOS configuration.
-hardware-configuration.nix - Hardware-specific configuration.
-home.nix                 - Home manager configuration.
-nvidia.nix               - Nvidia drivers configuration.
-```
-
-#### 📂 passthrough
-
-Contains configuration and patch for enabling PCI passthrough:
-
-```
-default.nix              - Configuration for the passthrough.
-fix-vfio-troll.patch     - Patch to fix vfio issues.
-```
-
-### 📂 encke
-
-Configuration for the \`encke\` machine:
-
-```
-boot.nix                 - Bootloader configuration.
-configuration.nix        - Main NixOS configuration.
-hardware-configuration.nix - Hardware-specific configuration.
-home.nix                 - Home manager configuration.
-```
-
-### 📂 common
-
-Configuration for common settings across all hosts:
-
-```
-configuration.nix        - Main common configuration.
-gui.nix                  - GUI-related configuration.
-home.nix                 - Home manager configuration.
-sound.nix                - Sound configuration.
-```
-
-## 📁 Overlays
-
-```
-default.nix - Contains Nixpkgs overlays.
-```
-
-## 📁 Pkgs
-
-```
-default.nix - Contains package configurations.
-```
-
-## 📁 Programs
-
-Contains individual configurations for each of the programs.
-
-For each program, there is a \`default.nix\` file that contains the program's configuration:
-
-```
-- 1password
-- alacritty
-- development.nix
-- dunst
-- firefox
-- fish
-- gtk
-- helix
-- i3
-- i3status rust
-- ncspot
-- qutebrowser
-- rofi
-- starship
-- vscode
-- xdg-user
-```
-
-Also, it includes global configuration files for GUI and terminal:
-
-```
-gui.nix
-terminal.nix
+├── hosts
+│   ├── ariel
+│   │   ├── boot.nix
+│   │   ├── configuration.nix
+│   │   ├── hardware-configuration.nix
+│   │   └── home.nix
+│   ├── charon
+│   │   ├── boot.nix
+│   │   ├── configuration.nix
+│   │   ├── hardware-configuration.nix
+│   │   ├── home.nix
+│   │   ├── nvidia.nix
+│   │   └── vfio
+│   │       ├── default.nix
+│   │       └── fix-vfio-troll.patch
+│   ├── common
+│   │   ├── configuration.nix
+│   │   ├── gui.nix
+│   │   ├── home.nix
+│   │   └── sound.nix
+│   ├── encke
+│   │   ├── boot.nix
+│   │   ├── configuration.nix
+│   │   ├── hardware-configuration.nix
+│   │   └── home.nix
+│   └── makemake
+│       ├── boot.nix
+│       ├── configuration.nix
+│       ├── hardware-configuration.nix
+│       ├── home.nix
+│       └── nixarr.nix
+├── overlays
+│   └── default.nix
+├── pkgs
+│   └── default.nix
+└── programs
+    ├── 1password
+    │   └── default.nix
+    ├── aerc
+    │   └── default.nix
+    ├── alacritty
+    │   └── default.nix
+    ├── development.nix
+    ├── dunst
+    │   └── default.nix
+    ├── firefox
+    │   └── default.nix
+    ├── fish
+    │   └── default.nix
+    ├── gui.nix
+    ├── helix
+    │   └── default.nix
+    ├── i3
+    │   ├── default.nix
+    │   └── keyboard_service.nix
+    ├── i3status-rust
+    │   ├── commonBlocks.nix
+    │   └── default.nix
+    ├── ncspot
+    │   └── default.nix
+    ├── qutebrowser
+    │   └── default.nix
+    ├── rofi
+    │   └── default.nix
+    ├── starship
+    │   └── default.nix
+    ├── terminal.nix
+    ├── vscode
+    │   └── default.nix
+    └── xdg-user-dirs
+        └── default.nix
 ```
