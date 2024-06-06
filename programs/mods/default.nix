@@ -7,7 +7,7 @@ let
         api-key-env = "OPENROUTER_API_KEY";
         base-url = "https://openrouter.ai/api/v1";
         models = {
-          "meta-llama/llama-3-70b-instruct:nitro" = {
+          "meta-llama/llama-3-70b-instruct" = {
             aliases = [ "meta-llama/llama-3-70b-instruct" ];
             max-input-chars = 8192;
             fallback = "meta-llama/llama-3-8b-instruct:nitro";
@@ -25,7 +25,7 @@ let
         };
       };
     };
-    default-model = "meta-llama/llama-3-8b-instruct:nitro";
+    default-model = "meta-llama/llama-3-70b-instruct";
     max-input-chars = 8192;
     format = false;
     quiet = true;
