@@ -1,10 +1,13 @@
 { pkgs, ...}: 
+let 
+  secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/crypt.json);
+in
 {
   programs.fish = { 
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
-      set -x RESEND_API_KEY $(pass api-key/resend)
+      set -x RESEND_API_KEY ${secrets.api-key-resend}
       set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
     '';
       
