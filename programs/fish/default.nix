@@ -9,6 +9,7 @@ in
       set fish_greeting
       set -x RESEND_API_KEY ${secrets.api-key-resend}
       set -x OPENAI_API_KEY ${secrets.api-key-openai}
+      set -x OPENROUTER_API_KEY ${secrets.api-key-openrouter}
       set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
     '';
       

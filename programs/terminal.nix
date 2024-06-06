@@ -6,6 +6,7 @@
     ./fish
     ./starship
     ./aerc
+    ./mods
   ];
 
   home.packages = with pkgs; [
