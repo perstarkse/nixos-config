@@ -8,6 +8,7 @@ in
     interactiveShellInit = ''
       set fish_greeting
       set -x RESEND_API_KEY ${secrets.api-key-resend}
+      set -x OPENAI_API_KEY ${secrets.api-key-openai}
       set -gx SSH_AUTH_SOCK $HOME/.1password/agent.sock
     '';
       
@@ -16,8 +17,6 @@ in
     };
     shellAbbrs = {
         cclip = "xclip -selection clipboard";
-        mail = "op run -- pop";
-        ai = "op run -- mods";
         qr-to-otp = "xclip -selection clipboard -t image/png -o - | zbarimg -q --raw - | pass otp append";
     };
     
