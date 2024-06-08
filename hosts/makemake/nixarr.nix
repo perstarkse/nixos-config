@@ -5,10 +5,10 @@ nixarr = {
     mediaDir = "/data/media";
     stateDir = "/data/media/.state/nixarr";
 
-    # vpn = {
-      # enable = true;
-      # wgConf = "/data/.secret/wg.conf";
-    # };
+    vpn = {
+      enable = true;
+      wgConf = config.sops.secrets.vpn-makemake;
+    };
     
     # transmission = {
       # enable = true;
