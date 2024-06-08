@@ -74,16 +74,7 @@
     };
   };
 
-  # services.nginx = {
-  #   enable = true;
-  #   virtualHosts."makemake" = {
-  #     locations."/radarr" = {
-  #       proxyPass = "http://127.0.0.1:7878";
-  #     };
-  #   };
-  # };
-  
-    # Enable networking
+  # Enable networking
   networking = {
     hostName = "makemake";
     networkmanager.enable = true;
