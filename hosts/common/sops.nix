@@ -11,7 +11,7 @@
       keyFile = "/home/p/.config/sops/age/keys.txt";
     };
     secrets = {
-      "hosts/makemake/url" = { };
+      "wg0.conf" = { };
     };
   };
 }

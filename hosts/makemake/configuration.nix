@@ -21,7 +21,8 @@
     ../common/sops.nix
     ../common/configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    ./nixarr.nix
+    # ./nixarr.nix
+    ./arrs.nix
     # ../../programs/1password
   ];
 
@@ -78,6 +79,7 @@
   networking = {
     hostName = "makemake";
     networkmanager.enable = true;
+    enableIPv6 = false;
   };
   
   users.groups.media = {

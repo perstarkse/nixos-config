@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     my-nixpkgs.url = "github:perstarkse/nixpkgs";
+    my-nixarr.url = "github:perstarkse/nixarr";
     
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -24,6 +25,8 @@
     nixarr.url = "github:rasmus-kirk/nixarr";
     stylix.url = "github:danth/stylix";
     sops-nix.url = "github:Mic92/sops-nix";
+    vpnconfinement.url = "github:Maroka-chan/VPN-Confinement";
+    vpnconfinement.inputs.nixpkgs.follows = "nixpkgs";
 };
 
   outputs = { self, nixpkgs, home-manager, blinkstick-scripts, ... }@inputs:
@@ -78,7 +81,8 @@
 	        specialArgs = { inherit inputs outputs; };
 	        modules = [
 		        ./hosts/makemake/configuration.nix
-            inputs.nixarr.nixosModules.default
+            # inputs.my-nixarr.nixosModules.default
+            inputs.vpnconfinement.nixosModules.default
 		      ];
 	      };
       };
