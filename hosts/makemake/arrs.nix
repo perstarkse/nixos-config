@@ -54,9 +54,15 @@
     group = "torrent";
   };
 
+  users.users.plex = {
+    isSystemUser = true;
+    extraGroups = ["media"];
+  };
+
   # Configure services
   services.transmission = {
     enable = true;
+    group = "torrent";
     settings = {
       "rpc-bind-address" = "192.168.15.1"; 
       "rpc-host-whitelist-enabled" = false;
@@ -68,7 +74,6 @@
       dht-enabled = false;
       pex-enabled = false;
     };
-    group = "torrent";
   };
 
   services.sonarr = {
@@ -85,6 +90,13 @@
     group = "media";
   };
 
+  services.plex = {
+    enable = true;
+    dataDir = "/data/.state/plex/";
+    openFirewall = true;
+    group = "media";
+  };
+  
   services.nginx = {
     enable = true;
     virtualHosts."192.168.122.134" = {
@@ -104,7 +116,5 @@
   
   networking.firewall.allowedTCPPorts = [ 9091 ];
   networking.firewall.allowedUDPPorts = [ 9091 ];
-
-  
 }
 
