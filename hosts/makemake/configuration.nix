@@ -21,8 +21,10 @@
     ../common/sops.nix
     ../common/configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    # ./nixarr.nix
+    inputs.vpnconfinement.nixosModules.default
     ./arrs.nix
+    ./network.nix
+    ./home-assistant.nix
     # ../../programs/1password
   ];
 
@@ -89,10 +91,11 @@
     p = {
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII6uq8nXD+QBMhXqRNywwCa/dl2VVvG/2nvkw9HEPFzn p@charon"
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "docker" ];
       shell = pkgs.fish;
     };
   };
