@@ -12,6 +12,7 @@
     };
     secrets = {
       "wg0.conf" = { };
+      "ddclient.conf" = {};
     };
   };
 }
