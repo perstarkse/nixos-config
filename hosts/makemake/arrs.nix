@@ -76,6 +76,12 @@
     extraGroups = ["media"];
   };
 
+  users.users.bazarr = {
+    isSystemUser = true;
+    group = "torrent";
+    extraGroups = ["media"];
+  };
+
   # users.users.overseerr = {
   #   isSystemUser = true;
   #   group = "torrent";
@@ -126,6 +132,12 @@
     openFirewall = true;
   };
 
+  services.bazarr = {
+    enable = true;
+    openFirewall = true;
+    group = "torrent";
+  };
+
   # services.overseerr = {
   #   enable = true;
   #   openFirewall = true;
@@ -140,6 +152,12 @@
     ports = [ "5055:5055" ];
     volumes = [ "/data/.state/overseerr/config:/app/config" ];
   };  
+
+  services.ddclient = {
+    enable = true;
+    configFile = config.sops.secrets."ddclient.conf".path;  
+  };
+
   services.nginx = {
     enable = true;
     virtualHosts."192.168.122.134" = {
