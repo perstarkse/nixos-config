@@ -572,11 +572,11 @@
     },
     "my-nixpkgs": {
       "locked": {
-        "lastModified": 1708933789,
-        "narHash": "sha256-cVN/XYhlgQOy8L6+RUzMdmNlTuOM810MCgmzLG8oCgw=",
+        "lastModified": 1718042845,
+        "narHash": "sha256-qGL3eRUI/wHh5jRiGVE428k6MuA9bsMgM99qZIZdqLQ=",
         "owner": "perstarkse",
         "repo": "nixpkgs",
-        "rev": "275a4ef48abbe35df19d9d689fd800a7f481c74f",
+        "rev": "194eced82991f186d4671d6f5b06e7f0f3a91705",
         "type": "github"
       },
       "original": {

@@ -1,6 +1,16 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
+  imports = [
+    # ./../../modules/overseerr.nix
+  ];
+
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     overseerr = self.callPackage ./../../pkgs/overseerr.nix {};
+  #   })
+  # ];
+  
   vpnnamespaces.wg = {
     enable = true;
     wireguardConfigFile = config.sops.secrets."wg0.conf".path;
@@ -35,6 +45,7 @@
     "d /data/torrents/manual 0775 root torrent - -"
     "d /data/media/series 0775 root media - -"
     "d /data/media/movies 0775 root media - -"
+    # "d /data/.state/overseerr/config 0775 root torrent - -"
   ];
   
   users.users.sonarr = {
@@ -59,6 +70,18 @@
     extraGroups = ["media"];
   };
 
+  users.users.prowlarr = {
+    isSystemUser = true;
+    group = "torrent";
+    extraGroups = ["media"];
+  };
+
+  # users.users.overseerr = {
+  #   isSystemUser = true;
+  #   group = "torrent";
+  #   extraGroups = ["media"];
+  # };
+
   # Configure services
   services.transmission = {
     enable = true;
@@ -73,6 +96,7 @@
       watch-dir = "/data/torrents/manual";
       dht-enabled = false;
       pex-enabled = false;
+      peer-port = 50909;
     };
   };
 
@@ -96,7 +120,26 @@
     openFirewall = true;
     group = "media";
   };
+
+  services.prowlarr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  # services.overseerr = {
+  #   enable = true;
+  #   openFirewall = true;
+  #   dataDir = "/data/.state/overseerr";
+  # };
+
+  networking.firewall.allowedTCPPorts = [ 5055 ];
   
+  virtualisation.oci-containers.containers.overseerr = {
+    image = "ghcr.io/sct/overseerr:1.33.2";
+    environment = { TZ = "Europe/Amsterdam"; };
+    ports = [ "5055:5055" ];
+    volumes = [ "/data/.state/overseerr/config:/app/config" ];
+  };  
   services.nginx = {
     enable = true;
     virtualHosts."192.168.122.134" = {
@@ -114,7 +157,5 @@
     };
   };
   
-  networking.firewall.allowedTCPPorts = [ 9091 ];
-  networking.firewall.allowedUDPPorts = [ 9091 ];
 }
 
