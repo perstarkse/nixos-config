@@ -11,26 +11,6 @@
   #   })
   # ];
   
-  vpnnamespaces.wg = {
-    enable = true;
-    wireguardConfigFile = config.sops.secrets."wg0.conf".path;
-    accessibleFrom = [
-      "192.168.0.0/24"
-    ];
-    portMappings = [
-      { from = 9091; to = 9091; }
-    ];
-    openVPNPorts = [{
-      port = 50909;
-      protocol = "both";
-    }];
-  };
-
-  systemd.services.transmission.vpnconfinement = {
-    enable = true;
-    vpnnamespace = "wg";
-  };
-  
   # Define groups
   users.groups.torrent = {};
   users.groups.media = {};
@@ -152,28 +132,5 @@
     ports = [ "5055:5055" ];
     volumes = [ "/data/.state/overseerr/config:/app/config" ];
   };  
-
-  services.ddclient = {
-    enable = true;
-    configFile = config.sops.secrets."ddclient.conf".path;  
-  };
-
-  services.nginx = {
-    enable = true;
-    virtualHosts."192.168.122.134" = {
-      listen = [
-        {
-          addr = "0.0.0.0";
-          port = 9091;
-        }
-      ];
-      locations."/" = {
-        recommendedProxySettings = true;
-        proxyWebsockets = true;
-        proxyPass = "http://192.168.15.1:9091";
-      };
-    };
-  };
-  
 }
 
