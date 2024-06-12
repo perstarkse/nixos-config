@@ -25,7 +25,6 @@
     ./vfio
     ./backups.nix
     inputs.home-manager.nixosModules.home-manager
-    inputs.stylix.nixosModules.stylix
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
   ];
@@ -54,38 +53,7 @@
       allowUnfree = true;
     };
   };
-
-  stylix = {
-    polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
-    image = ./wallpaper.jpg;
-    fonts = {
-      sizes = {
-        terminal = 8;
-        applications = 10;
-        popups = 10;
-        desktop = 10;
-      };
-      monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
-        name = "FiraCode Nerd Font";
-      };
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-    };
-    cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 18;
-    };
-  };
-  
+ 
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
