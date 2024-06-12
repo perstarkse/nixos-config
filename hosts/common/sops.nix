@@ -13,6 +13,9 @@
     secrets = {
       "wg0.conf" = { };
       "ddclient.conf" = {};
+      "restic/env" = {};
+      "restic/repo" = {};
+      "restic/password" = {};
     };
   };
 }

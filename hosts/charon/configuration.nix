@@ -23,6 +23,7 @@
     ../../programs/1password
     ./nvidia.nix
     ./vfio
+    ./backups.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix
     inputs.hardware.nixosModules.common-cpu-amd
