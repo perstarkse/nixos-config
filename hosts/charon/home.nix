@@ -59,6 +59,7 @@
     texlive.combined.scheme-small
     mupdf
     mynixpkgs.epy
+    mynixpkgs.lsp-ai
     feh
     peek
     aichat

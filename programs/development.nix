@@ -21,5 +21,7 @@
     nil
     nodePackages.bash-language-server     
     sshfs
+    rustc
+    cargo
   ];
 }
