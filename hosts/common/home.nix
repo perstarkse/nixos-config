@@ -42,7 +42,7 @@ services.gpg-agent = {
   enable = true;
   enableFishIntegration = true;
   grabKeyboardAndMouse = true;
-  maxCacheTtl = 3600;
+  maxCacheTtl = 10800;
   pinentryPackage = pkgs.pinentry-curses;
 };
   

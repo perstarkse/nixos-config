@@ -13,6 +13,7 @@
     settings = {
       editor.command = ["alacritty" "--command" "hx" "{file}"]; 
       content.javascript.clipboard = "access-paste";
+      content.pdfjs = true;
     };
   };
 }
