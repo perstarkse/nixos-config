@@ -7,6 +7,7 @@
     ./starship
     ./aerc
     ./mods
+    ./zellij
   ];
 
   home.packages = with pkgs; [
