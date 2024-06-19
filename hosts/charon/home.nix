@@ -46,7 +46,9 @@
     # optionalLayout = "";
     # optionalLayoutPrograms = [ ];  
   # };
-   
+
+  programs.zellij.enable = lib.mkForce false; 
+  
   home.packages = with pkgs; [
     # thunderbird
     telegram-desktop
