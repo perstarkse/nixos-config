@@ -58,8 +58,10 @@
     haskellPackages.pandoc-crossref
     texlive.combined.scheme-small
     mupdf
+    taplo
     mynixpkgs.epy
     mynixpkgs.lsp-ai
+    yaml-language-server
     feh
     peek
     aichat

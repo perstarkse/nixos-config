@@ -18,6 +18,8 @@
     # rust-analyzer
     nodePackages.vscode-css-languageserver-bin
     marksman
+    # vscode-langservers-extracted
+    python311Packages.python-lsp-server
     nil
     nodePackages.bash-language-server     
     sshfs

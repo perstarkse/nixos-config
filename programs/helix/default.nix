@@ -6,12 +6,13 @@
     defaultEditor = true;
     languages = {
       language = [
-        { name = "typescript"; language-servers = ["typescript" "lsp-ai"]; }
-        { name = "nix"; language-servers = ["nil" "lsp-ai"];}
-        { name = "python"; language-servers = ["lsp-ai"];}
+        { name = "typescript"; language-servers = ["typescript"]; }
+        { name = "javascript"; language-servers = ["typescript"]; }
+        { name = "nix"; language-servers = ["nil"];}
+        { name = "python"; language-servers = ["pylsp"];}
       ];
       language-server.lsp-ai = {
-        command = "lsp-ai";
+        command = "${pkgs.mynixpkgs.lsp-ai}/bin/lsp-ai";
         config = {
           memory = {
             file_store = {};
@@ -20,7 +21,7 @@
             default = {
               type = "open_ai";
               chat_endpoint = "https://openrouter.ai/api/v1/chat/completions";
-              model = "bigcode/starcoder2-15b-instruct";
+              model = "anthropic/claude-3-haiku:beta";
               auth_token_env_var_name = "OPENROUTER_API_KEY";
             };
           };

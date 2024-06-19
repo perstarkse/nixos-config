@@ -86,6 +86,15 @@
       "192.168.122.134" = [ "makemake" ];
     };
   };
+
+  services.nginx.streamConfig = ''
+    server {
+      listen 2022;
+      proxy_pass 192.168.122.134:22;
+    }
+  '';
+
+  networking.firewall.allowedTCPPorts = [ 2022 ];
   
   environment.pathsToLink = [ "/share/zsh" ];
     
