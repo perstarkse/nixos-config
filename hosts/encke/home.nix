@@ -14,8 +14,8 @@
     # ./nvim.nix
     #programs.i3
     ../common/home.nix
-    ../../programs/gui.nix
-    ../../programs/terminal.nix
+    # ../../programs/gui.nix
+    # ../../programs/terminal.nix
      ];
 
  

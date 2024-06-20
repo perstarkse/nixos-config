@@ -18,9 +18,9 @@
     ./hardware-configuration.nix
     ./boot.nix
     ../common/configuration.nix
-    ../common/sound.nix
-    ../common/gui.nix
-    ../common/sops.nix
+    # ../common/sound.nix
+    # ../common/gui.nix
+    # ../common/sops.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
