@@ -79,7 +79,7 @@
     # jq
     xdotool
     wireguard-tools
-    veracrypt
+    # veracrypt
     fzf
     fishPlugins.fzf-fish
     usbutils
