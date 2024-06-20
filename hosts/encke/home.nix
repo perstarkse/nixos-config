@@ -15,7 +15,7 @@
     #programs.i3
     ../common/home.nix
     # ../../programs/gui.nix
-    # ../../programs/terminal.nix
+    ../../programs/terminal.nix
      ];
 
  
@@ -26,6 +26,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      outputs.overlays.my-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
