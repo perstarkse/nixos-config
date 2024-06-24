@@ -18,6 +18,9 @@ in
     wireguardConfigFile = config.sops.secrets."wg0.conf".path;
     accessibleFrom = [
       "192.168.0.0/24"
+      "0.0.0.0/8"
+      "127.0.0.1"
+      "10.0.0.0/8"
     ];
     portMappings = [
       { from = 9091; to = 9091; }
