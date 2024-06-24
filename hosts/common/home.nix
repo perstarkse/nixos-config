@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
-let 
-  secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/crypt.json);
-in
+# let 
+  # secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/crypt.json);
+# in
 {
   imports = [
     ../../programs/xdg-user-dirs
@@ -22,7 +22,7 @@ in
     git = {
       enable = true;
       userName = "Per Stark";
-      userEmail = secrets.personalEmail;
+      userEmail = "perstark.se@gmail.com";
       extraConfig = {
         init = {
           defaultBranch = "main";

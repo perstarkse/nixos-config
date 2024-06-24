@@ -25,5 +25,6 @@
     sshfs
     rustc
     cargo
+    gcc
   ];
 }

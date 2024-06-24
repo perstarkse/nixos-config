@@ -8,17 +8,15 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "floppy" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/40d0e3d6-202c-4afd-a2d5-ea94bcf20ca3";
+    { device = "/dev/disk/by-uuid/4c21de83-dacb-47bd-998a-3f3f3e18bd55";
       fsType = "ext4";
     };
-
-  boot.initrd.luks.devices."luks-6a3a87f5-c8dc-44b6-a7c0-254098fb6997".device = "/dev/disk/by-uuid/6a3a87f5-c8dc-44b6-a7c0-254098fb6997";
 
   swapDevices = [ ];
 
@@ -27,7 +25,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.ens2.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

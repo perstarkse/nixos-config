@@ -18,9 +18,9 @@
     ./hardware-configuration.nix
     ./boot.nix
     ../common/configuration.nix
-    ../common/sound.nix
-    ../common/gui.nix
-    ../common/sops.nix
+    # ../common/sound.nix
+    # ../common/gui.nix
+    # ../common/sops.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -85,6 +85,8 @@
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII6uq8nXD+QBMhXqRNywwCa/dl2VVvG/2nvkw9HEPFzn p@charon"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILTFYzpBBZVPLTU6PrIAzRAqazgJaZsLj7bcJeoIB/ox"
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = [ "wheel" "networkmanager" ];
@@ -95,7 +97,8 @@
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
   services.openssh = {
-    enable = false;
+    enable = true;
+    ports = [ 2022 ];
     # Forbid root login through SSH.
     settings.PermitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)

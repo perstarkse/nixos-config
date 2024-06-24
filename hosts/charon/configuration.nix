@@ -85,32 +85,9 @@
     hosts = {
       "192.168.122.3" = [ "makemake" ];
     };
-    # nat = {
-    #   enable = true;
-    #   externalInterface = "enp5s0";
-    #   internalInterfaces = [ "vibr0"];
-    #   forwardPorts = [
-    #     {
-    #       destination = "192.168.122.134:22";
-    #       proto = "tcp";
-    #       sourcePort = 2022;
-    #     }
-    #   ];
-    # };
-    # # nftables = {
-    #   enable = true;
-    #   ruleset = ''
-    #     table ip nat {
-    #       chain PREROUTING {
-    #         type nat hook prerouting priority dstnat; policy accept;
-    #         iifname "vibr0" tcp dport 2022 dnat to 10.0.0.15
-    #       }
-    #     }
-    #   '';
-    # };
   };
 
-  # networking.firewall.allowedTCPPorts = [ 2022 ];
+  networking.firewall.allowedTCPPorts = [ 2022 ];
   
   environment.pathsToLink = [ "/share/zsh" ];
     
@@ -130,6 +107,7 @@
   # Feel free to remove if you don't need it.
   services.openssh = {
     enable = false;
+    ports = [ 2022 ];
     # Forbid root login through SSH.
     settings.PermitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)
