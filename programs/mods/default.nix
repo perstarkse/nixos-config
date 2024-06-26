@@ -22,19 +22,29 @@ let
             max-input-chars = 200000;
             fallback = null;
           };
+          "anthropic/claude-3.5-sonnet:beta" = {
+            aliases = [ "anthropic/claude-3.5-sonnet:beta" ];
+            max-input-chars = 200000;
+            fallback = "claude-3-haiku:beta";
+          };
+          "deepseek/deepseek-coder" = {
+            aliases = [ "deepseek/deepseek-coder" ];
+            max-input-chars = 20000;
+            fallback = "claude-3-haiku:beta";
+          };
         };
       };
     };
-    default-model = "meta-llama/llama-3-70b-instruct";
-    max-input-chars = 8192;
+    default-model = "anthropic/claude-3.5-sonnet:beta";
+    max-input-chars = 180000;
     format = false;
     quiet = true;
-    temp = 1.0;
+    temp = 0.8;
     topp = 1.0;
     no-limit = false;
     include-prompt-args = false;
     include-prompt = 0;
-    max-retries = 5;
+    max-retries = 3;
     fanciness = 10;
     status-text = "Generating";
     # max-tokens = 100;  # Uncomment if you want to set this value

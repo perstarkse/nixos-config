@@ -25,5 +25,8 @@
     sshfs
     rustc
     cargo
+    gcc
+    rust-analyzer
+    rustfmt
   ];
 }
