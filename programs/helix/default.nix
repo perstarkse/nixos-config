@@ -10,6 +10,12 @@
         { name = "javascript"; language-servers = ["typescript"]; }
         { name = "nix"; language-servers = ["nil"];}
         { name = "python"; language-servers = ["pylsp"];}
+        { 
+          name = "rust"; 
+          auto-format = true; 
+          language-servers = ["rust-analyzer"]; 
+          formatter.command = "rustfmt";
+        }
       ];
       language-server.lsp-ai = {
         command = "${pkgs.mynixpkgs.lsp-ai}/bin/lsp-ai";
