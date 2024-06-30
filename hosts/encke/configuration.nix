@@ -89,7 +89,7 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILTFYzpBBZVPLTU6PrIAzRAqazgJaZsLj7bcJeoIB/ox"
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd" "kvm" "qemu-libvirtd" ];
       shell = pkgs.fish;
     };
   };
@@ -104,6 +104,8 @@
     # Use keys only. Remove if you want to SSH using password (not recommended)
     settings.PasswordAuthentication = false;
   };
+
+  programs.nix-ld.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "unstable";

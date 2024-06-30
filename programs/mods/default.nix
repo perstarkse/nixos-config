@@ -28,7 +28,7 @@ let
             fallback = "claude-3-haiku:beta";
           };
           "deepseek/deepseek-coder" = {
-            aliases = [ "deepseek/deepseek-coder" ];
+            aliases = [ "deepseek/deepseek-coder" "coder" ];
             max-input-chars = 20000;
             fallback = "claude-3-haiku:beta";
           };

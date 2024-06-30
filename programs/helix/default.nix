@@ -14,7 +14,7 @@
           name = "rust"; 
           auto-format = true; 
           language-servers = ["rust-analyzer"]; 
-          formatter.command = "${pkgs.rustfmt}/bin/rustfmt";
+          formatter.command = "rustfmt";
         }
       ];
       language-server.lsp-ai = {
