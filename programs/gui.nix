@@ -1,5 +1,4 @@
-{ pkgs, inputs, ...}:
-{
+{pkgs, ...}: {
   imports = [
     ./dunst
     ./i3
@@ -8,9 +7,10 @@
     ./ncspot
     ./qutebrowser
     ./firefox
+    ./vscode
   ];
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     lxappearance
     arandr
     discord

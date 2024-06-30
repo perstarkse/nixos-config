@@ -1,5 +1,4 @@
-{inputs, ...}: 
-{
+{inputs, ...}: {
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
@@ -11,7 +10,7 @@
       keyFile = "/home/p/.config/sops/age/keys.txt";
     };
     secrets = {
-      "wg0.conf" = { };
+      "wg0.conf" = {};
       "ddclient.conf" = {};
       "restic/env" = {};
       "restic/repo" = {};

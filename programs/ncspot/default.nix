@@ -1,9 +1,10 @@
-{config, lib, ...}:
-{
+{config, ...}: {
   programs.ncspot = {
     enable = true;
     settings = {
-      theme = {      
+      gapless = true;
+      use_nerdfont = true;
+      theme = {
         background = "#${config.lib.stylix.colors.base00}";
         primary = "#${config.lib.stylix.colors.base05}";
         title = "#${config.lib.stylix.colors.base0D}";

@@ -1,9 +1,7 @@
-{ config, pkgs, lib, inputs,  ... }:
+{pkgs, ...}: {
+  boot.initrd.kernelModules = ["vfio-pci"];
+  boot.kernelModules = ["kvm-amd"];
 
-{
-  boot.initrd.kernelModules = [ "vfio-pci" ];
-  boot.kernelModules = [ "kvm-amd" ];  
-  
   boot.kernelPatches = [
     {
       name = "fix-vfio-framebuffer-troll";
@@ -11,11 +9,15 @@
     }
   ];
 
-  boot.kernelParams =
-  let
+  boot.kernelParams = let
     gpuIds = "10de:1b81,10de:10f0";
   in [
-    "amd_iommu=on" "iommu=1" "kvm.ignore_msrs=1" "kvm.report_ignored_msrs=0" "kvm_amd.npt=1" "kvm_amd.avic=1"
+    "amd_iommu=on"
+    "iommu=1"
+    "kvm.ignore_msrs=1"
+    "kvm.report_ignored_msrs=0"
+    "kvm_amd.npt=1"
+    "kvm_amd.avic=1"
     "vfio-pci.ids=${gpuIds}"
     "default_hugepagesz=1G"
     "hugepages=20"
@@ -27,20 +29,20 @@
       ovmf.enable = true;
       runAsRoot = false;
       package = pkgs.qemu_kvm; # host cpu only
-      };
-      onBoot = "ignore";
-      onShutdown = "shutdown";
+    };
+    onBoot = "ignore";
+    onShutdown = "shutdown";
   };
-  
-  environment.systemPackages = with pkgs; [ virt-manager looking-glass-client ];
-  
+
+  environment.systemPackages = with pkgs; [virt-manager looking-glass-client];
+
   systemd.tmpfiles.rules = [
     "f /dev/shm/looking-glass 0660 p qemu-libvirtd -"
   ];
-  
+
   home-manager.users.p.programs.looking-glass-client = {
     enable = true;
-  
+
     settings = {
       app.shmFile = "/dev/shm/looking-glass";
       input = {
@@ -51,7 +53,7 @@
       win = {
         #fullScreen = true;
       };
-        audio = {
+      audio = {
         micDefault = "allow";
         micShowIndicator = false;
       };

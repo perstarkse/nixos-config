@@ -1,5 +1,4 @@
-{inputs, pkgs, ...}:
-{
+{pkgs, ...}: {
   programs.qutebrowser = {
     enable = true;
     package = pkgs.unstable.qutebrowser;
@@ -11,7 +10,7 @@
       };
     };
     settings = {
-      editor.command = ["alacritty" "--command" "hx" "{file}"]; 
+      editor.command = ["alacritty" "--command" "hx" "{file}"];
       content.javascript.clipboard = "access-paste";
       content.pdfjs = true;
     };

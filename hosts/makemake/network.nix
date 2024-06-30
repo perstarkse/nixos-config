@@ -1,18 +1,6 @@
-{ config, pkgs, inputs, ... }:
-let 
+{config, ...}: let
   secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/crypt.json);
-in
-{
-  imports = [
-    # ./../../modules/overseerr.nix
-  ];
-
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     overseerr = self.callPackage ./../../pkgs/overseerr.nix {};
-  #   })
-  # ];
-  
+in {
   vpnnamespaces.wg = {
     enable = true;
     wireguardConfigFile = config.sops.secrets."wg0.conf".path;
@@ -23,12 +11,17 @@ in
       "10.0.0.0/8"
     ];
     portMappings = [
-      { from = 9091; to = 9091; }
+      {
+        from = 9091;
+        to = 9091;
+      }
     ];
-    openVPNPorts = [{
-      port = 50909;
-      protocol = "both";
-    }];
+    openVPNPorts = [
+      {
+        port = 50909;
+        protocol = "both";
+      }
+    ];
   };
 
   systemd.services.transmission.vpnconfinement = {
@@ -37,7 +30,7 @@ in
   };
   services.ddclient = {
     enable = true;
-    configFile = config.sops.secrets."ddclient.conf".path;  
+    configFile = config.sops.secrets."ddclient.conf".path;
   };
 
   services.nginx = {

@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-let
+{pkgs, ...}: let
   modsConfig = {
     apis = {
       openrouter = {
@@ -8,27 +6,27 @@ let
         base-url = "https://openrouter.ai/api/v1";
         models = {
           "meta-llama/llama-3-70b-instruct" = {
-            aliases = [ "meta-llama/llama-3-70b-instruct" ];
+            aliases = ["meta-llama/llama-3-70b-instruct"];
             max-input-chars = 8192;
             fallback = "meta-llama/llama-3-8b-instruct:nitro";
           };
           "meta-llama/llama-3-8b-instruct:nitro" = {
-            aliases = [ "meta-llama/llama-3-8b-instruct:nitro" ];
+            aliases = ["meta-llama/llama-3-8b-instruct:nitro"];
             max-input-chars = 8192;
             fallback = "claude-3-haiku:beta";
           };
           "anthropic/claude-3-haiku:beta" = {
-            aliases = [ "anthropic/claude-3-haiku:beta" ];
+            aliases = ["anthropic/claude-3-haiku:beta"];
             max-input-chars = 200000;
             fallback = null;
           };
           "anthropic/claude-3.5-sonnet:beta" = {
-            aliases = [ "anthropic/claude-3.5-sonnet:beta" ];
+            aliases = ["anthropic/claude-3.5-sonnet:beta"];
             max-input-chars = 200000;
             fallback = "claude-3-haiku:beta";
           };
           "deepseek/deepseek-coder" = {
-            aliases = [ "deepseek/deepseek-coder" "coder" ];
+            aliases = ["deepseek/deepseek-coder" "coder"];
             max-input-chars = 20000;
             fallback = "claude-3-haiku:beta";
           };
@@ -49,8 +47,7 @@ let
     status-text = "Generating";
     # max-tokens = 100;  # Uncomment if you want to set this value
   };
-in
-{
+in {
   home.file.".config/mods/mods.yml" = {
     text = pkgs.lib.generators.toYAML {} modsConfig;
   };

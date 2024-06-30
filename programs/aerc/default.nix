@@ -1,8 +1,6 @@
-{ pkgs, config, ... }:
-let 
+{pkgs, ...}: let
   secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/crypt.json);
-in
-{
+in {
   home.packages = with pkgs; [
     poppler
     w3m

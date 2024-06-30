@@ -1,23 +1,36 @@
-{inputs, pkgs, ...}:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.helix = {
     enable = true;
     package = inputs.helix-master.packages."x86_64-linux".default;
     defaultEditor = true;
     languages = {
       language = [
-        { name = "typescript"; language-servers = ["typescript" "gpt"]; }
-        { name = "javascript"; language-servers = ["typescript" "gpt"]; }
-        { 
+        {
+          name = "typescript";
+          language-servers = ["typescript" "gpt"];
+        }
+        {
+          name = "javascript";
+          language-servers = ["typescript" "gpt"];
+        }
+        {
           name = "nix";
           language-servers = ["nil"];
           auto-format = true;
+          formatter.command = "alejandra";
         }
-        { name = "python"; language-servers = ["pylsp" "gpt"];}
-        { 
-          name = "rust"; 
-          auto-format = true; 
-          language-servers = ["rust-analyzer" "gpt" ]; 
+        {
+          name = "python";
+          language-servers = ["pylsp" "gpt"];
+        }
+        {
+          name = "rust";
+          auto-format = true;
+          language-servers = ["rust-analyzer" "gpt"];
           formatter.command = "rustfmt";
         }
       ];

@@ -1,7 +1,10 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  outputs,
+  pkgs,
+  ...
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -14,9 +17,8 @@
     ../common/home.nix
     ../../programs/terminal.nix
     ../../programs/development.nix
-     ];
+  ];
 
- 
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -41,19 +43,15 @@
       # Disable if you don't want unfree packages
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = (_: true);
+      allowUnfreePredicate = _: true;
     };
   };
-    
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
 
-  home.packages = with pkgs; [ 
- 
+  home.packages = with pkgs; [
   ];
 
   # system specific shell aliases
   programs.fish.shellAliases = {
-      rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#encke";
+    rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#encke";
   };
 }

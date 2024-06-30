@@ -1,7 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-
-{ inputs, outputs, lib, config, pkgs,  ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -34,7 +40,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-      
+
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
@@ -55,7 +61,7 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -70,7 +76,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs;};
+    extraSpecialArgs = {inherit inputs outputs;};
     users = {
       p = import ./home.nix;
     };
@@ -78,16 +84,16 @@
 
   services.thermald.enable = true;
   services.tlp.enable = true;
-  
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
   services.pipewire.wireplumber.enable = true;
-  
+
   # hardware.ipu6 = {
   #   enable = true;
   #   platform = "ipu6ep";
   # };
-  
+
   # Enable networking
   networking = {
     hostName = "ariel";
@@ -100,21 +106,21 @@
       ovmf.enable = true;
       runAsRoot = false;
       package = pkgs.qemu_kvm; # host cpu only
-      };
-      onBoot = "ignore";
-      onShutdown = "shutdown";
+    };
+    onBoot = "ignore";
+    onShutdown = "shutdown";
   };
-  
+
   users.users = {
     p = {
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" "docker" ];
+      extraGroups = ["wheel" "networkmanager" "libvirtd" "kvm" "docker"];
       shell = pkgs.fish;
     };
-  };    
+  };
   # environment.systemPackages = with pkgs; [
   #   cups               # For the CUPS system
   #   cups-filters       # Useful filters for CUPS
@@ -137,7 +143,7 @@
   };
 
   services.xserver.videoDrivers = ["modesetting"];
-  
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }

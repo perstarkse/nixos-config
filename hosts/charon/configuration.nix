@@ -1,6 +1,13 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -36,7 +43,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-      
+
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
@@ -53,11 +60,11 @@
       allowUnfree = true;
     };
   };
- 
+
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -72,25 +79,25 @@
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs outputs;};
+    extraSpecialArgs = {inherit inputs outputs;};
     users = {
       p = import ./home.nix;
     };
   };
-  
-   # Enable networking
+
+  # Enable networking
   networking = {
     hostName = "charon";
     networkmanager.enable = true;
     hosts = {
-      "192.168.122.3" = [ "makemake" ];
+      "192.168.122.3" = ["makemake"];
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 2022 ];
-  
-  environment.pathsToLink = [ "/share/zsh" ];
-    
+  networking.firewall.allowedTCPPorts = [2022];
+
+  environment.pathsToLink = ["/share/zsh"];
+
   users.users = {
     p = {
       isNormalUser = true;
@@ -98,7 +105,7 @@
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "wheel" "networkmanager" "libvirtd" "kvm" "qemu-libvirtd" "docker" ];
+      extraGroups = ["wheel" "networkmanager" "libvirtd" "kvm" "qemu-libvirtd" "docker"];
       shell = pkgs.fish;
     };
   };
@@ -107,7 +114,7 @@
   # Feel free to remove if you don't need it.
   services.openssh = {
     enable = false;
-    ports = [ 2022 ];
+    ports = [2022];
     # Forbid root login through SSH.
     settings.PermitRootLogin = "no";
     # Use keys only. Remove if you want to SSH using password (not recommended)

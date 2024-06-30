@@ -1,20 +1,18 @@
-{config, ...}:
-{
- # Make sure opengl is enabled
+{config, ...}: {
+  # Make sure opengl is enabled
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
   };
-  
-  boot.initrd.kernelModules = [ "nvidia" ];  
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
+
+  boot.initrd.kernelModules = ["nvidia"];
+  boot.extraModulePackages = [config.boot.kernelPackages.nvidia_x11];
 
   # Tell Xorg to use the nvidia driver
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
-
     # Modesetting is needed for most wayland compositors
     modesetting.enable = true;
 
@@ -31,5 +29,5 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     #package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };  
+  };
 }

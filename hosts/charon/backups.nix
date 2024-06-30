@@ -1,5 +1,4 @@
-{config, ...}:
-{
+{config, ...}: {
   # configure restic backup services
   services.restic.backups = {
     daily = {
@@ -21,4 +20,3 @@
     };
   };
 }
-

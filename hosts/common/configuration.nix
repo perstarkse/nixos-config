@@ -1,5 +1,4 @@
-{pkgs, ... }:
-{
+{pkgs, ...}: {
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
 
@@ -32,7 +31,8 @@
         DEVICE:
           EVENTS:
             EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
-    '';  };
+    '';
+  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -40,16 +40,16 @@
       layout = "us";
       variant = "";
     };
-  };  
+  };
 
   fonts = {
-    packages = with pkgs; [ 
-    source-code-pro 
-    fira-code
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    font-awesome
-    ]; 
-    
+    packages = with pkgs; [
+      source-code-pro
+      fira-code
+      (nerdfonts.override {fonts = ["FiraCode"];})
+      font-awesome
+    ];
+
     fontDir.enable = true;
   };
 
@@ -61,7 +61,7 @@
 
   # Programs system wide
   programs.fish.enable = true;
-  programs.dconf.enable = true; 
+  programs.dconf.enable = true;
   programs.zsh = {
     enable = true;
     syntaxHighlighting = {
@@ -102,7 +102,7 @@
   networking.firewall.checkReversePath = false;
 
   services.gnome.gnome-keyring.enable = true;
-  
+
   environment.variables = {
     EDITOR = "hx";
   };

@@ -1,23 +1,24 @@
-{pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    package = pkgs.unstable.vscode;    
-    extensions = with pkgs.vscode-extensions.vscode-marketplace; [
-      esbenp.prettier-vscode
-      bbenoist.nix
-      silverquark.dancehelix
-      vue.vscode-typescript-vue-plugin
-      github.copilot
-      github.copilot-chat
-      ms-python.python
-      ms-python.vscode-pylance
-      juanblanco.solidity
-      bradlc.vscode-tailwindcss
-      rust-lang.rust-analyzer
-      otovo-oss.htmx-tags
-      ms-vscode-remote.remote-ssh
-    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [ ];
+    package = pkgs.unstable.vscode;
+    extensions = with pkgs.vscode-extensions.vscode-marketplace;
+      [
+        esbenp.prettier-vscode
+        bbenoist.nix
+        silverquark.dancehelix
+        vue.vscode-typescript-vue-plugin
+        github.copilot
+        github.copilot-chat
+        ms-python.python
+        ms-python.vscode-pylance
+        juanblanco.solidity
+        bradlc.vscode-tailwindcss
+        rust-lang.rust-analyzer
+        otovo-oss.htmx-tags
+        ms-vscode-remote.remote-ssh
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [];
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
     mutableExtensionsDir = false;
@@ -27,7 +28,7 @@
         fontFamily = "'Fira Code', 'monospace', monospace";
         inlineSuggest.enabled = true;
         minimap.enabled = false;
-        formatOnSave = true;      
+        formatOnSave = true;
       };
       files = {
         autoSave = "onFocusChanged";
@@ -39,7 +40,10 @@
       remote = {
         SSH = {
           showLoginTerminal = true;
-          useExecServer = false;
+          connectTimeout = 30;
+          useExecServer = true;
+          localServerDownload = "always";
+          logLevel = "trace";
         };
       };
       terminal.integrated = {

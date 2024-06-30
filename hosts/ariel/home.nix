@@ -1,27 +1,29 @@
-{ inputs, outputs, lib, config, pkgs, ... }:{
-
-   imports = [
+{
+  outputs,
+  pkgs,
+  ...
+}: {
+  imports = [
     ../common/home.nix
     ../../programs/gui.nix
     ../../programs/terminal.nix
     ../../programs/development.nix
     ../../programs/i3/keyboard_service.nix
-    ];
-  
+  ];
+
   nixpkgs = {
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
     ];
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = (_: true);
+      allowUnfreePredicate = _: true;
     };
   };
 
@@ -33,7 +35,7 @@
       {
         name = "home";
         atomic = true;
-        outputs_connected = [ "eDP-1" "DP-3" ];
+        outputs_connected = ["eDP-1" "DP-3"];
         configure_single = "DP-3";
         primary = true;
         execute_after = [
@@ -42,13 +44,13 @@
       }
       {
         name = "mobile";
-        outputs_disconnected = [ "DP-3" ];
+        outputs_disconnected = ["DP-3"];
         configure_single = "eDP-1";
         primary = true;
         execute_after = [
           "${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --mode 1920x1200"
           "${pkgs.i3}/bin/i3-msg reload"
-        ];      
+        ];
       }
       {
         name = "fallback";
@@ -60,10 +62,10 @@
     enable = false;
     defaultLayout = "us";
     optionalLayout = "se";
-    optionalLayoutPrograms = [ "slack" ];  
+    optionalLayoutPrograms = ["slack"];
   };
-   # system specific packages that dont require custom settings
-  home.packages = with pkgs; [ 
+  # system specific packages that dont require custom settings
+  home.packages = with pkgs; [
     unstable.slack
     thunderbird
     google-chrome
@@ -72,16 +74,17 @@
     virt-manager
     peek
     obsidian
-    ];
- 
+  ];
 
-  programs.i3status-rust.bars.bottom.blocks = [{
-    block = "battery";
-  }];
-  
+  programs.i3status-rust.bars.bottom.blocks = [
+    {
+      block = "battery";
+    }
+  ];
+
   # system specific shell aliases
   programs.fish.shellAliases = {
-      rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#ariel";
-      ms-teams = "devour google-chrome-stable --app='https://teams.microsoft.com'";
+    rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#ariel";
+    ms-teams = "devour google-chrome-stable --app='https://teams.microsoft.com'";
   };
 }

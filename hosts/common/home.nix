@@ -1,24 +1,19 @@
-{ pkgs, ... }:
-
-# let 
-  # secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/crypt.json);
-# in
-{
+{pkgs, ...}: {
   imports = [
     ../../programs/xdg-user-dirs
   ];
-  
+
   home.packages = with pkgs; [
     pinentry-gtk2
   ];
-  
+
   home = {
     username = "p";
     homeDirectory = "/home/p";
   };
-  
+
   programs = {
-    home-manager.enable = true;  
+    home-manager.enable = true;
     git = {
       enable = true;
       userName = "Per Stark";
@@ -38,14 +33,14 @@
     };
   };
 
-services.gpg-agent = {
-  enable = true;
-  enableFishIntegration = true;
-  grabKeyboardAndMouse = true;
-  maxCacheTtl = 10800;
-  pinentryPackage = pkgs.pinentry-curses;
-};
-  
+  services.gpg-agent = {
+    enable = true;
+    enableFishIntegration = true;
+    grabKeyboardAndMouse = true;
+    maxCacheTtl = 10800;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
   xdg.mimeApps = {
     enable = true;
 
@@ -57,7 +52,7 @@ services.gpg-agent = {
       "x-scheme-handler/unknown" = "firefox.desktop";
     };
   };
-  
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 

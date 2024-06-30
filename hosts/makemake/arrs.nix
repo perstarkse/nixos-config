@@ -1,6 +1,4 @@
-{ config, pkgs, inputs, ... }:
-
-{
+{...}: {
   imports = [
     # ./../../modules/overseerr.nix
   ];
@@ -10,7 +8,7 @@
   #     overseerr = self.callPackage ./../../pkgs/overseerr.nix {};
   #   })
   # ];
-  
+
   # Define groups
   users.groups.torrent = {};
   users.groups.media = {};
@@ -27,17 +25,17 @@
     "d /data/media/movies 0775 root media - -"
     # "d /data/.state/overseerr/config 0775 root torrent - -"
   ];
-  
+
   users.users.sonarr = {
     isSystemUser = true;
     group = "media";
-    extraGroups = [ "torrent" ];
+    extraGroups = ["torrent"];
   };
 
   users.users.radarr = {
     isSystemUser = true;
     group = "media";
-    extraGroups = [ "torrent" ];
+    extraGroups = ["torrent"];
   };
 
   users.users.transmission = {
@@ -73,7 +71,7 @@
     enable = true;
     group = "torrent";
     settings = {
-      "rpc-bind-address" = "192.168.15.1"; 
+      "rpc-bind-address" = "192.168.15.1";
       "rpc-host-whitelist-enabled" = false;
       "rpc-whitelist-enabled" = false;
       "download-dir" = "/data/torrents/complete";
@@ -124,13 +122,12 @@
   #   dataDir = "/data/.state/overseerr";
   # };
 
-  networking.firewall.allowedTCPPorts = [ 5055 ];
-  
+  networking.firewall.allowedTCPPorts = [5055];
+
   virtualisation.oci-containers.containers.overseerr = {
     image = "ghcr.io/sct/overseerr:1.33.2";
-    environment = { TZ = "Europe/Amsterdam"; };
-    ports = [ "5055:5055" ];
-    volumes = [ "/data/.state/overseerr/config:/app/config" ];
-  };  
+    environment = {TZ = "Europe/Amsterdam";};
+    ports = ["5055:5055"];
+    volumes = ["/data/.state/overseerr/config:/app/config"];
+  };
 }
-

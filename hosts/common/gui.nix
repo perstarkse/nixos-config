@@ -1,5 +1,8 @@
-{inputs, pkgs, ...} :
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
@@ -42,14 +45,14 @@
     displayManager.lightdm.enable = true;
   };
   services.libinput = {
-      mouse = {
-        accelProfile = "flat";
-      };
+    mouse = {
+      accelProfile = "flat";
+    };
   };
   services.displayManager = {
     defaultSession = "none+i3";
     autoLogin.user = "p";
-    autoLogin.enable = true;  
+    autoLogin.enable = true;
   };
 
   xdg.portal = {
@@ -60,6 +63,6 @@
 
   environment.systemPackages = with pkgs; [
   ];
-  
+
   programs.nm-applet.enable = true;
 }
