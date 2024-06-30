@@ -31,7 +31,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
- stylix = {
+  stylix = {
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
     image = ../common/wallpaper.jpg;
