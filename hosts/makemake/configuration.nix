@@ -1,44 +1,50 @@
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
-  # You can import other NixOS modules here
+{ inputs, outputs, lib, config, pkgs,  ... }: {
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
-
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
-    # Import your generated (nixos-generate-config) hardware configuration
+    inputs.home-manager.nixosModules.home-manager
+    inputs.vpnconfinement.nixosModules.default
+    inputs.stylix.nixosModules.stylix
     ./hardware-configuration.nix
     ./boot.nix
     ../common/sops.nix
     ../common/configuration.nix
-    inputs.home-manager.nixosModules.home-manager
-    inputs.vpnconfinement.nixosModules.default
     ./arrs.nix
     ./network.nix
     ./home-assistant.nix
-    # ../../programs/1password
   ];
 
+ stylix = {
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
+    image = ../common/wallpaper.jpg;
+    fonts = {
+      sizes = {
+        terminal = 8;
+        applications = 10;
+        popups = 10;
+        desktop = 10;
+      };
+      monospace = {
+        package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
+        name = "FiraCode Nerd Font";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+    };
+  };
+
   nixpkgs = {
-    # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
+      
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
@@ -59,7 +65,7 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -72,9 +78,9 @@
       auto-optimise-store = true;
     };
   };
-
-  home-manager = {
-    extraSpecialArgs = {inherit inputs outputs;};
+ 
+   home-manager = {
+    extraSpecialArgs = { inherit inputs outputs;};
     users = {
       p = import ./home.nix;
     };
@@ -86,10 +92,7 @@
     networkmanager.enable = true;
     enableIPv6 = false;
   };
-
-  users.groups.media = {
-  };
-
+   
   users.users = {
     p = {
       isNormalUser = true;
@@ -99,7 +102,7 @@
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel" "networkmanager" "docker"];
+      extraGroups = [ "wheel" "networkmanager" "docker" ];
       shell = pkgs.fish;
     };
   };
@@ -113,9 +116,6 @@
     # Use keys only. Remove if you want to SSH using password (not recommended)
     settings.PasswordAuthentication = false;
   };
-
-  environment.systemPackages = with pkgs; [
-  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
