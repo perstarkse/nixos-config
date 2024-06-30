@@ -28,5 +28,7 @@
     gcc
     rust-analyzer
     rustfmt
+    helix-gpt
+    alejandra
   ];
 }

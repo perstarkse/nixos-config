@@ -6,17 +6,24 @@
     defaultEditor = true;
     languages = {
       language = [
-        { name = "typescript"; language-servers = ["typescript"]; }
-        { name = "javascript"; language-servers = ["typescript"]; }
-        { name = "nix"; language-servers = ["nil"];}
-        { name = "python"; language-servers = ["pylsp"];}
+        { name = "typescript"; language-servers = ["typescript" "gpt"]; }
+        { name = "javascript"; language-servers = ["typescript" "gpt"]; }
+        { 
+          name = "nix";
+          language-servers = ["nil"];
+          auto-format = true;
+        }
+        { name = "python"; language-servers = ["pylsp" "gpt"];}
         { 
           name = "rust"; 
           auto-format = true; 
-          language-servers = ["rust-analyzer"]; 
+          language-servers = ["rust-analyzer" "gpt" ]; 
           formatter.command = "rustfmt";
         }
       ];
+      language-server.gpt = {
+        command = "helix-gpt";
+      };
       language-server.lsp-ai = {
         command = "${pkgs.mynixpkgs.lsp-ai}/bin/lsp-ai";
         config = {

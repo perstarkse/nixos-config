@@ -10,6 +10,7 @@ in
       set -x RESEND_API_KEY ${secrets.api-key-resend}
       set -x OPENAI_API_KEY ${secrets.api-key-openai}
       set -x OPENROUTER_API_KEY ${secrets.api-key-openrouter}
+      set -X COPILOT_API_KEY ${secrets.api-key-copilot}
     '';
   
     shellAliases = {
