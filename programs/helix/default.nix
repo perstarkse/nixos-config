@@ -33,7 +33,20 @@
           language-servers = ["rust-analyzer" "gpt"];
           formatter.command = "rustfmt";
         }
+        {
+          name = "markdown";
+          auto-format = true;
+          language-servers = ["marksman"];
+          formatter = {
+            command = "${pkgs.mdformat}/bin/mdformat";
+            args = ["-"];
+          };
+        }
       ];
+      language-server.marksman = {
+        command = "${pkgs.marksman}/bin/marksman";
+        args = ["server"];
+      };
       language-server.gpt = {
         command = "helix-gpt";
       };
