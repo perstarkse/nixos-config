@@ -47,6 +47,10 @@
   # optionalLayoutPrograms = [ ];
   # };
 
+  services.gpg-agent = {
+    pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
+  };
+
   programs.zellij.enable = lib.mkForce false;
 
   home.packages = with pkgs; [
