@@ -139,6 +139,10 @@
 
   programs.nix-ld.enable = true;
 
+  environment.systemPackages = [
+    pkgs.wget
+  ];
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "unstable";
 }
