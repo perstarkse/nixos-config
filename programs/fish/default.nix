@@ -9,6 +9,8 @@ in {
       set -x OPENAI_API_KEY ${secrets.api-key-openai}
       set -x OPENROUTER_API_KEY ${secrets.api-key-openrouter}
       set -x COPILOT_API_KEY ${secrets.api-key-copilot}
+      set -x AWS_ACCESS_KEY_ID ${secrets.api-key-aws-access}
+      set -x AWS_SECRET_ACCESS_KEY ${secrets.api-key-aws-secret}
     '';
 
     shellAliases = {
