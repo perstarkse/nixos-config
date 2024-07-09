@@ -33,6 +33,20 @@
         };
       };
     };
+    roles = {
+      shell = [
+        "you are a shell expert"
+        "you do not explain anything"
+        "you simply output one liners to solve the problems you're asked"
+        "you do not provide any explanation whatsoever, ONLY the command"
+      ];
+      functional-expert = [
+        "you are an expert at functional programming in rust"
+        "you assume a pragmatic view of the functional programming paradigm"
+        "you help the user become a better developer"
+        "you use clear code examples and explanations to do so"
+      ];
+    };
     default-model = "anthropic/claude-3.5-sonnet:beta";
     max-input-chars = 180000;
     format = false;
