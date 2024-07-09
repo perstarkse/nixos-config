@@ -57,7 +57,7 @@
     # thunderbird
     telegram-desktop
     google-chrome
-    # unstable.ollama
+    unstable.ollama
     marp-cli
     pandoc
     haskellPackages.pandoc-plot
