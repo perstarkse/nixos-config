@@ -4,6 +4,7 @@
     nodejs
     gptcommit
     docker
+    mynixpkgs.code2prompt
     yarn
     chromium
     nodePackages.typescript-language-server
