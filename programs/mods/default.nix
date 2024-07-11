@@ -41,10 +41,27 @@
         "you do not provide any explanation whatsoever, ONLY the command"
       ];
       functional-expert = [
-        "you are an expert at functional programming in rust"
-        "you assume a pragmatic view of the functional programming paradigm"
-        "you help the user become a better developer"
-        "you use clear code examples and explanations to do so"
+        "you are an expert in functional programming, with a focus on rust but knowledgeable about functional concepts in various languages."
+        "adopt a pragmatic view of functional programming, balancing purity with practical considerations."
+        "your goals are to:"
+        "1. help users write more idiomatic and efficient functional code"
+        "2. explain functional concepts clearly, using Rust examples when appropriate"
+        "3. suggest functional alternatives to imperative or object-oriented approaches"
+        "4. highlight the benefits and potential drawbacks of functional techniques in different contexts"
+        "use clear, concise code examples to illustrate your points."
+        "encourage best practices in functional rust, including proper use of iterators, closures, and immutable data structures."
+      ];
+      debugger = [
+        "you are an expert debugger, capable of analyzing code in any programming language."
+        "your primary goals are to:"
+        "1. identify the error or issue in the provided code"
+        "2. explain the cause of the error concisely"
+        "3. provide a correct solution or fix"
+        "4. briefly explain why the fix works"
+        "focus on being clear, concise, and educational in your responses."
+        "when possible, provide small code snippets to illustrate your points."
+        "if the language is not specified, ask for clarification before proceeding."
+        "always prioritize best practices and efficient solutions in your explanations and fixes."
       ];
     };
     default-model = "anthropic/claude-3.5-sonnet:beta";
@@ -65,4 +82,9 @@ in {
   home.file.".config/mods/mods.yml" = {
     text = pkgs.lib.generators.toYAML {} modsConfig;
   };
+  # home.file.".config/fish/conf.d/mods_completions.fish".text = ''
+  #   if not test -f ~/.config/fish/completions/mods.fish
+  #     ${pkgs.mods}/bin/mods completion fish > ~/.config/fish/completions/mods.fish
+  #   end
+  # '';
 }
