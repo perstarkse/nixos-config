@@ -1,6 +1,6 @@
 keys:
   - &charon age1mduamgqyt783gjlczg8mxa39ms90uggpay9lgqkvwun4smywzyzs3kddmc
-  - &makemake age1zkkhp4henqhrwk0q2609nldgfeah3ztan5metgus3e9q8g7taa4qwg6gz8
+  - &makemake age15ja0sykdyrtvpkv7cv5apxdjzzfeaz5u5ptf2qqkq4arn7g4m99qzv24dn
   - &makemake-vm age16ddghh8ggkzwynz95ctf835y769jqyflsrcr8mlct8q50gtahpns50gdxy
 creation_rules:
   - path_regex: secrets/secrets.yaml$
