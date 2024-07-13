@@ -17,7 +17,7 @@
   systemd.tmpfiles.rules = [
     "d /data 0755 root root - -"
     "d /data/media 0775 root media - -"
-    "d /data/torrents 0775 root torrent,media - -"
+    "d /data/torrents 0775 root torrent - -"
     "d /data/torrents/incomplete 0775 root torrent - -"
     "d /data/torrents/complete 0775 root torrent - -"
     "d /data/torrents/complete/sonarr 0775 root torrent - -"
@@ -73,16 +73,19 @@
     enable = true;
     group = "torrent";
     settings = {
-      "rpc-bind-address" = "192.168.15.1";
-      "rpc-host-whitelist-enabled" = false;
-      "rpc-whitelist-enabled" = false;
-      "download-dir" = "/data/torrents/complete";
-      "incomplete-dir" = "/data/torrents/incomplete";
+      rpc-bind-address = "192.168.15.1";
+      rpc-host-whitelist-enabled = false;
+      rpc-whitelist-enabled = false;
+      download-dir = "/data/torrents/complete";
+      incomplete-dir = "/data/torrents/incomplete";
+      incomplete-dir-enabled = false;
       watch-dir-enabled = true;
       watch-dir = "/data/torrents/manual";
       dht-enabled = false;
       pex-enabled = false;
       peer-port = 50909;
+      cache-size-mb = 2048;
+      preallocation = 1;
     };
   };
 
