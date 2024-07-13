@@ -26,6 +26,25 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/7c22f54a-44ba-47d9-be8e-97df8a11f30a"; }
     ];
+  fileSystems."/mnt/18tb" = {
+    device = "/dev/disk/by-uuid/937c61e1-9f1c-4d56-8984-5888236ab762"; 
+    fsType = "xfs";
+  };
+  fileSystems."/mnt/4tb" = {
+    device = "/dev/disk/by-uuid/7c672abf-30ec-46be-aa0f-7931d6ba1931";
+    fsType = "xfs";
+  };
+  fileSystems."/storage" = {
+    fsType = "fuse.mergerfs";
+    device = "/mnt/*";
+      options = ["cache.files=partial" "dropcacheonclose=true" "category.create=mfs"];
+  };
+
+  fileSystems."/data/media" = {
+    device = "/storage/media/library";
+    fsType = "none";
+    options = [ "bind" ];
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

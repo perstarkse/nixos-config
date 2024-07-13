@@ -27,6 +27,7 @@ in {
     enable = true;
     vpnnamespace = "wg";
   };
+
   services.ddclient = {
     enable = true;
     configFile = config.sops.secrets."ddclient.conf".path;
@@ -34,18 +35,54 @@ in {
 
   services.nginx = {
     enable = true;
-    virtualHosts."${secrets.makemake-domain}" = {
+
+    virtualHosts."local-service" = {
       listen = [
         {
-          addr = "0.0.0.0";
+          addr = "127.0.0.1";
+          port = 9091;
+        }
+        {
+          addr = "10.0.0.10";
           port = 9091;
         }
       ];
+
       locations."/" = {
         recommendedProxySettings = true;
         proxyWebsockets = true;
         proxyPass = "http://192.168.15.1:9091";
       };
     };
+
+    virtualHosts."${secrets.makemake-domain}" = {
+      listen = [
+        {
+          addr = "0.0.0.0";
+          port = 80;
+        }
+        {
+          addr = "0.0.0.0";
+          port = 443;
+          ssl = true;
+        }
+      ];
+
+      enableACME = true;
+      forceSSL = true;
+
+      locations."/" = {
+        recommendedProxySettings = true;
+        proxyWebsockets = true;
+        proxyPass = "http://10.0.0.10:5055";
+      };
+    };
   };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "perstark.se@gmail.com";
+  };
+
+  networking.firewall.allowedTCPPorts = [80 443];
 }

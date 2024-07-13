@@ -48,6 +48,8 @@
   };
 
   home.packages = with pkgs; [
+    nil
+    alejandra
   ];
 
   # system specific shell aliases

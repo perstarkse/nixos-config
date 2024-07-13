@@ -20,10 +20,12 @@
     "d /data/torrents 0775 root torrent,media - -"
     "d /data/torrents/incomplete 0775 root torrent - -"
     "d /data/torrents/complete 0775 root torrent - -"
+    "d /data/torrents/complete/sonarr 0775 root torrent - -"
+    "d /data/torrents/complete/radarr 0775 root torrent - -"
     "d /data/torrents/manual 0775 root torrent - -"
-    "d /data/media/series 0775 root media - -"
+    "d /data/media/tvseries 0775 root media - -"
     "d /data/media/movies 0775 root media - -"
-    # "d /data/.state/overseerr/config 0775 root torrent - -"
+    "d /data/.state/overseerr/config 0775 root torrent - -"
   ];
 
   users.users.sonarr = {
@@ -114,6 +116,12 @@
     enable = true;
     openFirewall = true;
     group = "torrent";
+  };
+
+  services.tautulli = {
+    enable = true;
+    openFirewall = true;
+    group = "media";
   };
 
   # services.overseerr = {

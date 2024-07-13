@@ -116,6 +116,11 @@
     # Use keys only. Remove if you want to SSH using password (not recommended)
     settings.PasswordAuthentication = false;
   };
+    
+  environment.systemPackages = with pkgs; [
+    mergerfs
+  ];
+
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
