@@ -28,6 +28,7 @@ in {
     vpnnamespace = "wg";
   };
 
+  ## this points to several domains now
   services.ddclient = {
     enable = true;
     configFile = config.sops.secrets."ddclient.conf".path;

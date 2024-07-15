@@ -134,7 +134,6 @@
   # };
 
   networking.firewall.allowedTCPPorts = [5055];
-
   virtualisation.oci-containers.containers.overseerr = {
     image = "ghcr.io/sct/overseerr:1.33.2";
     environment = {TZ = "Europe/Amsterdam";};
