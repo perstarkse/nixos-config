@@ -16,6 +16,7 @@
       "restic/repo" = {};
       "restic/repo_vault" = {};
       "restic/password" = {};
+      "vaultwarden.env" = {};
     };
   };
 }

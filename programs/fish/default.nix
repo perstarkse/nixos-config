@@ -5,12 +5,12 @@ in {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
-      set -x RESEND_API_KEY ${secrets.api-key-resend}
-      set -x OPENAI_API_KEY ${secrets.api-key-openai}
-      set -x OPENROUTER_API_KEY ${secrets.api-key-openrouter}
-      set -x COPILOT_API_KEY ${secrets.api-key-copilot}
-      set -x AWS_ACCESS_KEY_ID ${secrets.api-key-aws-access}
-      set -x AWS_SECRET_ACCESS_KEY ${secrets.api-key-aws-secret}
+      set -x RESEND_API_KEY ${secrets.api-keys.resend}
+      set -x OPENAI_API_KEY ${secrets.api-keys.openai}
+      set -x OPENROUTER_API_KEY ${secrets.api-keys.openrouter}
+      set -x COPILOT_API_KEY ${secrets.api-keys.copilot}
+      set -x AWS_ACCESS_KEY_ID ${secrets.api-keys.aws.access}
+      set -x AWS_SECRET_ACCESS_KEY ${secrets.api-keys.aws.secret}
     '';
 
     shellAliases = {

@@ -56,7 +56,7 @@ in {
       };
     };
 
-    virtualHosts."${secrets.makemake-domain}" = {
+    virtualHosts."${secrets.domains.cloud.requests}" = {
       listen = [
         {
           addr = "0.0.0.0";

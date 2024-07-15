@@ -35,7 +35,7 @@ in {
     enable = true;
     recommendedGzipSettings = true;
 
-    virtualHosts."${secrets.photos-domain}" = {
+    virtualHosts."${secrets.domains.cloud.photos}" = {
       listen = [
         {
           addr = "0.0.0.0";

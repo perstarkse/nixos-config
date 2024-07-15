@@ -7,6 +7,7 @@ in {
       ROCKET_PORT = 8322;
       ROCKET_ADDRESS = "127.0.0.1";
     };
+    environmentFile = config.sops.secrets."vaultwarden.env".path;
   };
 
   networking.firewall.allowedTCPPorts = [80 443];
@@ -20,7 +21,7 @@ in {
     enable = true;
     recommendedGzipSettings = true;
 
-    virtualHosts."${secrets.vault-domain}" = {
+    virtualHosts."${secrets.domains.cloud.vaults}" = {
       listen = [
         {
           addr = "0.0.0.0";
