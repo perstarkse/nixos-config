@@ -14,6 +14,7 @@
       "ddclient.conf" = {};
       "restic/env" = {};
       "restic/repo" = {};
+      "restic/repo_vault" = {};
       "restic/password" = {};
     };
   };

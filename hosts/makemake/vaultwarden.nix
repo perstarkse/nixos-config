@@ -42,24 +42,25 @@ in {
         proxyPass = "http://127.0.0.1:8322";
       };
     };
-    services.restic.backups = {
-      daily = {
-        initialize = true;
+  };
 
-        environmentFile = config.sops.secrets."restic/env".path;
-        repositoryFile = config.sops.secrets."restic/repo".path;
-        passwordFile = config.sops.secrets."restic/password".path;
+  services.restic.backups = {
+    daily = {
+      initialize = true;
 
-        paths = [
-          "/var/lib/bitwarden_rs"
-        ];
+      environmentFile = config.sops.secrets."restic/env".path;
+      repositoryFile = config.sops.secrets."restic/repo_vault".path;
+      passwordFile = config.sops.secrets."restic/password".path;
 
-        pruneOpts = [
-          "--keep-daily 7"
-          "--keep-weekly 5"
-          "--keep-monthly 12"
-        ];
-      };
+      paths = [
+        "/var/lib/bitwarden_rs"
+      ];
+
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 5"
+        "--keep-monthly 12"
+      ];
     };
   };
 }
