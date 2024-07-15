@@ -424,6 +424,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-immich": {
+      "locked": {
+        "lastModified": 1720272310,
+        "narHash": "sha256-9Iv85xTW4KRkHQnKakm25ct2Raxpji9kmdseLYLirgo=",
+        "owner": "jvanbruegge",
+        "repo": "nixpkgs",
+        "rev": "e26bdbbe9a6a73dcb897d1d4c206e95ddf5c1720",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jvanbruegge",
+        "ref": "immich",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1716655032,
@@ -529,6 +545,7 @@
         "my-nixpkgs": "my-nixpkgs",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-immich": "nixpkgs-immich",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
