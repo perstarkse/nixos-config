@@ -10,7 +10,6 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.vpnconfinement.nixosModules.default
     inputs.stylix.nixosModules.stylix
-    "${inputs.nixpkgs-immich}/nixos/modules/services/web-apps/immich.nix"
     ./hardware-configuration.nix
     ./boot.nix
     ../common/sops.nix
@@ -19,6 +18,7 @@
     ./network.nix
     ./home-assistant.nix
     ./vaultwarden.nix
+    ./immich.nix
   ];
 
   stylix = {
@@ -53,17 +53,6 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-      outputs.overlays.immich-overlay
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -129,14 +118,6 @@
   environment.systemPackages = with pkgs; [
     mergerfs
   ];
-
-  services.immich = {
-    enable = true;
-    host = "0.0.0.0";
-    package = pkgs.immichPkgs.immich;
-    mediaLocation = "/data/photos";
-    openFirewall = true;
-  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
