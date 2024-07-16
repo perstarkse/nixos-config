@@ -37,7 +37,7 @@ in {
   services.nginx = {
     enable = true;
 
-    virtualHosts."local-service" = {
+    virtualHosts."transmission" = {
       listen = [
         {
           addr = "127.0.0.1";
@@ -53,6 +53,46 @@ in {
         recommendedProxySettings = true;
         proxyWebsockets = true;
         proxyPass = "http://192.168.15.1:9091";
+      };
+    };
+
+    virtualHosts."lan-service" = {
+      listen = [
+        {
+          addr = "127.0.0.1";
+          port = 80;
+        }
+        {
+          addr = "10.0.0.10";
+          port = 80;
+        }
+      ];
+
+      locations = {
+        "/sonarr" = {
+          proxyPass = "http://127.0.0.1:8989";
+          proxyWebsockets = true;
+        };
+        "/radarr" = {
+          proxyPass = "http://127.0.0.1:7878";
+          proxyWebsockets = true;
+        };
+        "/plex" = {
+          proxyPass = "http://127.0.0.1:32400";
+          proxyWebsockets = true;
+        };
+        "/prowlarr" = {
+          proxyPass = "http://127.0.0.1:9696";
+          proxyWebsockets = true;
+        };
+        "/bazarr" = {
+          proxyPass = "http://127.0.0.1:6767";
+          proxyWebsockets = true;
+        };
+        "/tautulli" = {
+          proxyPass = "http://127.0.0.1:8181";
+          proxyWebsockets = true;
+        };
       };
     };
 
