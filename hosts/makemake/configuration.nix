@@ -14,8 +14,7 @@
     ./boot.nix
     ../common/sops.nix
     ../common/configuration.nix
-    ./arrs.nix
-    ./network.nix
+    ./media/default.nix
     ./home-assistant.nix
     ./vaultwarden.nix
     ./immich.nix

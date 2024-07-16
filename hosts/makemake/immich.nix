@@ -4,7 +4,7 @@
   outputs,
   ...
 }: let
-  secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/crypt.json);
+  secrets = builtins.fromJSON (builtins.readFile "${inputs.self}/secrets/crypt/crypt.json");
 in {
   nixpkgs = {
     overlays = [
