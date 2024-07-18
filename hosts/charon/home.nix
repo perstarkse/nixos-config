@@ -72,6 +72,11 @@
     peek
     aichat
     zbar
+
+    bitwarden
+    bitwarden-cli
+    bitwarden-menu
+
     (python311.withPackages (ps:
       with ps; [
         matplotlib

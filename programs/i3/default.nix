@@ -31,7 +31,8 @@ in {
         "${mod}+Print" = "exec blinkstick-scripts white";
         "${mod}+Shift+Print" = "exec blinkstick-scripts off";
         "${mod}+p" = "exec --no-startup-id sh -c \"setxkbmap -query | grep -q 'layout:\\\\s\\\\+us' && setxkbmap se || setxkbmap us\"";
-        "${mod}+a" = "exec ${pkgs.rofi-pass}/bin/rofi-pass";
+        # "${mod}+a" = "exec ${pkgs.rofi-pass}/bin/rofi-pass";
+        "${mod}+a" = "exec ${pkgs.bitwarden-menu}/bin/bwm";
 
         "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 +5%";
         "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume 0 -5%";
@@ -50,6 +51,10 @@ in {
         "${mod}+Shift+j" = "move down";
         "${mod}+Shift+k" = "move up";
         "${mod}+Shift+l" = "move right";
+
+        "${mod}+t" = "layout toggle split";
+        "${mod}+y" = "layout stacking";
+        "${mod}+Shift+space" = "floating toggle";
       };
       window = {
         titlebar = false;
