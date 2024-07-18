@@ -18,7 +18,7 @@
     ./home-assistant.nix
     ./vaultwarden.nix
     ./immich.nix
-    ./stalwart.nix
+    # ./stalwart.nix
   ];
 
   stylix = {
