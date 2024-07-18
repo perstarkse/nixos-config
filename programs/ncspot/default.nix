@@ -4,6 +4,9 @@
     settings = {
       gapless = true;
       use_nerdfont = true;
+      keybindings = {
+        "Esc" = "back";
+      };
       theme = {
         background = "#${config.lib.stylix.colors.base00}";
         primary = "#${config.lib.stylix.colors.base05}";
