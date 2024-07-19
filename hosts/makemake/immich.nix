@@ -15,6 +15,9 @@ in {
   imports = [
     "${inputs.nixpkgs-immich}/nixos/modules/services/web-apps/immich.nix"
   ];
+  systemd.tmpfiles.rules = [
+    "d /data/photos 0755 root root - -"
+  ];
 
   services.immich = {
     enable = true;
@@ -36,6 +39,7 @@ in {
     recommendedGzipSettings = true;
 
     virtualHosts."${secrets.domains.cloud.photos}" = {
+      # serverName = "${secrets.domains.cloud.photos}";
       listen = [
         {
           addr = "0.0.0.0";

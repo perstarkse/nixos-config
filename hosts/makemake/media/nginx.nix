@@ -20,6 +20,24 @@ in {
 
   services.nginx = {
     enable = true;
+    virtualHosts."_" = {
+      default = true;
+      rejectSSL = true;
+      listen = [
+        {
+          addr = "0.0.0.0";
+          port = 80;
+        }
+        {
+          addr = "0.0.0.0";
+          port = 443;
+          ssl = true;
+        }
+      ];
+      locations."/" = {
+        return = "444";
+      };
+    };
 
     virtualHosts."lan-service" = {
       listen = [
