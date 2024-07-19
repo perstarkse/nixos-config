@@ -1,67 +1,33 @@
-{pkgs, ...}: {
-  systemd.tmpfiles.rules = [
-    "d /data/.state/stalwart 0755 root root - -"
-  ];
-
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "perstark.se@gmail.com";
-  };
-
-  services.nginx = {
+{inputs, ...}: let
+  secrets = builtins.fromJSON (builtins.readFile "${inputs.self}/secrets/crypt/crypt.json");
+in {
+  services.stalwart-mail = {
     enable = true;
-    recommendedGzipSettings = true;
-
-    virtualHosts."webmail.starks.cloud" = {
-      enableACME = true;
-      addSSL = true;
-      # listen = [
-      #   {
-      #     addr = "0.0.0.0";
-      #     port = 80;
-      #   }
-      #   {
-      #     addr = "0.0.0.0";
-      #     port = 443;
-      #     ssl = true;
-      #   }
-      # ];
-
-      locations."/" = {
-        recommendedProxySettings = true;
-        proxyWebsockets = true;
-        proxyPass = "http://127.0.0.1:8080";
+    openFirewall = true;
+    settings = {
+      server = {
+        hostname = "${secrets.domains.cloud.mail}";
+        tls.enable = false;
+        domain = "${secrets.domains.cloud.parent}";
+        listener = {
+          "smtp-submission" = {
+            bind = ["[::]:587"];
+            protocol = "smtp";
+          };
+          "imap" = {
+            bind = ["[::]:143"];
+            protocol = "imap";
+          };
+          "management" = {
+            bind = ["[::]:8080"];
+            protocol = "http";
+          };
+        };
+      };
+      authentication.fallback-admin = {
+        user = "admin";
+        secret = "${secrets.stalwart.default-admin-password}";
       };
     };
-  };
-
-  networking.firewall.allowedTCPPorts = [
-    80 # HTTP (for ACME challenges)
-    443 # HTTPS
-    25 # SMTP
-    465 # SMTP over TLS
-    587 # SMTP submission
-    993 # IMAP over TLS
-    143 # IMAP
-    4190 # ManageSieve
-  ];
-
-  virtualisation.oci-containers.containers.stalwart-mail = {
-    image = "stalwartlabs/mail-server:latest";
-    ports = [
-      "8080:8080" # Admin interface
-      "25:25" # SMTP
-      "465:465" # SMTP over TLS
-      "587:587" # SMTP submission
-      "143:143" # IMAP
-      "993:993" # IMAP over TLS
-      "4190:4190" # ManageSieve
-    ];
-    volumes = [
-      "/data/.state/stalwart:/opt/stalwart-mail"
-    ];
-    extraOptions = [
-      "--name=stalwart-mail"
-    ];
   };
 }
