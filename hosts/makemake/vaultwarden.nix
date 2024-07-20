@@ -1,5 +1,9 @@
-{config, ...}: let
-  secrets = builtins.fromJSON (builtins.readFile ../../secrets/crypt/crypt.json);
+{
+  config,
+  inputs,
+  ...
+}: let
+  secrets = builtins.fromJSON (builtins.readFile "${inputs.self}/secrets/crypt/crypt.json");
 in {
   services.vaultwarden = {
     enable = true;
@@ -22,6 +26,7 @@ in {
     recommendedGzipSettings = true;
 
     virtualHosts."${secrets.domains.cloud.vaults}" = {
+      serverName = "${secrets.domains.cloud.vaults}";
       listen = [
         {
           addr = "0.0.0.0";

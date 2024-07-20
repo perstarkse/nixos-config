@@ -15,8 +15,11 @@
       "restic/env" = {};
       "restic/repo" = {};
       "restic/repo_vault" = {};
+      "restic/mail_vault" = {};
       "restic/password" = {};
       "vaultwarden.env" = {};
+      "mail/account_one" = {};
+      "mail/account_two" = {};
     };
   };
 }

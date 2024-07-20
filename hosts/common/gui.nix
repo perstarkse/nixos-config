@@ -1,6 +1,6 @@
 {
-  inputs,
   lib,
+  inputs,
   pkgs,
   ...
 }: {
@@ -8,6 +8,7 @@
     inputs.stylix.nixosModules.stylix
   ];
   stylix = {
+    enable = true;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-frappe.yaml";
     image = ./wallpaper.jpg;

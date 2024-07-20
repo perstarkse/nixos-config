@@ -10,15 +10,17 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.vpnconfinement.nixosModules.default
     inputs.stylix.nixosModules.stylix
+    inputs.simple-nixos-mailserver.nixosModule
     ./hardware-configuration.nix
     ./boot.nix
     ../common/sops.nix
     ../common/configuration.nix
-    ./arrs.nix
-    ./network.nix
+    ./media/default.nix
     ./home-assistant.nix
     ./vaultwarden.nix
     ./immich.nix
+    # ./stalwart.nix
+    ./mail.nix
   ];
 
   stylix = {
@@ -118,6 +120,13 @@
   environment.systemPackages = with pkgs; [
     mergerfs
   ];
+
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "server";
+  };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
