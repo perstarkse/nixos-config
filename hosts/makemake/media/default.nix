@@ -12,6 +12,7 @@
   # Create directories with appropriate permissions
   systemd.tmpfiles.rules = [
     "d /data 0755 root root - -"
+    "d /data/mail 0755 root root - -"
     "d /data/media 0775 root media - -"
     "d /data/torrents 0775 root torrent - -"
     "d /data/torrents/incomplete 0775 root torrent - -"
