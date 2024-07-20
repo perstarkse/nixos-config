@@ -9,6 +9,7 @@ in {
     enable = true;
     fqdn = "${secrets.domains.cloud.mail}";
     domains = ["${secrets.domains.cloud.parent}"];
+    mailDirectory = "/data/mail";
 
     enableImap = false;
     enableImapSsl = true;
@@ -41,6 +42,25 @@ in {
       smtp_sasl_password_maps = "static:${secrets.mail-relayer.user}:${secrets.mail-relayer.password}";
       header_size_limit = "409600";
       relay_destination_concurrency_limit = "20";
+    };
+  };
+  services.restic.backups = {
+    mail = {
+      initialize = true;
+
+      environmentFile = config.sops.secrets."restic/env".path;
+      repositoryFile = config.sops.secrets."restic/mail_vault".path;
+      passwordFile = config.sops.secrets."restic/password".path;
+
+      paths = [
+        "/data/mail"
+      ];
+
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 5"
+        "--keep-monthly 12"
+      ];
     };
   };
 
