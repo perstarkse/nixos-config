@@ -20,71 +20,72 @@ in {
 
   services.nginx = {
     enable = true;
-    virtualHosts."_" = {
-      default = true;
-      rejectSSL = true;
-      listen = [
-        {
-          addr = "0.0.0.0";
-          port = 80;
-        }
-        {
-          addr = "0.0.0.0";
-          port = 443;
-          ssl = true;
-        }
-      ];
-      locations."/" = {
-        return = "444";
-      };
-    };
+    #   virtualHosts."_" = {
+    #     default = true;
+    #     # rejectSSL = true;
+    #     listen = [
+    #       {
+    #         addr = "0.0.0.0";
+    #         port = 80;
+    #       }
+    #       {
+    #         addr = "0.0.0.0";
+    #         port = 443;
+    #         ssl = true;
+    #       }
+    #     ];
+    #     locations."/" = {
+    #       return = "444";
+    #     };
+    #   };
 
-    virtualHosts."lan-service" = {
-      listen = [
-        {
-          addr = "127.0.0.1";
-          port = 80;
-        }
-        {
-          addr = "10.0.0.10";
-          port = 80;
-        }
-      ];
+    # virtualHosts."lan-service" = {
+    #   listen = [
+    #     {
+    #       addr = "127.0.0.1";
+    #       port = 80;
+    #     }
+    #     {
+    #       addr = "10.0.0.10";
+    #       port = 80;
+    #     }
+    #   ];
 
-      locations = {
-        "/sonarr" = {
-          proxyPass = "http://127.0.0.1:8989";
-          proxyWebsockets = true;
-        };
-        "/radarr" = {
-          proxyPass = "http://127.0.0.1:7878";
-          proxyWebsockets = true;
-        };
-        "/plex" = {
-          proxyPass = "http://127.0.0.1:32400";
-          proxyWebsockets = true;
-        };
-        "/prowlarr" = {
-          proxyPass = "http://127.0.0.1:9696";
-          proxyWebsockets = true;
-        };
-        "/bazarr" = {
-          proxyPass = "http://127.0.0.1:6767";
-          proxyWebsockets = true;
-        };
-        "/tautulli" = {
-          proxyPass = "http://127.0.0.1:8181";
-          proxyWebsockets = true;
-        };
-        "/transmission" = {
-          proxyPass = "http://127.0.0.1:9091";
-          recommendedProxySettings = true;
-          proxyWebsockets = true;
-        };
-      };
-    };
+    #   locations = {
+    #     "/sonarr" = {
+    #       proxyPass = "http://127.0.0.1:8989";
+    #       proxyWebsockets = true;
+    #     };
+    #     "/radarr" = {
+    #       proxyPass = "http://127.0.0.1:7878";
+    #       proxyWebsockets = true;
+    #     };
+    #     "/plex" = {
+    #       proxyPass = "http://127.0.0.1:32400";
+    #       proxyWebsockets = true;
+    #     };
+    #     "/prowlarr" = {
+    #       proxyPass = "http://127.0.0.1:9696";
+    #       proxyWebsockets = true;
+    #     };
+    #     "/bazarr" = {
+    #       proxyPass = "http://127.0.0.1:6767";
+    #       proxyWebsockets = true;
+    #     };
+    #     "/tautulli" = {
+    #       proxyPass = "http://127.0.0.1:8181";
+    #       proxyWebsockets = true;
+    #     };
+    #     "/transmission" = {
+    #       proxyPass = "http://127.0.0.1:9091";
+    #       recommendedProxySettings = true;
+    #       proxyWebsockets = true;
+    #     };
+    #   };
+    # };
 
     virtualHosts."${secrets.domains.cloud.requests}" = {
+      serverName = "${secrets.domains.cloud.requests}";
       listen = [
         {
           addr = "0.0.0.0";

@@ -10,6 +10,7 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.vpnconfinement.nixosModules.default
     inputs.stylix.nixosModules.stylix
+    inputs.simple-nixos-mailserver.nixosModule
     ./hardware-configuration.nix
     ./boot.nix
     ../common/sops.nix

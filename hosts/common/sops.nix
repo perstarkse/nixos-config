@@ -18,6 +18,7 @@
       "restic/password" = {};
       "vaultwarden.env" = {};
       "mail/account_one" = {};
+      "mail/account_two" = {};
     };
   };
 }
