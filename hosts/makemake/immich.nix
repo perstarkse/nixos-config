@@ -22,6 +22,7 @@ in {
   services.immich = {
     enable = true;
     host = "127.0.0.1";
+    port = 59912;
     package = pkgs.immichPkgs.immich;
     mediaLocation = "/data/photos";
     openFirewall = true;
@@ -39,7 +40,7 @@ in {
     recommendedGzipSettings = true;
 
     virtualHosts."${secrets.domains.cloud.photos}" = {
-      # serverName = "${secrets.domains.cloud.photos}";
+      serverName = "${secrets.domains.cloud.photos}";
       listen = [
         {
           addr = "0.0.0.0";
@@ -58,7 +59,7 @@ in {
       locations."/" = {
         recommendedProxySettings = true;
         proxyWebsockets = true;
-        proxyPass = "http://127.0.0.1:3001";
+        proxyPass = "http://127.0.0.1:59912";
       };
     };
   };

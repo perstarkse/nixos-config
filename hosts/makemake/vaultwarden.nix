@@ -26,6 +26,7 @@ in {
     recommendedGzipSettings = true;
 
     virtualHosts."${secrets.domains.cloud.vaults}" = {
+      serverName = "${secrets.domains.cloud.vaults}";
       listen = [
         {
           addr = "0.0.0.0";
