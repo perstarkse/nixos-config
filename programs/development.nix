@@ -8,7 +8,7 @@
     yarn
     chromium
     nodePackages.typescript-language-server
-    nodePackages.vscode-css-languageserver-bin
+    # vscode-langservers-extracted
     marksman
     python311Packages.python-lsp-server
     nil

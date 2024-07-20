@@ -15,6 +15,7 @@ in {
 
     shellAliases = {
       template-direnv = "nix flake new -t github:nix-community/nix-direnv ./";
+      bw-unlock = ''set -gx BW_SESSION (bw unlock | string match -r '(?<=\$env:BW_SESSION=").*?(?=")')'';
     };
     shellAbbrs = {
       cclip = "xclip -selection clipboard";
