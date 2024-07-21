@@ -25,6 +25,9 @@ in {
         hashedPasswordFile = config.sops.secrets."mail/account_two".path;
         aliases = ["postmaster@${secrets.domains.cloud.parent}"];
       };
+      "${secrets.emailAccounts.account_three}" = {
+        hashedPasswordFile = config.sops.secrets."mail/account_three".path;
+      };
     };
 
     certificateScheme = "acme-nginx";
