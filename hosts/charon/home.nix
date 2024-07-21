@@ -54,7 +54,7 @@
   programs.zellij.enable = lib.mkForce false;
 
   home.packages = with pkgs; [
-    # thunderbird
+    thunderbird
     telegram-desktop
     google-chrome
     unstable.ollama
@@ -75,7 +75,9 @@
 
     bitwarden
     bitwarden-cli
-    bitwarden-menu
+
+    rbw
+    rofi-rbw
 
     (python311.withPackages (ps:
       with ps; [
