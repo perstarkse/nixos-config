@@ -20,6 +20,7 @@
       "vaultwarden.env" = {};
       "mail/account_one" = {};
       "mail/account_two" = {};
+      "mail/account_three" = {};
     };
   };
 }
