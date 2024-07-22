@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   services.sonarr = {
     enable = true;
     dataDir = "/data/.state/sonarr/";
@@ -31,5 +31,27 @@
     environment = {TZ = "Europe/Amsterdam";};
     ports = ["5055:5055"];
     volumes = ["/data/.state/overseerr/config:/app/config"];
+  };
+
+  services.restic.backups = {
+    arrs = {
+      initialize = true;
+
+      environmentFile = config.sops.secrets."restic/env".path;
+      repositoryFile = config.sops.secrets."restic/arrs_repo".path;
+      passwordFile = config.sops.secrets."restic/password".path;
+
+      paths = [
+        "/data/.state/overseerr"
+        "/data/.state/sonarr/Backups"
+        "/data/.state/radarr/Backups"
+      ];
+
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 5"
+        "--keep-monthly 12"
+      ];
+    };
   };
 }
