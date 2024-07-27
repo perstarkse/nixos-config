@@ -12,23 +12,44 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
+  boot.swraid = {
+    enable = true;
+    mdadmConf = ''
+      MAILADDR supervisor@starks.cloud
+      ARRAY /dev/md0 metadata=0.90 UUID=55a6beaa:91e07a8c:1dccfe9b:c572fcb0
+      ARRAY /dev/md1 metadata=0.90 UUID=b1558a3b:d342715b:1dccfe9b:c572fcb0
+      ARRAY /dev/md2 metadata=0.90 UUID=086ec43b:91011b45:1dccfe9b:c572fcb0
+    '';
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/83a53e1d-034e-47e6-8bbc-3ae4ba0fde03";
     fsType = "ext4";
   };
 
-  fileSystems."/boot" = {
+  fileSystems."/old-boot" = {
     device = "/dev/disk/by-uuid/4B98-BFD8";
     fsType = "vfat";
   };
 
+  fileSystems."/boot" = {
+    device = "/dev/md0p1";
+    fsType = "vfat";
+    options = ["defaults" "umask=0077" "dmask=0077" "fmask=0077" "x-gvfs-show"];
+  };
+
+  fileSystems."/new-root" = {
+    device = "/dev/md1";
+    fsType = "xfs";
+  };
+
   swapDevices = [
-    {device = "/dev/disk/by-uuid/7c22f54a-44ba-47d9-be8e-97df8a11f30a";}
+    # {device = "/dev/disk/by-uuid/7c22f54a-44ba-47d9-be8e-97df8a11f30a";}
+    {device = "/dev/md2";}
   ];
 
   fileSystems."/mnt/18tb" = {
