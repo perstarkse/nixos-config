@@ -26,7 +26,7 @@
     '';
   };
 
-  fileSystems."/" = {
+  fileSystems."/old-root" = {
     device = "/dev/disk/by-uuid/83a53e1d-034e-47e6-8bbc-3ae4ba0fde03";
     fsType = "ext4";
   };
@@ -42,7 +42,7 @@
     options = ["defaults" "umask=0077" "dmask=0077" "fmask=0077" "x-gvfs-show"];
   };
 
-  fileSystems."/new-root" = {
+  fileSystems."/" = {
     device = "/dev/md1";
     fsType = "xfs";
   };
