@@ -7,6 +7,7 @@
 in {
   services.vaultwarden = {
     enable = true;
+    backupDir = "/data/passwords";
     config = {
       ROCKET_PORT = 8322;
       ROCKET_ADDRESS = "127.0.0.1";
@@ -59,7 +60,7 @@ in {
       passwordFile = config.sops.secrets."restic/password".path;
 
       paths = [
-        "/var/lib/bitwarden_rs"
+        "/data/passwords"
       ];
 
       pruneOpts = [
