@@ -10,10 +10,10 @@
             max-input-chars = 8192;
             fallback = "meta-llama/llama-3-8b-instruct:nitro";
           };
-          "meta-llama/llama-3-8b-instruct:nitro" = {
-            aliases = ["meta-llama/llama-3-8b-instruct:nitro"];
-            max-input-chars = 8192;
-            fallback = "claude-3-haiku:beta";
+          "meta-llama/llama-3.1-405b-instruct" = {
+            aliases = ["llmama-405"];
+            max-input-chars = 120000;
+            fallback = null;
           };
           "anthropic/claude-3-haiku:beta" = {
             aliases = ["anthropic/claude-3-haiku:beta"];
@@ -64,7 +64,7 @@
         "always prioritize best practices and efficient solutions in your explanations and fixes."
       ];
     };
-    default-model = "anthropic/claude-3.5-sonnet:beta";
+    default-model = "meta-llama/llama-3.1-405b-instruct";
     max-input-chars = 180000;
     format = false;
     quiet = true;
