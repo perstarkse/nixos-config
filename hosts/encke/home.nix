@@ -48,6 +48,7 @@
   };
 
   home.packages = with pkgs; [
+    httpie
   ];
 
   # system specific shell aliases
