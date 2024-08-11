@@ -11,6 +11,7 @@ in {
       set -x COPILOT_API_KEY ${secrets.api-keys.copilot}
       set -x AWS_ACCESS_KEY_ID ${secrets.api-keys.aws.access}
       set -x AWS_SECRET_ACCESS_KEY ${secrets.api-keys.aws.secret}
+      set -x AWS_REGION "eu-north-1"
     '';
 
     shellAliases = {

@@ -47,6 +47,8 @@
   # optionalLayoutPrograms = [ ];
   # };
 
+  services.mpris-proxy.enable = true;
+
   services.gpg-agent = {
     pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
   };
