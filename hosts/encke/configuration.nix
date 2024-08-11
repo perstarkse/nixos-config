@@ -138,6 +138,8 @@
     settings.PasswordAuthentication = false;
   };
 
+  networking.firewall.allowedTCPPorts = [3000];
+
   programs.nix-ld.enable = true;
 
   environment.systemPackages = [
