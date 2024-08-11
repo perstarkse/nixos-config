@@ -33,6 +33,13 @@
     volumes = ["/data/.state/overseerr/config:/app/config"];
   };
 
+  virtualisation.oci-containers.containers.homarr = {
+    image = "ghcr.io/ajnart/homarr:latest";
+    environment = {TZ = "Europe/Amsterdam";};
+    ports = ["7575:7575"];
+    volumes = ["/data/.state/homarr/config:/app/config"];
+  };
+
   services.restic.backups = {
     arrs = {
       initialize = true;
