@@ -23,6 +23,7 @@
     "d /data/media/tvseries 0775 root media - -"
     "d /data/media/movies 0775 root media - -"
     "d /data/.state/overseerr/config 0775 root torrent - -"
+    "d /data/.state/homarr/config 0775 root torrent - -"
   ];
 
   users.users.sonarr = {
