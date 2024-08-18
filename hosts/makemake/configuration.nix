@@ -103,7 +103,7 @@
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel" "networkmanager" "docker"];
+      extraGroups = ["wheel" "networkmanager" "docker" "libvirtd" "kvm" "qemu-libvirtd"];
       shell = pkgs.fish;
     };
   };
@@ -125,6 +125,10 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "server";
+  };
+
+  virtualisation.libvirtd = {
+    enable = true;
   };
 
   systemd.services.NetworkManager-wait-online.enable = false;
