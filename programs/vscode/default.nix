@@ -16,6 +16,8 @@
         bradlc.vscode-tailwindcss
         rust-lang.rust-analyzer
         otovo-oss.htmx-tags
+        svelte.svelte-vscode
+        ardenivanov.svelte-intellisense
         ms-vscode-remote.remote-ssh
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [];
@@ -62,6 +64,7 @@
       window = {
         zoomLevel = -0.4;
       };
+      svelte.enable-ts-plugin = true;
       "[vue]" = {
         editor.defaultFormatter = "esbenp.prettier-vscode";
       };
@@ -73,6 +76,9 @@
       };
       "[typescriptreact]" = {
         editor.defaultFormatter = "esbenp.prettier-vscode";
+      };
+      "[svelte]" = {
+        "editor.defaultFormatter" = "svelte.svelte-vscode";
       };
     };
   };

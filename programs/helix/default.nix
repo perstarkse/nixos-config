@@ -11,11 +11,13 @@
       language = [
         {
           name = "typescript";
-          language-servers = ["typescript" "gpt"];
+          language-servers = ["typescript-language-server"];
+          auto-format = true;
         }
         {
           name = "javascript";
-          language-servers = ["typescript" "gpt"];
+          language-servers = ["typescript"];
+          auto-format = true;
         }
         {
           name = "nix";
@@ -25,7 +27,7 @@
         }
         {
           name = "python";
-          language-servers = ["pylsp" "gpt"];
+          language-servers = ["pylsp"];
         }
         {
           name = "rust";
@@ -120,8 +122,8 @@
       #           }
       #         ];
       #       };
-          # };
-        # };
+      # };
+      # };
       # };
     };
     settings = {
