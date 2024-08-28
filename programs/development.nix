@@ -21,5 +21,8 @@
     rustfmt
     helix-gpt
     alejandra
+    svelte-language-server
+    tailwindcss-language-server
+    nodePackages.prettier
   ];
 }

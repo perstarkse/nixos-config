@@ -3,7 +3,16 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  zed-fhs = pkgs.buildFHSUserEnv {
+    name = "zed";
+    targetPkgs = pkgs:
+      with pkgs; [
+        zed-editor
+      ];
+    runScript = "zed";
+  };
+in {
   imports = [
     ../common/home.nix
     ../../programs/gui.nix
@@ -53,45 +62,50 @@
     pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
   };
 
-  programs.zellij.enable = lib.mkForce false;
+  programs.zellij = {
+    enable = true;
+    enableFishIntegration = lib.mkForce false;
+  };
 
-  home.packages = with pkgs; [
-    thunderbird
-    telegram-desktop
-    google-chrome
-    unstable.ollama
-    marp-cli
-    pandoc
-    haskellPackages.pandoc-plot
-    haskellPackages.pandoc-crossref
-    texlive.combined.scheme-small
-    mupdf
-    taplo
-    mynixpkgs.epy
-    mynixpkgs.lsp-ai
-    yaml-language-server
-    feh
-    peek
-    aichat
-    zbar
+  home.packages = with pkgs;
+    [
+      thunderbird
+      telegram-desktop
+      google-chrome
+      unstable.ollama
+      marp-cli
+      pandoc
+      haskellPackages.pandoc-plot
+      haskellPackages.pandoc-crossref
+      texlive.combined.scheme-small
+      mupdf
+      taplo
+      mynixpkgs.epy
+      mynixpkgs.lsp-ai
+      yaml-language-server
+      feh
+      peek
+      aichat
+      zbar
 
-    bitwarden
-    bitwarden-cli
+      bitwarden
+      bitwarden-cli
 
-    rbw
-    rofi-rbw
+      rbw
+      rofi-rbw
 
-    (python311.withPackages (ps:
-      with ps; [
-        matplotlib
-        numpy
-        scipy
-        statsmodels
-        seaborn
-        pandoc
-        weasyprint
-      ]))
-  ];
+      (python311.withPackages (ps:
+        with ps; [
+          matplotlib
+          numpy
+          scipy
+          statsmodels
+          seaborn
+          pandoc
+          weasyprint
+        ]))
+    ]
+    ++ [zed-fhs];
   # system specific shell aliases
   programs.fish.shellAliases = {
     rebuild-os = "sudo nixos-rebuild switch --flake ~/nixos-config/.#charon";
