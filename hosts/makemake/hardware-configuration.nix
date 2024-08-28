@@ -13,8 +13,17 @@
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
+  boot.initrd.kernelModules = ["vfio-pci"];
+  boot.kernelModules = ["kvm-intel" "vfio-pci" "iommu"];
+  boot.kernelParams = ["intel_iommu=on" "iommu=pt"];
+  boot.postBootCommands = ''
+    DEVS="0000:02:00.0 0000:03:00.0 0000:04:00.0"
+
+    for DEV in $DEVS; do
+      echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
+    done
+    modprobe -i vfio-pci
+  '';
   boot.extraModulePackages = [];
   boot.swraid = {
     enable = true;
