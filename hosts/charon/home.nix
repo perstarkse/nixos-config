@@ -87,6 +87,7 @@ in {
       peek
       aichat
       zbar
+      aider-chat
 
       bitwarden
       bitwarden-cli

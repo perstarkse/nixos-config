@@ -15,7 +15,6 @@
     w3m
     irssi
     wget
-    taskwarrior
     mods
     pop
     glow

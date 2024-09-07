@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     aws-sso-cli
     nodejs
-    gptcommit
     docker
     mynixpkgs.code2prompt
     yarn
@@ -24,5 +23,6 @@
     svelte-language-server
     tailwindcss-language-server
     nodePackages.prettier
+    devenv
   ];
 }

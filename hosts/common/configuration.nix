@@ -79,7 +79,7 @@
     # jq
     xdotool
     wireguard-tools
-    # veracrypt
+    veracrypt
     fzf
     fishPlugins.fzf-fish
     usbutils
@@ -95,6 +95,7 @@
   hardware.ledger.enable = true;
 
   nix.settings = {
+    auto-optimise-store = true;
     keep-outputs = true;
     keep-derivations = true;
   };
