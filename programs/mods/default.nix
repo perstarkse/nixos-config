@@ -25,15 +25,18 @@
             max-input-chars = 200000;
             fallback = "claude-3-haiku:beta";
           };
-          "deepseek/deepseek-coder" = {
-            aliases = ["deepseek/deepseek-coder" "coder"];
-            max-input-chars = 20000;
-            fallback = "claude-3-haiku:beta";
-          };
         };
       };
     };
     roles = {
+      code = [
+        "you are a expert coder"
+        "you write and maintain the best code"
+        "whenever you output code you review that the code is correct"
+        "you always include comments to the code"
+        "you ONLY output code and comments"
+        "you NEVER output markdown"
+      ];
       shell = [
         "you are a shell expert"
         "you do not explain anything"
@@ -76,7 +79,6 @@
     max-retries = 3;
     fanciness = 10;
     status-text = "Generating";
-    # max-tokens = 100;  # Uncomment if you want to set this value
   };
 in {
   home.file.".config/mods/mods.yml" = {
