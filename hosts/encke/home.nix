@@ -49,6 +49,7 @@
 
   home.packages = with pkgs; [
     httpie
+    aider-chat
   ];
 
   # system specific shell aliases
