@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    httpie
     aws-sso-cli
     nodejs
     docker
