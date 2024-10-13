@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    lazygit
     httpie
     aws-sso-cli
     nodejs

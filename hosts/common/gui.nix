@@ -46,11 +46,13 @@
     };
     displayManager.lightdm.enable = true;
   };
+
   services.libinput = {
     mouse = {
       accelProfile = "flat";
     };
   };
+
   services.displayManager = {
     defaultSession = "none+i3";
     autoLogin.user = "p";
