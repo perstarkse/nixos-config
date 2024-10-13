@@ -10,6 +10,11 @@
             max-input-chars = 8192;
             fallback = "meta-llama/llama-3-8b-instruct:nitro";
           };
+          "openai/o1-mini" = {
+            aliases = ["o1-mini"];
+            max-input-chars = 200000;
+            fallback = null;
+          };
           "meta-llama/llama-3.1-405b-instruct" = {
             aliases = ["llmama-405"];
             max-input-chars = 120000;

@@ -71,6 +71,7 @@
     settings = {
       keys.normal = {
         space.c = ":clipboard-yank";
+        space.l = [":new" ":insert-output lazygit" ":buffer-close!" ":redraw"];
       };
       keys.select = {
         space.c = ":clipboard-yank";
