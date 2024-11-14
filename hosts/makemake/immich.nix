@@ -6,15 +6,15 @@
 }: let
   secrets = builtins.fromJSON (builtins.readFile "${inputs.self}/secrets/crypt/crypt.json");
 in {
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.immich-overlay
-    ];
-  };
+  # nixpkgs = {
+  #   overlays = [
+  #     outputs.overlays.immich-overlay
+  #   ];
+  # };
 
-  imports = [
-    "${inputs.nixpkgs-immich}/nixos/modules/services/web-apps/immich.nix"
-  ];
+  # imports = [
+  #   "${inputs.nixpkgs-immich}/nixos/modules/services/web-apps/immich.nix"
+  # ];
   systemd.tmpfiles.rules = [
     "d /data/photos 0755 root root - -"
   ];

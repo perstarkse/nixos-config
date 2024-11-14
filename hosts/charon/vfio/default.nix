@@ -2,12 +2,12 @@
   boot.initrd.kernelModules = ["vfio-pci"];
   boot.kernelModules = ["kvm-amd"];
 
-  boot.kernelPatches = [
-    {
-      name = "fix-vfio-framebuffer-troll";
-      patch = ./fix-vfio-troll.patch;
-    }
-  ];
+  # boot.kernelPatches = [
+  #   {
+  #     name = "fix-vfio-framebuffer-troll";
+  #     patch = ./fix-vfio-troll.patch;
+  #   }
+  # ];
 
   boot.kernelParams = let
     gpuIds = "10de:1b81,10de:10f0";

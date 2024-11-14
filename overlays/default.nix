@@ -38,10 +38,10 @@
       config.allowUnfree = true;
     };
   };
-  immich-overlay = final: prev: {
-    immichPkgs = import inputs.nixpkgs-immich {
-      system = final.system;
-      config.allowUnfree = true;
-    };
-  };
+  # immich-overlay = final: prev: {
+  #   immichPkgs = import inputs.nixpkgs-immich {
+  #     system = final.system;
+  #     config.allowUnfree = true;
+  #   };
+  # };
 }

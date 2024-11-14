@@ -5,7 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     my-nixpkgs.url = "github:perstarkse/nixpkgs";
-    nixpkgs-immich.url = "github:jvanbruegge/nixpkgs/immich";
 
     home-manager = {
       url = "github:nix-community/home-manager";
