@@ -138,7 +138,7 @@
     settings.PasswordAuthentication = false;
   };
 
-  networking.firewall.allowedTCPPorts = [3000];
+  networking.firewall.allowedTCPPorts = [3000 8000];
 
   programs.nix-ld.enable = true;
 
