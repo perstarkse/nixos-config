@@ -41,6 +41,16 @@
           formatter.command = "rustfmt";
         }
         {
+          name = "html";
+          auto-format = true;
+          language-servers = ["vscode-html-language-server" "tailwindcss-ls"];
+        }
+        {
+          name = "css";
+          auto-format = true;
+          language-servers = ["vscode-css-language-server" "tailwindcss-ls"];
+        }
+        {
           name = "markdown";
           auto-format = true;
           language-servers = ["marksman"];
@@ -64,9 +74,9 @@
         command = "${pkgs.marksman}/bin/marksman";
         args = ["server"];
       };
-      language-server.gpt = {
-        command = "helix-gpt";
-      };
+      # language-server.gpt = {
+      #   command = "helix-gpt";
+      # };
     };
     settings = {
       keys.normal = {
