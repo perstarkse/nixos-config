@@ -50,6 +50,7 @@
   home.packages = with pkgs; [
     httpie
     aider-chat
+    lynx
   ];
 
   # system specific shell aliases
